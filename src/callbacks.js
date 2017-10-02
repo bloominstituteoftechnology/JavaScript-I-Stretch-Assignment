@@ -24,7 +24,7 @@
 // code here
 
 const foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
-function firstItem() {
+function firstItem(foods) {
   return foods[0]
 }
 
@@ -34,7 +34,7 @@ firstItem(foods, (firstItem) => {
 
 // Write a function called getLength that passes the length of the array into the callback
 // code here
-function getLength() {
+function getLength(foods) {
   return foods.length
 }
 getLength(foods, (length) => {
@@ -43,7 +43,7 @@ getLength(foods, (length) => {
 
 // Write a function called last which passes the last item of the array into the callback
 // code here
-function last() {
+function last(foods) {
   return foods[foods.length -1]
 }
 last(foods, (lastItem) => {
@@ -52,8 +52,8 @@ last(foods, (lastItem) => {
 
 // Write a function called sumNums that adds two numbers and passes the result to the callback
 // code here
-function sumNums(x,y) {
-  return x + y
+function sumNums(x,y,f) {
+  return f(x + y)
 }
 sumNums(5, 10, (sum) => {
   console.log(`The sum is ${sum}.`);
@@ -61,8 +61,8 @@ sumNums(5, 10, (sum) => {
 
 // Write a function called multiplyNums that adds two numbers and passes the result to the callback
 // code here
-function multiplyNums(x,y) {
-  return x * y
+function multiplyNums(x,y,f) {
+  return f(x * y)
 }
 multiplyNums(5, 10, (product) => {
   console.log(`The product is ${product}.`);
@@ -71,8 +71,8 @@ multiplyNums(5, 10, (product) => {
 // Write a function called contains that checks if an item is present inside of the given array.
 // Pass true to the callback if it is, otherwise pass false
 // code here
-function contains(item) {
-  return foods.indexOf(item) >= 0
+function contains(foods, item, f) {
+  return f(foods.indexOf(item) >= 0)
 }
 contains(foods, 'ribeye', (result) => {
   console.log(result ? 'ribeye is in the array' : 'ribeye is not in the array');
@@ -81,10 +81,10 @@ contains(foods, 'ribeye', (result) => {
 // Write a function called removeDuplicates that removes all duplicate values from the given array.
 // Pass the array to the callback function.  Do not mutate the original array.
 // code here
-function removeDuplicates() {
-  foods.filter((food,i) => {
+function removeDuplicates(foods,f) {
+  f(foods.filter((food,i) => {
     return foods.indexOf(food) === i
-  })
+  }))
 }
 removeDuplicates(foods, (uniqueFoods) => {
   console.log(`foods with duplicates removed: ${uniqueFoods}`);
