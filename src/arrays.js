@@ -15,15 +15,17 @@ const each = (elements, cb) => {
 };
 
 
-const reduce = (elements, cb, startingValue = elements.shift()) => {
+const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  let i = 0;
   if (startingValue === undefined) {
-    return undefined;
+    startingValue = elements[0];
+    i = 1;
   }
   let acc = startingValue;
-  for (let i = 0; i < elements.length; i++) {
+  for (; i < elements.length; i++) {
     acc = cb(acc, elements[i], i);
   }
   return acc;
@@ -63,7 +65,7 @@ const filter = (elements, cb) => {
 
 /* Extra Credit */
 function isArray(elements) {
-  return (Object.prototype.toString.call(elements) === '[object Array]');
+  return Array.isArray(elements);
 }
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
