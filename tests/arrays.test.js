@@ -66,7 +66,7 @@ describe('arrays', () => {
       const arr = [1, 2, 3, 4, 5];
       const result = arrayMethods.reduce(arr, callBackMockFn);
       expect(result).toBe(25);
-      expect(callBackMockFn.mock.calls.length).toBe(5);
+      expect(callBackMockFn.mock.calls.length).toBe(4);
     });
   });
   describe('find', () => {
