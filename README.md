@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # JavaScript - I
 
 * The point of these assignments is to take your knowledge of JavaScript and start putting into practice the principles learned throughout JavaScript I.
@@ -32,3 +33,18 @@ The [arrays.js](assignments/arrays.js) assignment takes us through a large data 
 
 * Move on to tomorrow's content and start studying callbacks, write a few of your own to get the hang of it.
 * Look at array methods like .map(), .reduce(), .filter(). use them on the data in the arrays assignment to accomplish the same things you did with the ES5 for loop.
+=======
+# JavaScript I
+
+## Instructions
+
+Do not use any of the built in Javascript Array methods like .forEach .map etc. If you'd like feel free to reuse any of your functions along the way though! 
+
+#### Fork and clone this repo.
+* Clone this repository and navigate into it.
+* Run the command `npm i` to install needed node packages.
+* Run the command `npm test` to run the tests.
+* Work through the files and make the tests pass.
+* Suggested order: `callbacks.js` (no tests), `arrays.js`, `objects.js`, `closure.js`.
+* Submit a pull request when you are finished and we will review your code.
+>>>>>>> Initial commit
