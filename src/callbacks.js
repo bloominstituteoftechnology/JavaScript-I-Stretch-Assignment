@@ -1,51 +1,80 @@
-const firstItem = (arr, cb) => {
-  // firstItem passes the first item of the given array to the callback function.
-  return cb(arr[0]);
-};
+/*  For portion of the assignment your job is to write functions
+ *  so that each function invocation below works.  You're working backwards.
+ *
+ *  There are no tests for this file.
+ * 
+ *  Example:
+ *
+ *  greeting('Hey guys', (message) => {
+ *     console.log(message);
+ *  });
+ *
+ *  You would then define the greeting function to make the invocation work.
+ *  
+ *
+ *  const greeting = (str, cb) => {
+ *    cb(str);
+ *  };
+ *
+*/
 
-const getLength = (arr, cb) => {
-  // getLength passes the length of the array into the callback.
-  return cb(arr.length);
-};
 
-const last = (arr, cb) => {
-  // last passes the last item of the array into the callback.
-  return cb(arr[arr.length - 1]);
-};
+// Write a function called firstItem that passes the first item of the given array to the callback function
+// code here
 
-const sumNums = (x, y, cb) => {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
-  return cb(x + y);
-};
+const foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
 
-const multiplyNums = (x, y, cb) => {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
-  return cb(x * y);
-};
+firstItem(foods, (firstItem) => {
+  console.log(`The first item is ${firstItem}.`);
+});
 
-const contains = (item, list, cb) => {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
-  for (let i = 0; i < list.length; i++) {
-    cb(item === list[i]);
-  }
-};
+// Write a function called getLength that passes the length of the array into the callback
+// code here
 
-/* STRETCH PROBLEM */
+getLength(foods, (length) => {
+  console.log(`The length of the array is ${length}.`);
+});
 
-const removeDuplicates = (array, cb) => {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
-};
+// Write a function called last which passes the last item of the array into the callback
+// code here
 
-/* eslint-enable */
-module.exports = {
-  firstItem,
-  getLength,
-  last,
-  sumNums,
-  multiplyNums,
-  contains,
-  removeDuplicates
-};
+last(foods, (lastItem) => {
+  console.log(`The last item in the array is ${lastItem}.`);
+});
+
+// Write a function called sumNums that adds two numbers and passes the result to the callback
+// code here
+
+sumNums(5, 10, (sum) => {
+  console.log(`The sum is ${sum}.`);
+});
+
+// Write a function called multiplyNums that adds two numbers and passes the result to the callback
+// code here
+
+multiplyNums(5, 10, (product) => {
+  console.log(`The product is ${product}.`);
+});
+
+// Write a function called contains that checks if an item is present inside of the given array.
+// Pass true to the callback if it is, otherwise pass false
+// code here
+
+contains(foods, 'ribeye', (result) => {
+  console.log(result ? 'ribeye is in the array' : 'ribeye is not in the array');
+});
+
+// Write a function called removeDuplicates that removes all duplicate values from the given array.
+// Pass the array to the callback function.  Do not mutate the original array.
+// code here
+
+removeDuplicates(foods, (uniqueFoods) => {
+  console.log(`foods with duplicates removed: ${uniqueFoods}`);
+});
+
+// Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
+// code here
+
+forEach(foods, (value, index) => {
+  console.log(`${value} is at index ${index}.`);
+});
