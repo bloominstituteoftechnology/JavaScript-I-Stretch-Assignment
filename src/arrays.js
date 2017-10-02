@@ -22,12 +22,14 @@ const map = (elements, cb) => {
   return mappedArr;
 };
 
-const reduce = (elements, cb, startingValue = elements.shift()) => {
+const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
-  // Elements will be passed one by one into `cb`.
-  // `memo` is the starting value.  If `memo` is undefined then make `elements[0]` the initial value.
-  let memo = startingValue;
-  each(elements, (item) => {
+  // Elements will be passed one by one into `cb` along with the `startingValue`.
+  // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
+  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  const elementsCopy = elements.slice();
+  let memo = startingValue || elementsCopy.shift();
+  each(elementsCopy, (item) => {
     memo = cb(memo, item);
   });
   return memo;
