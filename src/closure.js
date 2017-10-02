@@ -36,6 +36,8 @@ const limitFunctionCallCount = (cb, n) => {
   };
 };
 
+/* Extra Credit */
+
 const cacheFunction = (cb) => {
   // Should return a funciton that invokes `cb`.
   // A cache (object) should be kept in closure scope.
