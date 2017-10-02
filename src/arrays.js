@@ -16,10 +16,10 @@ const map = (elements, cb) => {
   // Return the new array.
 };
 
-const reduce = (elements, cb, memo = elements.shift()) => {
+const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
-  // `memo` is the starting value.  If `memo` is undefined then make `elements[0]` the initial value.
+  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 };
 
 const find = (elements, cb) => {
