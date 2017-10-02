@@ -1,8 +1,10 @@
+/* eslint-disable */
+
 /*  For portion of the assignment your job is to write functions
  *  so that each function invocation below works.  You're working backwards.
  *
  *  There are no tests for this file.
- * 
+ *
  *  Example:
  *
  *  greeting('Hey guys', (message) => {
@@ -10,14 +12,13 @@
  *  });
  *
  *  You would then define the greeting function to make the invocation work.
- *  
+ *
  *
  *  const greeting = (str, cb) => {
  *    cb(str);
  *  };
  *
-*/
-
+ */
 
 // Write a function called firstItem that passes the first item of the given array to the callback function
 // code here
@@ -78,3 +79,5 @@ removeDuplicates(foods, (uniqueFoods) => {
 forEach(foods, (value, index) => {
   console.log(`${value} is at index ${index}.`);
 });
+
+/* eslint-enable */
