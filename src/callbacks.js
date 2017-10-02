@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-/*  For portion of the assignment your job is to write functions
+/*  For a portion of the assignment your job is to write functions
  *  so that each function invocation below works.  You're working backwards.
  *
  *  There are no tests for this file.
@@ -50,7 +50,7 @@ sumNums(5, 10, (sum) => {
   console.log(`The sum is ${sum}.`);
 });
 
-// Write a function called multiplyNums that adds two numbers and passes the result to the callback
+// Write a function called multiplyNums that multiplies two numbers and passes the result to the callback
 // code here
 
 multiplyNums(5, 10, (product) => {
