@@ -24,8 +24,8 @@
 // code here
 
 const foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
-function firstItem(foods) {
-  return foods[0]
+function firstItem(foods,f) {
+  return f(foods[0])
 }
 
 firstItem(foods, (firstItem) => {
@@ -34,8 +34,8 @@ firstItem(foods, (firstItem) => {
 
 // Write a function called getLength that passes the length of the array into the callback
 // code here
-function getLength(foods) {
-  return foods.length
+function getLength(foods,f) {
+  return f(foods.length)
 }
 getLength(foods, (length) => {
   console.log(`The length of the array is ${length}.`);
@@ -43,8 +43,8 @@ getLength(foods, (length) => {
 
 // Write a function called last which passes the last item of the array into the callback
 // code here
-function last(foods) {
-  return foods[foods.length -1]
+function last(foods,f) {
+  return f(foods[foods.length -1])
 }
 last(foods, (lastItem) => {
   console.log(`The last item in the array is ${lastItem}.`);
