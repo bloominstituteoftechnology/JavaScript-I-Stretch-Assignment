@@ -17,17 +17,21 @@ const each = (elements, cb) => {
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
-  const mapped = [];
+  const mapArray = [];
   for (let i = 0; i < elements.length; i++) {
-    mapped.push(cb(elements[i]));
-    return mapped;
+    mapArray.push(cb(elements[i]));
   }
+  return mapArray;
 };
 
 const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  let value = startingValue;
+  for(let i = 0; i < elements.length; i++){
+    //
+  }
 };
 
 const find = (elements, cb) => {
