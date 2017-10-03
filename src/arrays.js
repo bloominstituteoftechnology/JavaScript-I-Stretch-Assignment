@@ -44,7 +44,6 @@ const reduce = (elements, cb, startingValue) => {
     newVal = cb(newVal, elements[i]);
   }
   return newVal;
-
 };
 
 
