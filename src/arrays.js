@@ -44,6 +44,7 @@ const reduce = (elements, cb, startingValue) => {
     newVal = cb(newVal, elements[i]);
   }
   return newVal;
+
 };
 
 
@@ -75,6 +76,9 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  for (let i = 0; i < elements.length; i++) {
+    elements = elements.reduce((flat, next) => flat.concat(next), []);
+  } return elements;
 };
 
 /* eslint-enable no-unused-vars, max-len */
