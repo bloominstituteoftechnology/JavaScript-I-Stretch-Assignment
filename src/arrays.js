@@ -9,28 +9,64 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const mapped = [];
+
+  each(elements, (element, index) => {
+    mapped.push(cb(element, index));
+  });
+
+  return mapped;
 };
 
 const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+
+  let accumulator = startingValue === undefined ? elements[0] : startingValue;
+  elements = startingValue === undefined ? elements.slice(1) : elements;
+
+  each(elements, (element, index) => {
+    accumulator = cb(accumulator, element, index);
+  });
+
+  return accumulator;
 };
 
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    const response = cb(elements[i]);
+    if (response) {
+      return elements[i];
+    }
+  }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const filtered = [];
+  each(elements, (element, index) => {
+    const response = cb(element);
+    if (response) {
+      filtered.push(element);
+    }
+  });
+
+  return filtered;
 };
 
 /* Extra Credit */
@@ -38,6 +74,20 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+
+  let elementsLeft = [...elements];
+  let flatElements = [];
+
+  while (elementsLeft.length) {
+    const item = elementsLeft[0];
+    elementsLeft = elementsLeft.slice(1);
+    if (Array.isArray(item)) {
+      elementsLeft = [...elementsLeft, ...item];
+    } else {
+      flatElements = [...flatElements, item];
+    }
+  }
+  return flatElements;
 };
 
 /* eslint-enable no-unused-vars, max-len */
