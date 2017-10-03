@@ -24,6 +24,14 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  /*********************************************************************
+   * I fail the third test "should properly handle arguments in the 
+   * wrapped function"
+   * I've done all I can to understand the issue and posted my question
+   * several time in cs4_help and no one has responded
+   * I'm submitting the assignment in hopes that I'll receive some 
+   * feedback from someone
+   *********************************************************************/
   let callLimit = 0;
   return () => {
     if (callLimit >= n) {
