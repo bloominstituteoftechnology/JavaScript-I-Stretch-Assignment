@@ -91,12 +91,11 @@ contains(foods, 'ribeye', (result) => {
 // Write a function called removeDuplicates that removes all duplicate values from the given array.
 // Pass the array to the callback function.  Do not mutate the original array.
 // code here
-// iterate over entire array
-// sort array, to place duplicates next to eachother in array
-// check adjacent values for duplicates
+
+//misinterpreted question again, assumed it meant not to change original array, so I made a second one.
 
 
-const removeDuplicates = (arr, cb) => {
+/*const removeDuplicates = (arr, cb) => {
   const uniqueArr = [];
   const sortedArr = arr.sort();
   for (let i = 0; i < sortedArr.length; i++)
@@ -104,6 +103,17 @@ const removeDuplicates = (arr, cb) => {
   uniqueArr.push(sortedArr[i]);
    
    cb(uniqueArr);
+  
+  
+};*/
+
+//attempted solution, did not succeed, unable to get arr[0] into the newArray.
+const removeDuplicates = (arr, cb) => {
+  for (let i = 0; i < arr.length; i++)
+  if (arr[i] === arr[i++])
+  arr.splice(arr[i], 1);
+  cb(arr);
+   
   
   
 };
