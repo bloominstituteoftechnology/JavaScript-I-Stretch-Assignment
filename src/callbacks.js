@@ -95,12 +95,18 @@ contains(foods, 'ribeye', (result) => {
 // sort array, to place duplicates next to eachother in array
 // check adjacent values for duplicates
 
-const newArray = []
+
 const removeDuplicates = (arr, cb) => {
-  for (let i = 0; i < arr.length; i++)
-
-
-}
+  const uniqueArr = [];
+  const sortedArr = arr.sort();
+  for (let i = 0; i < sortedArr.length; i++)
+  if (sortedArr[i] !== sortedArr[i + 1])
+  uniqueArr.push(sortedArr[i]);
+   
+   cb(uniqueArr);
+  
+  
+};
 
 removeDuplicates(foods, (uniqueFoods) => {
   console.log(`foods with duplicates removed: ${uniqueFoods}`);
@@ -108,6 +114,11 @@ removeDuplicates(foods, (uniqueFoods) => {
 
 // Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
 // code here
+
+const forEach = (arr, cb) => {
+  for (let i = 0; i < arr.length; i++)
+  cb(arr[i], i);
+}
 
 forEach(foods, (value, index) => {
   console.log(`${value} is at index ${index}.`);
