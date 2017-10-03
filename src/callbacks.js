@@ -24,8 +24,9 @@
 // code here
 
 const foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
-function firstItem(foods,f) {
-  return f(foods[0])
+
+function firstItem(foods, f) {
+  return f(foods[0]);
 }
 
 firstItem(foods, (firstItem) => {
@@ -34,8 +35,8 @@ firstItem(foods, (firstItem) => {
 
 // Write a function called getLength that passes the length of the array into the callback
 // code here
-function getLength(foods,f) {
-  return f(foods.length)
+function getLength(foods, f) {
+  return f(foods.length);
 }
 getLength(foods, (length) => {
   console.log(`The length of the array is ${length}.`);
@@ -43,8 +44,8 @@ getLength(foods, (length) => {
 
 // Write a function called last which passes the last item of the array into the callback
 // code here
-function last(foods,f) {
-  return f(foods[foods.length -1])
+function last(foods, f) {
+  return f(foods[foods.length -1]);
 }
 last(foods, (lastItem) => {
   console.log(`The last item in the array is ${lastItem}.`);
@@ -52,7 +53,7 @@ last(foods, (lastItem) => {
 
 // Write a function called sumNums that adds two numbers and passes the result to the callback
 // code here
-function sumNums(x,y,f) {
+function sumNums(x, y, f) {
   return f(x + y)
 }
 sumNums(5, 10, (sum) => {
@@ -61,8 +62,8 @@ sumNums(5, 10, (sum) => {
 
 // Write a function called multiplyNums that adds two numbers and passes the result to the callback
 // code here
-function multiplyNums(x,y,f) {
-  return f(x * y)
+function multiplyNums(x, y, f) {
+  return f(x * y);
 }
 multiplyNums(5, 10, (product) => {
   console.log(`The product is ${product}.`);
@@ -81,9 +82,9 @@ contains(foods, 'ribeye', (result) => {
 // Write a function called removeDuplicates that removes all duplicate values from the given array.
 // Pass the array to the callback function.  Do not mutate the original array.
 // code here
-function removeDuplicates(foods,f) {
+function removeDuplicates(foods, f) {
   f(foods.filter((food,i) => {
-    return foods.indexOf(food) === i
+    return foods.indexOf(food) === i;
   }))
 }
 removeDuplicates(foods, (uniqueFoods) => {
@@ -92,7 +93,7 @@ removeDuplicates(foods, (uniqueFoods) => {
 
 // Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
 // code here
-function forEach(foods,f) {
+function forEach(foods, f) {
   return foods.forEach((food,i) => f(food,i));
 }
 forEach(foods, (value, index) => {
