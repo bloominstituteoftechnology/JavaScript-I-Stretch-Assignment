@@ -86,7 +86,7 @@ multiplyNums(5, 10, (product) => {
 
 const contains = (anArray, aString, aCallback) => {
   let _flag = [];
-  for (let i = 0; i < anArray.length - 1; i++) {
+  for (let i = 0; i < anArray.length; i++) {
     if (anArray[i] === aString) {
       _flag.push(anArray[i]); // solution w/ accumulator
   	}; // pretty straight forward
@@ -102,7 +102,7 @@ contains(foods, 'ribeye', (result) => {
 // code here
 
 const removeDuplicates = (anArray, aCallback) => {
-  const _anArray = new Array(anArray); // Lets just keep it easy, a reference is pointed without it.
+  const _anArray = anArray.slice(); // Lets just keep it easy, a reference is pointed without it.
   const __anArray = [];
   _anArray.sort(); // not the original array
   for (let i = 0; i < anArray.length; i++) {
