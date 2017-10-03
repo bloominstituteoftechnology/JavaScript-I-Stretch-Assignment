@@ -45,17 +45,7 @@ const reduce = (elements, cb, startingValue) => {
   }
   return newVal;
 };
-//   let newVal;
-//   if (startingValue) {
-//     newVal = cb(0, startingValue);
-//   } else {
-//     newVal = cb(0, elements[0]);
-//   }
-//   for (let i = 1; i < elements.length; i++) {
-//     newVal += cb(newVal, elements[i]);
-//   }
-//   return newVal;
-// };
+
 
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
