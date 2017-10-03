@@ -92,12 +92,22 @@ contains(foods, 'ribeye', (result) => {
 // Pass the array to the callback function.  Do not mutate the original array.
 // code here
 
+const removeDuplicates = (foods) => {
+  return foods.filter((item, index, input) => input.indexOf(item) === index);
+};
+
 removeDuplicates(foods, (uniqueFoods) => {
   console.log(`foods with duplicates removed: ${uniqueFoods}`);
 });
 
 // Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
 // code here
+
+const forEach = (foods, cb) => {
+  for (let i = 0; i < foods.length; i++) {
+    cb(foods[i], i);
+  }
+};
 
 forEach(foods, (value, index) => {
   console.log(`${value} is at index ${index}.`);
