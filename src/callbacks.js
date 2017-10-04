@@ -74,7 +74,7 @@ sumNums(5, 10, (sum) => {
 const multiplyNums = (aNumber, bNumber, aCallback) => {
 if ((typeof(aNumber) === 'number') && (typeof(bNumber) === 'number')) {
     aCallback(aNumber * bNumber);
-  }	
+  } 
 }
 multiplyNums(5, 10, (product) => {
   console.log(`The product is ${product}.`);
@@ -89,7 +89,7 @@ const contains = (anArray, aString, aCallback) => {
   for (let i = 0; i < anArray.length; i++) {
     if (anArray[i] === aString) {
       _flag.push(anArray[i]); // solution w/ accumulator
-  	}; // pretty straight forward
+    }; // pretty straight forward
   };
   _flag.length < 1 ? aCallback(false) : aCallback(true);
 };
