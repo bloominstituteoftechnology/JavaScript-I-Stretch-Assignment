@@ -28,6 +28,9 @@ const mapObject = (obj, cb) => {
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+  const pair = Object.keys(obj).map((key) => {
+    return [key, obj[key]];
+  });
 };
 
 /* Extra credit */
