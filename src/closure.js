@@ -1,6 +1,8 @@
 // Complete the following functions.
 
 const counter = () => {
+    let count = 0;
+    return 
   // Return a function that when invoked increments and returns a counter variable.
   // Example: const newCounter = counter();
   // newCounter(); // 1
@@ -11,11 +13,22 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  let counter =0;
+  return {
+    increment: () => {return counter +=1},
+    decrement:() => {return counter -=2}
+  };
 };
 
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  let stop=0;
+  return function (){
+    stop++;
+    if (stop <= n){return (...args)=>> {cb()};
+  }
+  return null;
 };
 
 /* Extra Credit */
