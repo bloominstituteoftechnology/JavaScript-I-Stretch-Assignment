@@ -86,9 +86,10 @@ contains(foods, 'ribeye', (result) => {
 // Write a function called removeDuplicates that removes all duplicate values from the given array.
 // Pass the array to the callback function.  Do not mutate the original array.
 // code here
-
-const removeDuplicates = (foods, cb) => {};
-// TODO
+const removeDuplicates = (foods, cb) => {
+    let cleanArr = Array.from(new Set(foods));
+    cb(cleanArr);
+};
 
 removeDuplicates(foods, (uniqueFoods) => {
   console.log(`foods with duplicates removed: ${uniqueFoods}`);
@@ -96,11 +97,11 @@ removeDuplicates(foods, (uniqueFoods) => {
 
 // Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
 // code here
-// TODO
-
-const forEach = foods.forEach((value, i) => {
-  console.log(`${value} is at index ${i}.`);
-});
+const forEach = (arr, cb) => {
+  for (let i=0; i < arr.length; i++) {
+      cb(arr[i], i);
+  }
+};
 
 forEach(foods, (value, index) => {
   console.log(`${value} is at index ${index}.`);
