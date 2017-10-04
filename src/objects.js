@@ -5,6 +5,16 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
+  const length = keys.length;
+
+  // Create the array (since we can only access the array via its size and their respected numerical indices)
+  //  Review Array (JS - Global objects)
+  const values = Array(length);
+
+  for (let i = 0; i < length; i++) {
+    values[i] = obj[keys[i]];
+  }
+  return values;
 };
 
 const values = (obj) => {

@@ -79,11 +79,11 @@ function contains(foods, food, f){
   for(let i = 0; i < foods.length; i++){
     if(foods[i] === food){
       // return `${food} is in the array`;
-      return true;
+      return f(true);
     }
   }
   // return `${food} is not in the array`
-  return false;
+  return f(false);
 }
 
 contains(foods, 'ribeye', (result) => {
@@ -94,7 +94,25 @@ contains(foods, 'ribeye', (result) => {
 // Pass the array to the callback function.  Do not mutate the original array.
 // code here
 function removeDuplicates(foods, f){
+  let count = {};
+  let unique = [];
+  let value;
 
+  for(let i = 0; i < foods.length; i++){
+    value = foods[i];
+    count[value] = count[value] ? count[value] + 1 : 1;
+    // console.log(count);
+  }
+
+  for(let j = 0; j < foods.length; j++){
+    //Forced way to remove dups via use of reassignment and if-statement
+    if(count[foods[j]] > 1){
+      count[foods[j]] = 1;
+      //Forced way to exemplify items that were removed.
+      unique.push(foods[j])
+    }
+  }
+  return f(unique);
 }
 
 removeDuplicates(foods, (uniqueFoods) => {
@@ -103,6 +121,11 @@ removeDuplicates(foods, (uniqueFoods) => {
 
 // Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
 // code here
+function forEach(arr, f){
+  for(let k = 0; k < arr.length; k++){
+    f(arr[k], k);
+  }
+}
 
 forEach(foods, (value, index) => {
   console.log(`${value} is at index ${index}.`);
