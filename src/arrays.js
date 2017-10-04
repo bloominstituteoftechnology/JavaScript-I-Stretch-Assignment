@@ -33,7 +33,7 @@ const reduce = (elements, cb, startingValue) => {
   let result = startingValue;
   let start = 0;
   if (!result) {
-      result= elements[0];
+    result= elements[0];
     start = 1;
   }
   for (let i = start;i < elements.length; i++) {
@@ -46,11 +46,22 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i]) {
+      return elements[i];
+    }
+  }
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const result = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i]))
+      results.push(elements[i]);
+  }
+  return results;
 };
 
 /* Extra Credit */

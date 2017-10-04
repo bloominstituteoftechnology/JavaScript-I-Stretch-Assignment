@@ -14,6 +14,16 @@ const counter = () => {
 };
 
 const counterFactory = () => {
+  let o = {
+    counter: 0,
+    increment: function() {
+       this.counter++;
+    },
+    decrement: function() {
+       this.counter--;
+    } 
+    return o;
+  }
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
@@ -22,6 +32,13 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  const innerFunction = () => {
+    if (n > 0) {
+      cb();
+      n--;
+    }
+  }
+  return innerFunction;
 };
 
 /* Extra Credit */
