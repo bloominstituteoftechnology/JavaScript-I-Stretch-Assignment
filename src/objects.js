@@ -6,6 +6,7 @@ const keys = (obj) => {
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
   return Object.getOwnPropertyNames(obj);
+  // Object.keys(obj) should work too
 };
 
 const values = (obj) => {
@@ -18,11 +19,21 @@ const values = (obj) => {
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
+  const mappedObj = {};
+  Object.keys(obj).forEach((key) => {
+    mappedObj[key] = cb(obj[key]);
+  });
+  return mappedObj;
 };
 
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+  const list = [];
+  Object.keys(obj).forEach((key) => {
+    list.push([key, obj[key]]);
+  });
+  return list;
 };
 
 /* Extra credit */
@@ -31,12 +42,23 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  const solutionObj = {};
+  Object.keys(obj).forEach((key) => {
+    solutionObj[obj[key]] = key;
+  });
+  return solutionObj;
 };
 
 const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+  Object.keys(defaultProps).forEach((key) => {
+    if (!obj[key]) {
+      obj[key] = defaultProps[key];
+    }
+  });
+  return obj;
 };
 
 /* eslint-enable no-unused-vars */
