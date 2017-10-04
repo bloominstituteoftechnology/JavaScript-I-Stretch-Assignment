@@ -1,0 +1,59 @@
+[33mcommit c8a804ad106bb1ccc3ebc3cd81f4f0e26bdb8e66[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Kia Choi <sgchoi529@email.arizona.edu>
+Date:   Wed Oct 4 12:37:29 2017 -0700
+
+    initial commit - finish extra credit
+
+[33mcommit 865d0a7d7d97dde28762171a499a1fa4d08bb39f[m
+Author: Kia Choi <sgchoi529@email.arizona.edu>
+Date:   Wed Oct 4 11:03:34 2017 -0700
+
+    Initial commit - Extra Credit except closure.js
+
+[33mcommit f43e31706fd5f81f52bd7861a95ddfe23b6a3076[m
+Author: Kia Choi <sgchoi529@email.arizona.edu>
+Date:   Tue Oct 3 21:27:36 2017 -0700
+
+    Initial commit
+
+[33mcommit a2e73aca3fb502a348a9dc2e53890782c696dc75[m
+Author: SunJieMing <bennelson@Bens-MacBook-Pro.local>
+Date:   Mon Oct 2 08:06:05 2017 -0700
+
+    Updated instructions spacing
+
+[33mcommit 590f2a405291539a7020b0a39ca6fb6165cf2634[m
+Author: SunJieMing <bennelson@Bens-MacBook-Pro.local>
+Date:   Mon Oct 2 08:02:39 2017 -0700
+
+    marked problems as EC
+
+[33mcommit e0cc92aea7fde4da731bead743282da48ea5494c[m
+Author: SunJieMing <bennelson@Bens-MacBook-Pro.local>
+Date:   Mon Oct 2 07:56:50 2017 -0700
+
+    Modified eslint rules
+
+[33mcommit 6f34587a56664570728360da3000fb6898e13a4a[m
+Author: SunJieMing <bennelson@Bens-MacBook-Pro.local>
+Date:   Mon Oct 2 07:51:40 2017 -0700
+
+    Updated instructions
+
+[33mcommit db3e238f6e03a4fc22891fa2cb193fc6105f0db1[m
+Author: SunJieMing <bennelson@Bens-MacBook-Pro.local>
+Date:   Mon Oct 2 07:48:22 2017 -0700
+
+    Updated eslint and instructions in Array.js
+
+[33mcommit cfc8f2bc71bfcc84448801f5a21268aed092a917[m
+Author: SunJieMing <bennelson@Bens-MacBook-Pro.local>
+Date:   Mon Oct 2 07:43:39 2017 -0700
+
+    Fixed linting errors
+
+[33mcommit ea6c357e318b78b06be8b01587721b601496cddd[m
+Author: SunJieMing <bennelson@Bens-MacBook-Pro.local>
+Date:   Mon Oct 2 07:37:57 2017 -0700
+
+    Initial commit
