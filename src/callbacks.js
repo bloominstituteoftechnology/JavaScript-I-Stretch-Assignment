@@ -71,19 +71,19 @@ code here*/
 /*Write a function called contains that checks if an item is present inside of the given array.
 Pass true to the callback if it is, otherwise pass false
 code here*/
- const contains =(arr,item, cb => {
- for ( let i=0;i<arr.length;
- i++){
-     if (arr[i]===item){
-         cb(item);
-         return;
+ const contains =(arr,item, cb) => {
+ for ( let i=0;i<arr.length;i++){
+    if (arr[i]===item){
+        cb(item);
+        return;
      }
-   cb(false);
- });
+    cb(false);
+ }
+};
 
- const contains =(foods, 'ribeye', (result) => {
+ contains =(foods, 'ribeye', (result) => {
    console.log(result ? 'ribeye is in the array' : 'ribeye is not in the array');
- });
+});
 
 /*Write a function called removeDuplicates that removes all duplicate values from the given array.
 Pass the array to the callback function.  Do not mutate the original array.
@@ -96,7 +96,7 @@ code here*/
     }
   }
   cb(newArr);
- }
+}
  removeDuplicates(foods, (uniqueFoods) => {
    console.log(`foods with duplicates removed: ${uniqueFoods}`);
  });

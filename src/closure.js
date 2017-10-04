@@ -26,7 +26,7 @@ const limitFunctionCallCount = (cb, n) => {
   let stop=0;
   return function (){
     stop++;
-    if (stop <= n){return (...args)=>> {cb()};
+    if (stop <= n){return (...args)=> {cb();}
   }
   return null;
 };
