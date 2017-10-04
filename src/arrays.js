@@ -81,13 +81,13 @@ const flatten = (elements) => {
     return newArray;
   });
 */
-  for (let i = 0; i < elements.length; ++i) {
-    const count = elements[i];
-    for (let j = 0; j < count.length; ++j) {
-      newArray.push(count[j]);
+  const flattenArr = reduce(elements, (memo, item) => {
+    if (Array.isArray(item)) {
+      return memo.concat(flatten(item));
     }
-  }
-  return newArray;
+    return memo.concat(item);
+  }, []);
+  return flattenArr;
 };
 
 /* eslint-enable no-unused-vars, max-len */
