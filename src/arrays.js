@@ -71,6 +71,15 @@ const filter = (elements, cb) => {
 /* Extra Credit */
 
 const flatten = (elements) => {
+  const flatArray = [];
+  function flat(arr) {
+    if (Array.isArray(arr)) {
+      return arr.forEach(flat);
+    }
+    return flatArray.push(arr);
+  }
+  elements.forEach(flat);
+  return flatArray;
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 };
