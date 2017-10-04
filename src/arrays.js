@@ -28,6 +28,14 @@ const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+   if (startingValue === undefined) startingValue = element[0];
+else startingValue += element[0];
+   
+    for(let i=;i<elements.length;i++){
+        
+    }
+        
+  
   
   
 };
@@ -36,11 +44,18 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for(let i=0;i<elements.length;i++){
+   if (cb(elements[i])) return true;
+  }
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  for(let i=0;i<elements.length;i++){
+   if (cb(elements[i])) newArr.push(elements[i]);
+  }
+  return newArr;
 };
 
 /* Extra Credit */

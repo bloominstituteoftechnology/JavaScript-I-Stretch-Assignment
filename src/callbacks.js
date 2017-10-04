@@ -88,7 +88,14 @@ code here*/
 /*Write a function called removeDuplicates that removes all duplicate values from the given array.
 Pass the array to the callback function.  Do not mutate the original array.
 code here*/
- const removeDuplicates = () =>{
+ const removeDuplicates = (arr,cb) =>{
+  const newArr = [];
+  for (let i=0;i<arr.length;i++){
+    if (!newArr.includes(arr[i])) {
+      newArr.push(arr[i]);
+    }
+  }
+  cb(newArr);
  }
  removeDuplicates(foods, (uniqueFoods) => {
    console.log(`foods with duplicates removed: ${uniqueFoods}`);
