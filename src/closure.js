@@ -4,18 +4,40 @@ const counter = () => {
   // Return a function that when invoked increments and returns a counter variable.
   // Example: const newCounter = counter();
   // newCounter(); // 1
-  // newCounter(); // 2
+  // newCounter(); //
+  let x = 0;
+  return () => {
+    return ++x;
+  };
 };
 
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  let x = 0;
+  const counterMethods = {
+    increment: () => {
+      return ++x;
+    },
+    decrement: () => {
+      return --x;
+    },
+  };
+  return counterMethods;
 };
 
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  let count = 0;
+  return (...arg) => {
+    if (count < n) {
+      count++;
+      return cb(...arg);
+    }
+    return null;
+  };
 };
 
 /* Extra Credit */
