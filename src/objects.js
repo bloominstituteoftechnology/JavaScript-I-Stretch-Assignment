@@ -35,7 +35,7 @@ const mapObject = (obj, cb) => {
 
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
-  // http://underscorejs.org/#pairs\
+  // http://underscorejs.org/#pairs
   const newArray = [];
   Object.keys(obj).forEach((key) => {
     const newArray2 = [key, obj[key]];
@@ -68,6 +68,7 @@ const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+
   return obj;
 };
 

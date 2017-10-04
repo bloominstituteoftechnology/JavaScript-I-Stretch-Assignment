@@ -61,6 +61,7 @@ last(foods, (lastItem) => {
 
 // Write a function called sumNums that adds two numbers and passes the result to the callback
 // code here
+
 const sumNums = (num1, num2, cb) => {
   cb(num1+num2);
 }
@@ -71,6 +72,7 @@ sumNums(5, 10, (sum) => {
 
 // Write a function called multiplyNums that multiplies two numbers and passes the result to the callback
 // code here
+
 const multiplyNums = (num1, num2, cb) =>{
   cb(num1*num2);
 }
