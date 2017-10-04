@@ -10,12 +10,12 @@ const each = (elements, cb) => {
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
   for (let i = 0; i < elements.length; i++) {
-    cb(elements[i], i, elements);
+    cb(elements[i], i);
   };
 };
 each(
   ['this', 'is', 'a'],
-  (a, b, c) => {console.log(`${a} ${b} ${c}`)});
+  (a, b) => {console.log(`${a} ${b}`)});
 
 
 const map = (elements, cb) => {
@@ -83,7 +83,9 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
-  
+  for (var i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) return elements[i];
+  };
 };
 
 // const asdArray = [1, 2, 3, 4, 5, 6, 7];
@@ -97,14 +99,23 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
-  // ?!?!?! how do I use this pattern, I want to call it
+  const filteredItems = [];
+  elements.forEach((item) => {
+    if (cb(item)) filteredItems.push(item);
+  });
+  return filteredItems;
 };
 /* Extra Credit */
 
-// const flatten = (elements) => {
-//   // Flattens a nested array (the nesting can be to any depth).
-//   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-// };
+const flatten = (elements) => {
+  // Flattens a nested array (the nesting can be to any depth).
+  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  const flattenedArr = reduce(elements, () => {
+    if (Array.isArray(item)) return memo.concat(flatten(item));
+    return memo.concat(item);
+  }, []);
+  return flattenedArr;
+};
 
 // /* eslint-enable no-unused-vars, max-len */
 

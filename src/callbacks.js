@@ -116,6 +116,13 @@ removeDuplicates(foods, (uniqueFoods) => {
   console.log(`foods with duplicates removed: ${uniqueFoods}`);
 });
 
+// solution removeDuplicates
+
+const rd = (anArray) => {
+  return new Set(anArray);
+};
+console.log(rd([1,1,3,4,5]));
+
 // Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
 // code here
 
