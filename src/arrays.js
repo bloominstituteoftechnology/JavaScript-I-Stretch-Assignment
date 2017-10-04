@@ -10,7 +10,7 @@ const each = (elements, cb) => {
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
   for (let i = 0; i < elements.length; i++) {
-    cb(elements[i]);
+    cb(elements[i], elements.indexOf(elements[i]));
   }
 };
 
@@ -29,9 +29,16 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb`.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
   let value = startingValue;
-  for(let i = 0; i < elements.length; i++){
-    //
+  let i = 0;
+  if (startingValue === undefined) {
+    value = elements[0];
+    i = 1;
   }
+  for (; i < elements.length; i++) {
+    //  Reify reify reify...::no Beetlejuice here::
+    value = cb(value, elements[i]);
+  }
+  return value;
 };
 
 const find = (elements, cb) => {
