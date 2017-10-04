@@ -4,16 +4,25 @@
 // You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
 // You can use the functions that you have already written to help solve the other problems
 
+
 const each = (elements, cb) => {
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const newArray = [];
+  for (let i = 0; i < elements.length; i++) {
+    newArray[i] = cb(elements[i]);
+  }
+  return newArray;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -21,17 +30,51 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+
+  let sum = startingValue;
+  let i = 0;
+  if (startingValue === undefined) {
+    sum = elements[0];
+    i = 1;
+  }
+  for (; i < elements.length; i++) {
+    sum = cb(sum, elements[i]);
+  }
+  return sum;
 };
+
+/* used Ben's explanation to alter my code to pass, prior to explanation my code passed all but the startingvalue test.
+  let sum = elements[0]
+  for (i = 1; i < elements.length; i++) {
+    sum = cb(sum, elements[i]);
+  }
+  return sum;
+};
+*/
+
 
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      return elements[i];
+    }
+    return undefined;
+  }
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const trueElements = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      trueElements.push(elements[i]);
+    }
+    return trueElements;
+  }
 };
 
 /* Extra Credit */
