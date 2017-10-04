@@ -9,28 +9,61 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const newArr = [];
+  elements.forEach((element) => {
+    newArr.push(cb(element));
+  });
+  return newArr;
 };
+
 
 const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  let val;
+  if (startingValue !== undefined) {
+    val = startingValue;
+  } else {
+    val = elements.splice(0, 1)[0];
+  }
+  for (let i = 0; i < elements.length; i++) {
+    val = cb(val, elements[i]);
+  }
+  return val;
 };
 
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  const elen = elements.length;
+  for (let i = 0; i < elen; i++) {
+    if (cb(elements[i])) {
+      return elements[i];
+    }
+  }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const newArr = [];
+  elements.forEach((element) => {
+    if (cb(element) === true) {
+      newArr.push(element);
+    }
+  });
+  return newArr;
 };
 
 /* Extra Credit */
@@ -38,7 +71,17 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  const flat = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i] instanceof Array) {
+      flat.push(...flatten(elements[i]));
+    } else {
+      flat.push(elements[i]);
+    }
+  }
+  return flat;
 };
+
 
 /* eslint-enable no-unused-vars, max-len */
 
