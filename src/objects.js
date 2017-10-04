@@ -62,13 +62,20 @@ const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
-  const props = Object.keys(defaultProps);
-  const objProps = Object.keys(obj);
-  for (let i = 0, leng = props.length; i < leng; i++) {
-    if (objProps.indexOf(props[i]) === -1) {
-      obj[props[i]] = defaultProps[props[i]];
+  // const props = Object.keys(defaultProps);
+  // const objProps = Object.keys(obj);
+  // for (let i = 0, leng = props.length; i < leng; i++) {
+  //   if (objProps.indexOf(props[i]) === -1) {
+  //     obj[props[i]] = defaultProps[props[i]];
+  //   }
+  // }
+  // return obj;
+  const defProps = Object.keys(defaultProps);
+  defProps.forEach((item) => {
+    if (!(item in obj)) {
+      obj[item] = defaultProps[item];
     }
-  }
+  });
   return obj;
 };
 
