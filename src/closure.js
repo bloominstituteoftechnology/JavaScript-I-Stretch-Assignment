@@ -13,22 +13,28 @@ const counter = () => {
 };
 
 const counterFactory = () => {
-  return () => {
-    this.increment = (k) => {
-      k++;
-      return k;
-    },
-    this.decrement = (k) => {
-      k--;
-      return k;
-    };
-  }
+  let k = 0;
+  return {
+    increment: () => { k++; return k; },
+    decrement: () => { k--; return k; },
+  };
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
 };
 
 const limitFunctionCallCount = (cb, n) => {
+  let num = 0;
+  return function inner(...args) {
+    num++;
+    if (num <= n) {
+      if (arguments.length) {
+        return cb(...args);
+      }
+      return cb();
+    }
+    return null;
+  };
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
 };

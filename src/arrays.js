@@ -26,13 +26,16 @@ const map = (elements, cb) => {
 };
 
 const reduce = (elements, cb, startingValue) => {
-  let total = startingValue;
+  let memo = startingValue;
+  let i = 0;
   if (startingValue === undefined) {
-    total = elements[0];
+    memo = elements[0];
+    i = 1;
   }
-  for (let i = 0; i < elements.length; i++) {
-    total = cb(total, elements[i]);
+  for (; i < elements.length; i++) {
+    memo = cb(memo, elements[i]);
   }
+  return memo;
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
