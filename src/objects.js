@@ -31,10 +31,7 @@ const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
   const retArr = [];
-  Object.keys(obj).forEach((key) => {
-    retArr.push([key, obj[key]]);
-  });
-  return retArr;
+  return Object.keys(obj).map((key) => { return ([key, obj[key]]); });
 };
 
 /* Extra credit */

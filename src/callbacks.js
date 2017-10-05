@@ -21,11 +21,10 @@
  */
 
 // Write a function called firstItem that passes the first item of the given array to the callback function
-
 const foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
 
 const firstItem = (arr, cb) => {
-	cb(arr[0]);
+  cb(arr[0]);
 };
 
 firstItem(foods, (firstItem) => {
@@ -34,7 +33,7 @@ firstItem(foods, (firstItem) => {
 
 // Write a function called getLength that passes the length of the array into the callback
 const getLength = (arr, cb) => {
-	cb(arr.length);
+  cb(arr.length);
 };
 
 getLength(foods, (length) => {
@@ -43,7 +42,7 @@ getLength(foods, (length) => {
 
 // Write a function called last which passes the last item of the array into the callback
 const last = (arr, cb) => {
-	cb(arr[arr.length - 1]);
+  cb(arr[arr.length - 1]);
 };
 
 last(foods, (lastItem) => {
@@ -52,7 +51,7 @@ last(foods, (lastItem) => {
 
 // Write a function called sumNums that adds two numbers and passes the result to the callback
 const sumNums = (x, y, cb) => {
-	cb(x + y);
+  cb(x + y);
 };
 
 sumNums(5, 10, (sum) => {
@@ -61,7 +60,7 @@ sumNums(5, 10, (sum) => {
 
 // Write a function called multiplyNums that adds two numbers and passes the result to the callback
 const multiplyNums = (x, y, cb) => {
-	cb(x * y);
+  cb(x * y);
 };
 
 multiplyNums(5, 10, (product) => {
@@ -71,14 +70,7 @@ multiplyNums(5, 10, (product) => {
 // Write a function called contains that checks if an item is present inside of the given array.
 // Pass true to the callback if it is, otherwise pass false
 const contains = (arr, word, cb) => {
-/*
- *	// Solution using Array.prototype.includes();
- * 	cb(arr.includes(word));
- */
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] === word) return cb(true);
-	}
-	return cb(false);
+  cb(arr.includes(word));
 };
 
 contains(foods, 'ribeye', (result) => {
@@ -88,25 +80,7 @@ contains(foods, 'ribeye', (result) => {
 // Write a function called removeDuplicates that removes all duplicate values from the given array.
 // Pass the array to the callback function.  Do not mutate the original array.
 const removeDuplicates = (arr, cb) => {
-/*	
-*	// For removing extraneous duplicate values.
-*	const unique = arr.filter((food, i, self) => {
-*		return i === self.indexOf(food);
-*	});
-*
-*/
-	const unique = [];
-	const notUniq = []; // Solution for 3+ duplicate values.
-
-	for (let i = 0; i < arr.length; i++) {
-		if (unique.includes(arr[i]) || notUniq.includes(arr[i])) {
-			notUniq.push(unique.splice(unique.indexOf(arr[i]), 1));
-		} else {
-			unique.push(arr[i]);
-		}
-	}
-
-	cb(unique);
+  cb([...new Set(arr)]);
 };
 
 removeDuplicates(foods, (uniqueFoods) => {
@@ -115,9 +89,9 @@ removeDuplicates(foods, (uniqueFoods) => {
 
 // Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
 const forEach = (arr, cb) => {
-	for (let i = 0; i < arr.length; i++) {
-		cb(arr[i], i);
-	};
+  for (let i = 0; i < arr.length; i++) {
+	cb(arr[i], i);
+  };
 };
 
 forEach(foods, (value, index) => {

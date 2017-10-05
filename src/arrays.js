@@ -23,12 +23,6 @@ const map = (elements, cb) => {
     newArr.push(cb(element));
   });
 
-/*
-* //With for loop
-* for (let i = 0; i < elements; i++) {
-*   newArr.push(cb(elements[i]));
-* };
-*/
   return newArr;
 };
 
@@ -36,29 +30,15 @@ const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  let count;
-/*
- * // Reduce without mutating the array.
- *
- * if (startingValue !== undefined) {
- *   count = startingValue;
- *   for (let i = 0; i < elements.length; i++) {
- *     count = cb(count, elements[i]);
- *   }
- * } else {
- *   count = elements[0];
- *   for (let i = 1; i < elements.length; i++) {
- *     count = cb(count, elements[i]);
- *   }
- * }
- */
-  if (startingValue !== undefined) {
-    count = startingValue;
-  } else {
-    count = elements.splice(0, 1)[0];
+  let count = startingValue;
+  let i = 0;
+
+  if (startingValue === undefined) {
+    count = elements[0];
+    i++;
   }
 
-  for (let i = 0; i < elements.length; i++) {
+  for (; i < elements.length; i++) {
     count = cb(count, elements[i]);
   }
   return count;
@@ -68,7 +48,6 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
-
   for (let i = 0; i < elements.length; i++) {
     if (cb(elements[i])) return elements[i];
   }
@@ -81,26 +60,26 @@ const filter = (elements, cb) => {
   const retArr = [];
 
   elements.forEach((element) => {
-    if (cb(element) === true) {
+    if (cb(element)) {
       retArr.push(element);
     }
   });
 
   return retArr;
 };
-
 /* Extra Credit */
 
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  const lightFlatten = (arr) => {
-    return [].concat(...arr);
-  };
-  return lightFlatten(
-    elements.map((x) => {
-      return Array.isArray(x) ? flatten(x) : x;
-    }));
+  const lightFlatten = arr => [].concat(...arr);
+
+  return lightFlatten(elements.map((element) => {
+    if (Array.isArray(element)) {
+      return flatten(element);
+    }
+    return element;
+  }));
 };
 
 /* eslint-enable no-unused-vars, max-len */
