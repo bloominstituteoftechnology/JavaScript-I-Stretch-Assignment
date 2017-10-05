@@ -12,10 +12,11 @@ const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
-  const newArr=[];
+  const newArr = [];
   Object.values(obj).forEach((value) => {
-    if (typeof (value) !== "function") newArr.push(value);
+    if (typeof (value) !== 'function') newArr.push(value);
   });
+};
 
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.

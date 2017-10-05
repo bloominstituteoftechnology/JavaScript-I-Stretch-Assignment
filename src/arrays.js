@@ -25,8 +25,7 @@ const map = (elements, cb) => {
 const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
-  // `startingValue` is the starting value.  If `startingValue` is
-  //undefined then make `elements[0]` the initial value.
+  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 };
 
 const find = (elements, cb) => {
