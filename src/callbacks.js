@@ -23,6 +23,10 @@
 // Write a function called firstItem that passes the first item of the given array to the callback function
 // code here
 
+const firstItem = (arr,cb)=>{
+  cb(arr[0]);
+}
+
 const foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
 
 firstItem(foods, (firstItem) => {
@@ -31,6 +35,9 @@ firstItem(foods, (firstItem) => {
 
 // Write a function called getLength that passes the length of the array into the callback
 // code here
+const getLength = (arr, cb) => {
+  return cb(foods.length);
+}
 
 getLength(foods, (length) => {
   console.log(`The length of the array is ${length}.`);
@@ -39,12 +46,19 @@ getLength(foods, (length) => {
 // Write a function called last which passes the last item of the array into the callback
 // code here
 
+const lastItem = (arr, cb) => {
+  cb(arr[arr.length-1]);
+}
+
 last(foods, (lastItem) => {
   console.log(`The last item in the array is ${lastItem}.`);
 });
 
 // Write a function called sumNums that adds two numbers and passes the result to the callback
 // code here
+const sumNums = (5,10,cb) => {
+  cb(x+y);
+}
 
 sumNums(5, 10, (sum) => {
   console.log(`The sum is ${sum}.`);
@@ -52,6 +66,9 @@ sumNums(5, 10, (sum) => {
 
 // Write a function called multiplyNums that adds two numbers and passes the result to the callback
 // code here
+const multiplyNums = (x,y,cb) => {
+  cb(x*y);
+}
 
 multiplyNums(5, 10, (product) => {
   console.log(`The product is ${product}.`);
@@ -60,6 +77,9 @@ multiplyNums(5, 10, (product) => {
 // Write a function called contains that checks if an item is present inside of the given array.
 // Pass true to the callback if it is, otherwise pass false
 // code here
+const contains = () => {
+  
+}
 
 contains(foods, 'ribeye', (result) => {
   console.log(result ? 'ribeye is in the array' : 'ribeye is not in the array');
