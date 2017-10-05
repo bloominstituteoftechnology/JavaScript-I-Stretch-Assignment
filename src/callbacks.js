@@ -30,7 +30,7 @@ firstItem(foods, (firstItem) => {
 });
 
 const firstItem = (arr, cb) => {
-  cb(arr);
+  cb(arr[0]);
 };
 
 // Write a function called getLength that passes the length of the array into the callback
@@ -41,7 +41,7 @@ getLength(foods, (length) => {
 });
 
 const getLength = (arr, cb) => {
-  cb(arr);
+  cb(arr.length);
 };
 
 // Write a function called last which passes the last item of the array into the callback
@@ -52,7 +52,7 @@ last(foods, (lastItem) => {
 });
 
 const last = (arr, cb) => {
-  cb(arr);
+  cb(arr[arr.length - 1]);
 };
 
 // Write a function called sumNums that adds two numbers and passes the result to the callback
@@ -86,12 +86,7 @@ contains(foods, 'ribeye', (result) => {
 });
 
 const contains = (arr, str, cb) => {
-  for(let i = 0; i < arr.length; i++) {
-    if(arr[i] === str) {
-      return true;
-    }
-  }
-  return false;
+  cb(arr.includes(str));
 };
 
 // Write a function called removeDuplicates that removes all duplicate values from the given array.
