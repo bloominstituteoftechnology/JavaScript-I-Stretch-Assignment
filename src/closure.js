@@ -1,23 +1,35 @@
 // Complete the following functions.
 
+// Return a function that when invoked increments and returns a counter variable.
+// Example: const newCounter = counter();
+// newCounter(); // 1
+// newCounter(); // 2
+
 const counter = () => {
-  // Return a function that when invoked increments and returns a counter variable.
-  // Example: const newCounter = counter();
-  // newCounter(); // 1
-  // newCounter(); // 2
+  let count = 0;
+  return () => {
+    count++;
+    return count;
+  };
 };
+
+// Return an object that has two methods called `increment` and `decrement`.
+// `increment` should increment a counter variable in closure scope and return it.
+// `decrement` should decrement the counter variable and return it.
 
 const counterFactory = () => {
-  // Return an object that has two methods called `increment` and `decrement`.
-  // `increment` should increment a counter variable in closure scope and return it.
-  // `decrement` should decrement the counter variable and return it.
+  let count = 0;
+  const object = {
+    increment : count = (count + 1),
+    decrement : count = (count - 1),
+  };
+  return object();
 };
 
+// Should return a function that invokes `cb`.
+// The returned function should only allow `cb` to be invoked `n` times.
 const limitFunctionCallCount = (cb, n) => {
-  // Should return a function that invokes `cb`.
-  // The returned function should only allow `cb` to be invoked `n` times.
 };
-
 /* Extra Credit */
 
 const cacheFunction = (cb) => {
