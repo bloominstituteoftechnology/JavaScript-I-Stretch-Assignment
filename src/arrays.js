@@ -55,19 +55,24 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
-  let i = 1;
-  const newArray = [];
-  for (; i < elements.lemgth; i++) {
-    if (cb(elements[i])) {
-      newArray.push(elements[i]);
-    }
-  } return newArray;
+  const filteredItems = []; // set fI to an empty array
+  elements.forEach((item) => { // for each item in the elements array
+    if (cb(item)) filteredItems.push(item); // if the item in the call back is true, push it to the fI array
+  });
+  return filteredItems; // return the fI array
 };
 /* Extra Credit */
 
 const flatten = (elements) => {
-  // Flattens a nested array (the nesting can be to any depth).
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  // // Flattens a nested array (the nesting can be to any depth).
+  // // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+//
+// need to rewatch this video, something missing
+//
+  // const flattenedArr = reduce(elements, (memo, item) => {
+  //   if (Array.isArray(item)) return memo.concat(flatten(item));
+  // });
+  // return flattenedArr;
 };
 
 /* eslint-enable no-unused-vars, max-len */
