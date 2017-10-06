@@ -38,7 +38,6 @@ const map = (elements, cb) => {
  return mapArry;
 };
 
-
 const reduce = (elements, cb, startingValue) => {
  // Combine all elements into a single value going from left to right.
  // Elements will be passed one by one into `cb`.
@@ -52,7 +51,6 @@ const reduce = (elements, cb, startingValue) => {
  }
  return startingValue;
 };
-
 
 const find = (elements, cb) => {
  // Look through each value in `elements` and pass each element to `cb`.
@@ -75,8 +73,6 @@ const arr = [1, 2, 3, 4, 5];
 
 console.log(find(arr, (checkEl) => {return checkEl === 5}));
 console.log(find(arr, (checkEl) => {return checkEl === 12}));
-
-
 */
 
 Array.prototype.equals = function(array) {
