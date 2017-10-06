@@ -22,6 +22,9 @@
 
 // Write a function called firstItem that passes the first item of the given array to the callback function
 // code here
+const firstItem = (elements, cb) => {
+  cb(elements[0]);
+};
 
 const foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
 
@@ -31,6 +34,9 @@ firstItem(foods, (firstItem) => {
 
 // Write a function called getLength that passes the length of the array into the callback
 // code here
+const getLength = (elements, cb) => {
+	cb(elements.length)
+}
 
 getLength(foods, (length) => {
   console.log(`The length of the array is ${length}.`);
@@ -39,12 +45,19 @@ getLength(foods, (length) => {
 // Write a function called last which passes the last item of the array into the callback
 // code here
 
+const last = (elements, cb) => {
+	cb(elements[elements.length-1]);
+}
+
 last(foods, (lastItem) => {
   console.log(`The last item in the array is ${lastItem}.`);
 });
 
 // Write a function called sumNums that adds two numbers and passes the result to the callback
 // code here
+const sumNums = (a, b, cb) => {
+	cb(a + b);
+}
 
 sumNums(5, 10, (sum) => {
   console.log(`The sum is ${sum}.`);
@@ -52,6 +65,9 @@ sumNums(5, 10, (sum) => {
 
 // Write a function called multiplyNums that multiplies two numbers and passes the result to the callback
 // code here
+const multiplyNums = (a, b, cb) => {
+	cb(a*b);
+}
 
 multiplyNums(5, 10, (product) => {
   console.log(`The product is ${product}.`);
@@ -61,6 +77,14 @@ multiplyNums(5, 10, (product) => {
 // Pass true to the callback if it is, otherwise pass false
 // code here
 
+const contains = (elements, value, cb) => {
+	for (var i = 0; i < elements.length; i++) {
+		if (elements[i] === value) {
+			cb(true);
+		} cb(false);
+	}
+};
+
 contains(foods, 'ribeye', (result) => {
   console.log(result ? 'ribeye is in the array' : 'ribeye is not in the array');
 });
@@ -68,6 +92,11 @@ contains(foods, 'ribeye', (result) => {
 // Write a function called removeDuplicates that removes all duplicate values from the given array.
 // Pass the array to the callback function.  Do not mutate the original array.
 // code here
+const removeDuplicates = (elements, cb) => {
+	let elementsDeduped = Array.from(new Set(elements));
+ cb(elementsDeduped);
+};
+
 
 removeDuplicates(foods, (uniqueFoods) => {
   console.log(`foods with duplicates removed: ${uniqueFoods}`);
@@ -75,6 +104,11 @@ removeDuplicates(foods, (uniqueFoods) => {
 
 // Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
 // code here
+const forEach = (elements, cb) => {
+  for (let i = 0; i < elements.length; i++) {
+  	cb(elements[i], i);
+  }
+};
 
 forEach(foods, (value, index) => {
   console.log(`${value} is at index ${index}.`);
