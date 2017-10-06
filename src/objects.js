@@ -18,11 +18,11 @@ const values = (obj) => {
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
-  // const key = 'newKey';
-  // const obj = {};
-  // obj[key] = 'value'; // obj = { newkey : 'value' };
-  // Object.keys(obj).forEach((key) => { objValues.push(cb(obj[key])); });
-  // return newObj;
+  const mappedObj = {}; // mappedObj is set to an empty object
+  Object.keys(obj).forEach((key) => { // iterate over they keys on the object passed in by obj
+    mappedObj[key] = cb(obj[key]); // map the keys to the values held in the cb
+  });
+  return mappedObj; // return
 };
 
 const pairs = (obj) => {
@@ -37,18 +37,26 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
-
+  //
+  // this one I'll need to return to, I'm not understanding something here
+  //
+  Object.keys(obj).forEach((key) => { // for each key in the obj
+    const value = obj[key]; // set a value variable to the key
+    obj[value] = key; // set the value to the key
+    delete obj[key]; // delete the original key
+  });
+  return obj; // return the object
 };
 
 const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
-  // for (let i = 0; i < obj.length; i++) {
-  //   if (!obj[i]) {
-  //     obj[i] = defaultProps;
-  //   } return obj;
-  // }
+  Object.keys(defaultProps).forEach((key) => { // for each key in the defalutProps object
+    if (Object.prototype.hasOwnProperty.call(obj, key)) return; // if it has it's own property, assign the object and key -> return
+    obj[key] = defaultProps[key]; // otherwise set the key to the value in defaultProps
+  });
+  return obj; // return the object
 };
 
 /* eslint-enable no-unused-vars */
