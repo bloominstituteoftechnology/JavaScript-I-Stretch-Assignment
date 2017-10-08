@@ -98,8 +98,8 @@ contains(foods, 'ribeye', (result) => {
 // Pass the array to the callback function.  Do not mutate the original array.
 // code here
 const removeDuplicates = (arr, cb) => {
+  // better to use a set: const uniqueSet = new Set();
   const newArr = [];
-  
   for (i in arr) {
     let isPresent = false;
     for (j in newArr) {
