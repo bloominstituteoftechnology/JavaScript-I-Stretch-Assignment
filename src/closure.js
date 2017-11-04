@@ -18,7 +18,7 @@ const limitFunctionCallCount = (cb, n) => {
   // The returned function should only allow `cb` to be invoked `n` times.
 };
 
-/* Extra Credit */
+/* STRETCH PROBLEM */
 
 const cacheFunction = (cb) => {
   // Should return a funciton that invokes `cb`.
