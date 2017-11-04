@@ -24,7 +24,7 @@ const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 };
-
+/* STRETCH PROBLEM */
 const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
