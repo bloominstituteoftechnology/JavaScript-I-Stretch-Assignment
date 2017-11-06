@@ -29,6 +29,20 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  let finalValue;
+  let i;
+  if (typeof startingValue === 'undefined') {
+    startingValue = elements[0];
+    i = 2;
+    finalValue = cb(elements[0], elements[1]);
+  } else {
+    i = 1;
+    finalValue = cb(startingValue, elements[0]);
+  }
+  for (i; i < elements.length; i++) {
+    finalValue = cb(finalValue, elements[i]);
+  }
+  return finalValue;
 };
 
 const find = (elements, cb) => {
