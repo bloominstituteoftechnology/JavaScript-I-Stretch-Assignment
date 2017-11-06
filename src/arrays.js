@@ -4,6 +4,8 @@
 // You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
 // You can use the functions that you have already written to help solve the other problems
 
+
+// https://code.tutsplus.com/tutorials/how-to-use-map-filter-reduce-in-javascript--cms-26209
 const each = (elements, cb) => {
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
@@ -14,6 +16,11 @@ const each = (elements, cb) => {
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const arrRes = [];
+  for (let i = 0; i < elements.length; i++) { // loop through as many times are there are elements in array
+    arrRes.push(cb(elements[i])); // each time run the db function passing it each new element and push on to arrRes
+  }
+  return arrRes;  // return complete new array
 };
 
 const reduce = (elements, cb, startingValue) => {
