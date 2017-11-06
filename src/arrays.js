@@ -3,7 +3,6 @@
 // Do NOT use the built in array methods to solve these. forEach, map, reduce, filter, includes, etc.
 // You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
 // You can use the functions that you have already written to help solve the other problems
-
 const each = (elements, cb) => {
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
@@ -49,6 +48,12 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i]) === true) {
+      return elements[i];
+    }
+  }
+  return 'undefined';
 };
 
 const filter = (elements, cb) => {
