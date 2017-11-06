@@ -57,16 +57,10 @@ const removeDuplicates = (arr, cb) => {
   // removeDuplicates removes all duplicate values from the givearr.
   // Pass the duplicate frearr to the callback function.
   // Do not mutate the originaarr.
-  const _arr = arr.slice(); // Lets just keep it easy, a reference is pointed without it.
-  const __arr = [];
-  _arr.sort(); // not the originaarr
-  for (let i = 0; i < arr.length; i++) {
-    if(_arr[i - 1 || 0] === _arr[i]){ // evaluate if the values of the sortearr are sequential.
-      __arr.push(_arr[i]);
-    };
-  };
+  const _arr = new Set(arr); // Lets just keep it easy, a reference is pointed without it.
+  const __arr = new Array(..._arr);  
   return cb(__arr);
-}; removeDuplicates([1,1,2,3,4], _item => console.log(getLength(_item, (item)=>item)));
+}; removeDuplicates([1,1,2,3,4], _item => console.log(_item));
 
 /* eslint-enable */
 module.exports = {
