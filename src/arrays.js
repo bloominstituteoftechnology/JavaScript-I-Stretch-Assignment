@@ -49,7 +49,7 @@ const find = (elements, cb) => {
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
   for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i]) === true) {
+    if (cb(elements[i])) {
       return elements[i];
     }
   }
@@ -59,6 +59,13 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const filteredArray = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      filteredArray.push(elements[i]);
+    }
+  }
+  return filteredArray;
 };
 
 /* STRETCH PROBLEM */
