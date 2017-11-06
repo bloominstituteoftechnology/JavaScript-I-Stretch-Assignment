@@ -17,15 +17,20 @@ const last = (arr, cb) => {
 
 const sumNums = (x, y, cb) => {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  cb(x + y);
 };
 
 const multiplyNums = (x, y, cb) => {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  cb(x * y);
 };
 
 const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  
+  let result = list.indexOf(item) >= 1 ? true : false;
+  cb(result);
 };
 
 /* STRETCH PROBLEM */
