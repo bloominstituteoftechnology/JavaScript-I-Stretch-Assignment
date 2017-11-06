@@ -34,6 +34,12 @@ const mapObject = (obj, cb) => {
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+  const objPairs = [];
+  const objKeys = Object.keys(obj);
+  for (let i = 0; i < objKeys.length; i++) {
+    objPairs[i] = [objKeys[i], obj[objKeys[i]]];
+  }
+  return objPairs;
 };
 
 /* STRETCH PROBLEMS */
