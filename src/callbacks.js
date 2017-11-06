@@ -32,15 +32,12 @@ const contains = (item, list, cb) => {
 
   for(let i = 0; i < list.length; i++){
     if(list[i] === item){
-      par = true;
       cb(true);
     }
     else {
-      par = false;
       cb(false);
     }
   }
-
 };
 
 
