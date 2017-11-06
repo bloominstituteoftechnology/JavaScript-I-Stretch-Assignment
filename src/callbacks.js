@@ -49,15 +49,24 @@ const contains = (item, list, cb) => {
       }
   };
   return cb(result);
-}; contains(4, [1,2,3,4], _item => console.log(_item));
+}; contains(5, [1,2,3,4], _item => console.log(_item));
 
 /* STRETCH PROBLEM */
 
-const removeDuplicates = (array, cb) => {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
-};
+const removeDuplicates = (arr, cb) => {
+  // removeDuplicates removes all duplicate values from the givearr.
+  // Pass the duplicate frearr to the callback function.
+  // Do not mutate the originaarr.
+  const _arr = arr.slice(); // Lets just keep it easy, a reference is pointed without it.
+  const __arr = [];
+  _arr.sort(); // not the originaarr
+  for (let i = 0; i < arr.length; i++) {
+    if(_arr[i - 1 || 0] === _arr[i]){ // evaluate if the values of the sortearr are sequential.
+      __arr.push(_arr[i]);
+    };
+  };
+  return cb(__arr);
+}; removeDuplicates([1,1,2,3,4], _item => console.log(getLength(_item, (item)=>item)));
 
 /* eslint-enable */
 module.exports = {
@@ -69,4 +78,3 @@ module.exports = {
   contains,
   removeDuplicates,
 };
-
