@@ -3,7 +3,7 @@
 const firstItem = (arr, cb) => {
   // firstItem passes the first item of the given array to the callback function.
   cb(arr[0]);
-};// firstItem([1,2,3], function(item){console.log(item)});
+}; firstItem([1,2,3], item => console.log(item));
 
 const getLength = (arr, cb) => {
   // getLength passes the length of the array into the callback.
@@ -11,6 +11,7 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
+
 };
 
 const sumNums = (x, y, cb) => {
