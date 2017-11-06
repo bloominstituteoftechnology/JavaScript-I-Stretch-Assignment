@@ -7,6 +7,7 @@ const firstItem = (arr, cb) => {
 
 const getLength = (arr, cb) => {
   // getLength passes the length of the array into the callback.
+  cb(arr.length); // do i have ur code ryan ? ahh
 };
 
 const last = (arr, cb) => {
