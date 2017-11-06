@@ -41,6 +41,8 @@ const flatten = (elements) => {
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 };
 
+//this is a small change
+
 /* eslint-enable no-unused-vars, max-len */
 
 module.exports = {
