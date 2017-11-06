@@ -56,8 +56,7 @@ const contains = (item, list, cb) => {
 const removeDuplicates = (arr, cb) => {
   // removeDuplicates removes all duplicate values from the givearr.
   // Pass the duplicate frearr to the callback function.
-  // Do not mutate the originaarr.
-  const _arr = new Set(arr); // Lets just keep it easy, a reference is pointed without it.
+  const _arr = new Set(arr);
   const __arr = new Array(..._arr);  
   return cb(__arr);
 }; removeDuplicates([1,1,2,3,4], _item => console.log(_item));
