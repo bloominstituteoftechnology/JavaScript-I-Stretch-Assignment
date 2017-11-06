@@ -12,7 +12,7 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  
+  cb(arr[arr.length -1]);
 };
 
 const sumNums = (x, y, cb) => {
@@ -22,6 +22,7 @@ const sumNums = (x, y, cb) => {
 
 const multiplyNums = (x, y, cb) => {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  cb(x * y);
 };
 
 const contains = (item, list, cb) => {
