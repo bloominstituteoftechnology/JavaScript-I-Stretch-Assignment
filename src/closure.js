@@ -34,10 +34,10 @@ const limitFunctionCallCount = (cb, n) => { // Need to Review the requirements, 
   // The returned function should only allow `cb` to be invoked `n` times.
   let newCounter = 0;
 
-  const returnFunction = () => {
+  const returnFunction = (arg1, arg2, arg3, arg4, arg5, arg6, arg7) => {
     newCounter++;
     if (newCounter <= n) {
-      cb();
+      cb(arg1, arg2, arg3, arg4, arg5, arg6, arg7);  // Refactor a method to handle multiple arguments!
     }
   };
 
