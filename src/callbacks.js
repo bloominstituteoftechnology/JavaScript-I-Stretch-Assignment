@@ -21,20 +21,24 @@ const multiplyNums = (x, y, cb) => {
 };
 
 const contains = (item, list, cb) => {
-  if ( ) {
-    cb(true);
-  } else cb(false);
-  // contains checks if an item is present inside of the given array/list.
+  cb(list.includes(item));
+   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 };
 
 /* STRETCH PROBLEM */
 
 const removeDuplicates = (array, cb) => {
-  // removeDuplicates removes all duplicate values from the given array.
+  let newArray = [];
+  for ( let i = 0; i < array.length; i++) {
+   if (newArray.includes(array[i]) === false){
+     newArray.push(array[i]);
+   }
+  }// removeDuplicates removes all    duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+  cb(newArray);// Do not mutate the original array.
 };
+
 
 /* eslint-enable */
 module.exports = {
