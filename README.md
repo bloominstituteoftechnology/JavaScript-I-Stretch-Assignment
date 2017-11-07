@@ -1,4 +1,4 @@
-# JavaScript I
+npm trest# JavaScript I
 
 ## Instructions
 
