@@ -15,5 +15,5 @@ const removeDuplicates = (array, cb) => {
 function cb(array) {
   console.log(array);
 };
-const yasin = [0, 1, 1, 2, 3, 3, 6, 4];
+const yasin = [0, 1, 1, 2, 3, 3, 6, 4]; //012364
 removeDuplicates(yasin, cb);

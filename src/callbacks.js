@@ -36,21 +36,18 @@ const contains = (item, list, cb) => {
 };
 
 /* STRETCH PROBLEM */
-
+//solution url but i need it explained 
+//https://www.w3resource.com/javascript-exercises/javascript-array-exercise-14.php
 const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
-  let sortedArray = array.slice().sort();
-  let cleanArray = [];
-  for (let i = 0; i < array.length - 1; i++) {
-    if (sortedArray[i + 1] == sortedArray[i]) {
-      cleanArray.push(sortedArray[i])
-    }
+  let obj = [];
+  for (let i = 0; i < array.length; i++) {
+    if (obj.indexOf(array[i]) === -1)
+      obj.push(array[i]);  
   }
-  cb(cleanArray);
-  // sort array
-  // compare element to one after it, if they match delete second one then move on to next element
+  cb(obj);
 };
 
 /* eslint-enable */
