@@ -9,43 +9,46 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
-<<<<<<< HEAD
   
-  for (let index = 0; index < elements.length; index++) {
-    elements = (index, cb(index)
-=======
+  // loop through each element and pass it and the index to callback
   for (let i = 0; i < elements.length; i++) {
     cb(elements[i], i);
->>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
   }
 };
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
-<<<<<<< HEAD
-  const mappedValues = [];
-  for (let i = 0; i < elements.length; i++) {
-    mappedValues.push(cb(elements[i]));
-  }
-  return mappedValues;
-=======
-  const newArr = [];
-  for (let i = 0; i < elements.length; i++) {
-    newArr.push(cb(elements[i]));
-  }
-  return newArr;
->>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
-};
+  
+//   //initialize empty array
+//   const mappedValues = [];
+//   //loop through each element in elements and pass it to cb and push that to the empty array
+//   for (let i = 0; i < elements.length; i++) {
+//     mappedValues.push(cb(elements[i]));
+//   }
+//   return mappedValues;
+// };
 
+//take the elements from callback used in each() and push them into newArr
+  const newArr = [];
+  each(elements, (elem, i) => {
+    newArr.push(cb(elem, i));
+  });
+  return newArr;
+};
 const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  
+  //creates a copy of, not a pointer to, elements
   const elementsCopy = elements.slice();
+  //create a memory space for a default or initial value since it can vary between an arbitrary value or undefined
+  // can use ternary statement but it's better practice to stay away from them: if (startingValue === undefined) ? elements[0] : startingValue;
   let memo = startingValue || elementsCopy.shift();
   each(elementsCopy, (item) => {
+    // more closure here
     memo = cb(memo, item);
   });
   return memo;
@@ -54,14 +57,14 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+
+  //loop through each element and check if it equals item.  
   for (let i = 0; i < elements.length; i++) {
-<<<<<<< HEAD
-    if (cb(elements[i])) {
-=======
-    cb(elements[i]);
-    if (cb(elements[i]) === true) {
->>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
-      return elements[i];
+    if (elements[i] === item) {
+      //if element is equal to item pass true to cb else false = undefined
+      cb(true);
+    } else {
+      cb(false);
     }
   }
   return undefined;
@@ -70,9 +73,6 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
-<<<<<<< HEAD
-  const newArr = elements.map(find(elements));
-=======
   const arrAll = [];
   for (let i = 0; i < elements.length; i++) {
     cb(elements[i]);
@@ -81,7 +81,6 @@ const filter = (elements, cb) => {
     }
   }
   return arrAll;
->>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
 };
 /* STRETCH PROBLEM */
 
