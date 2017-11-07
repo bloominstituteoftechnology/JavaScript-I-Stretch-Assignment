@@ -58,11 +58,18 @@ const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
   const answer = [];
-  const flattenArr = function(arr) {
+  function checkArr(arr) {
     for (let i = 0; i < arr.length; i++) {
-      if ()
+      if (!(arr[i] instanceof Array)) {
+        answer.push(arr[i]);
+      }
+      if ((arr[i] instanceof Array) && (arr[i].length > 0)) {
+        checkArr(arr[i]);
+      }
     }
-  };
+  }
+  checkArr(elements);
+  return answer;
 };
 
 /* eslint-enable no-unused-vars, max-len */
