@@ -21,16 +21,17 @@ const counterFactory = () => {
   };
   return newObj;
 };
+// Factory functions return an object
 
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
-  let count = n;
-  return function bar() {
-    while (count >= 0) {
-      count--;
-      return cb();
-    }
+  // teacher solution
+  let callCount = 0;
+  return (...args) => {
+    if (callCount === n) { return null; }
+    callCount++;
+    return cb();
   };
 };
 

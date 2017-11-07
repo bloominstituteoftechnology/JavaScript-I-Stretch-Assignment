@@ -18,9 +18,9 @@ const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
   const newArr = [];
-  for (let i = 0; i < elements.length; i++) {
-    newArr.push(cb(elements[i]));
-  }
+  each(elements, (elem, i) => {
+    newArr.push(cb(elem[i]));
+  });
   return newArr;
 };
 
@@ -29,12 +29,17 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  const copiedElements = elements.slice();
+  let memo;
   if (startingValue === 'undefined') {
-    startingValue = elements[0];
+    memo = copiedElements.shift();
+  } else {
+    memo = startingValue;
   }
-  for (let i = 0; i < elements.length; i++) {
-    cb(startingValue, elements[i]);
-  }
+  each(copiedElements, (item) => {
+    memo = cb(memo, item);
+  });
+  return memo;
 };
 
 const find = (elements, cb) => {
