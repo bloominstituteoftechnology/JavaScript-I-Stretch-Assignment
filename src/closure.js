@@ -26,7 +26,7 @@ const limitFunctionCallCount = (cb, n) => {
     if (callCount === n) return null;
     callCount++;
     return cb(...args);
-  }
+  };
 };
 
 /* STRETCH PROBLEM */
