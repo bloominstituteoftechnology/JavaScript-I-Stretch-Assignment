@@ -11,6 +11,9 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
@@ -18,7 +21,10 @@ const map = (elements, cb) => {
   // Return the new array.
   const arrRes = [];
   for (let i = 0; i < elements.length; i++) { // loop through as many times are there are elements in array
-    arrRes.push(cb(elements[i])); // each time run the db function passing it each new element and push on to arrRes
+    // arrRes.push(cb(elements[i])); // each time run the db function passing it each new element and push on to arrRes
+    // arrRes[i] = cb(elements[i]);
+    // each(elements, item => (arrRes.push(cb(item))));
+    arrRes[i] = cb(elements[i]);
   }
   return arrRes;  // return complete new array
 };
