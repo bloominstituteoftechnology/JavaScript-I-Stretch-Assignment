@@ -31,7 +31,7 @@ const limitFunctionCallCount = (cb, n) => {
   return (...args) => {
     if (callCount === n) { return null; }
     callCount++;
-    return cb();
+    return cb(...args);
   };
 };
 
@@ -44,6 +44,14 @@ const cacheFunction = (cb) => {
   // If the returned function is invoked with arguments that it has already seen
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
+  const u = {};
+  return (x) => {
+    if (u[x] === undefined) {
+      u[x] = cb;
+      return u[x](x);
+    }
+    return u[x];
+  };
 };
 
 /* eslint-enable no-unused-vars */

@@ -42,11 +42,21 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  let ans;
+  each(elements, (item) => {
+    if (cb(item)) ans = item;
+  });
+  return ans;
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const ans = [];
+  each(elements, (item) => {
+    if (cb(item)) ans.push(item);
+  });
+  return ans;
 };
 
 /* STRETCH PROBLEM */
