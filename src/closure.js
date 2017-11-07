@@ -6,7 +6,7 @@ const counter = () => {
   // newCounter(); // 1
   // newCounter(); // 2
   let i = 0;
-  return () => i++;
+  return () => ++i;
 };
 
 const counterFactory = () => {

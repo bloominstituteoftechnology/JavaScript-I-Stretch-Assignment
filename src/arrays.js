@@ -14,7 +14,6 @@ const each = (elements, cb) => {
   }
 };
 
-
 /*
 * TODO: review how each and other functions work on array or objects
 */
@@ -31,7 +30,7 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  
+
 };
 
 const find = (elements, cb) => {
