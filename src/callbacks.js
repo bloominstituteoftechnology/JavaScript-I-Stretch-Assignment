@@ -39,8 +39,6 @@ c
   }
 }
 
-};
-
 /* STRETCH PROBLEM */
 
 const removeDuplicates = (array, cb) => {
