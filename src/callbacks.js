@@ -31,13 +31,11 @@ const contains = (item, list, cb) => {
   let existInArray;
   for(let i = 0; i < list.length; i++) {
     if(item === list[i]) {
-      existInArray = true;
-      break;
+      cb(true);
     } else {
-      existInArray = false;
+      cb(false);
     }
   }
-  cb(existInArray);
 };
 
 /* STRETCH PROBLEM */
