@@ -4,7 +4,7 @@
   "description": "JavaScript I",
   "main": "index.js",
   "scripts": {
-    "test": "eslint tests/*.js && eslint src/*.js && jest ",
+    "test": "jest --verbose ",
     "watch": "npm test -- --watch"
   },
   "repository": {
