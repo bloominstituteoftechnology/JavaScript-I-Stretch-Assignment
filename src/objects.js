@@ -13,7 +13,12 @@ const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
-  return Object.values(obj);
+  const keyArr = Object.keys(obj);
+  const valueArr = [];
+  for (let i = 0; i < keyArr.length; i++) {
+    valueArr.push(obj[keyArr[i]]);
+  }
+  return valueArr;
 };
 
 const mapObject = (obj, cb) => {
