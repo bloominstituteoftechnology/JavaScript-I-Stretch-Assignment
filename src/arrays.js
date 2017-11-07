@@ -29,6 +29,13 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  let sum = elements[0];
+  if (startingValue !== undefined) sum = startingValue + elements[0];
+  for (let i = 1; i < elements.length; i++) {
+    // sum += elements[i];
+    sum = cb(sum, elements[i]);
+  }
+  return sum;
 };
 
 const find = (elements, cb) => {
