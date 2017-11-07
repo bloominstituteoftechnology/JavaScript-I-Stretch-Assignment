@@ -30,15 +30,15 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `starting-Value` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
   const reduced = [];
-  let initVal = 0;
-  if (startingValue) {
+  let initVal = elements[0]; // If `startingValue` is undefined then make `elements[0]` the initial value.
+  if (startingValue) {  // If `startingValue` is defined make initVal = startingValue;
     initVal = startingValue;
   }
 
   for (let i = 0; i < elements.length; i++) {
-    cb(initVal, elements[i]);
+    reduced[0] = cb(initVal, elements[i]);
   }
-  initVal;
+  return reduced;
 };
   // reduce([1,2,3,4],(ourParam)=> console.log(ourParam));
 
