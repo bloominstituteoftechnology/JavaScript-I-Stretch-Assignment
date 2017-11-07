@@ -16,6 +16,17 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  let count = 0;
+  return {
+    increment: () => {
+      count++;
+      return count;
+    },
+    decrement: () => {
+      count--;
+      return count;
+    },
+  };
 };
 
 const limitFunctionCallCount = (cb, n) => {
@@ -38,6 +49,14 @@ const cacheFunction = (cb) => {
   // If the returned function is invoked with arguments that it has already seen
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
+  const u = {};
+  return (x) => {
+    if (u[x] === undefined) {
+      u[x] = cb;
+      return u[x](x);
+    }
+    return u[x];
+  };
 };
 
 /* eslint-enable no-unused-vars */
