@@ -99,7 +99,3 @@ module.exports = {
   filter,
   flatten,
 };
-function newFunction() {
-  return console.log;
-}
-
