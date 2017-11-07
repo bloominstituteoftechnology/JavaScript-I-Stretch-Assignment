@@ -21,8 +21,11 @@ const mapObject = (obj, cb) => {
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
-
+  return Object.keys(obj).map((data) => {
+    return [data, obj[data]];
+  });
 };
+
 /* STRETCH PROBLEMS */
 const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
