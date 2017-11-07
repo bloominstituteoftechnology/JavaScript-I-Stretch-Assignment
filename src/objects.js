@@ -35,7 +35,7 @@ const pairs = (obj) => {
   let newArray = [];
   const bigArray = [];
   for (let i = 0; i < keyArr.length; i++) {
-    newArray.push(keyArr[i], valArr[i]);  
+    newArray.push(keyArr[i], valArr[i]);
     bigArray.push(newArray);
     newArray = [];
   }
@@ -48,14 +48,27 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  const keyArr = Object.keys(obj);
+  const valArr = Object.values(obj);
+  const newObj = {};
+  for (let i = 0; i < keyArr.length; i++) {
+    newObj[valArr[i]] = keyArr[i];
+  }
+  return newObj;
 };
 
 const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+  const defaultKeys = keys(defaultProps);
+  for (let i = 0; i < defaultKeys.length; i++) {
+    if (obj[defaultKeys[i]] === undefined) {
+      obj[defaultKeys[i]] = defaultProps[defaultKeys[i]];
+    }
+  }
+  return obj;
 };
-
 /* eslint-enable no-unused-vars */
 
 module.exports = {
