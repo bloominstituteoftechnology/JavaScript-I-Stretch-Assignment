@@ -24,6 +24,13 @@ const map = (elements, cb) => {
 };
 
 const reduce = (elements, cb, startingValue) => {
+  const elementsCopy = elements.slice();
+  let memo = startingValue || elementsCopy.shift();
+  each(elementsCopy, (item) => {
+    memo = cb(memo, item);
+  });
+  return memo;
+  // something needs to happen here to combine elements
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
@@ -31,12 +38,20 @@ const reduce = (elements, cb, startingValue) => {
 };
 
 const find = (elements, cb) => {
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) return elements[i];
+  }
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
 };
 
 const filter = (elements, cb) => {
+  const thor = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) thor.push(elements[i]);
+  }
+  return thor;
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
 };
@@ -44,6 +59,15 @@ const filter = (elements, cb) => {
 /* STRETCH PROBLEM */
 
 const flatten = (elements) => {
+  let loki = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (Array.isArray(elements[i])) {
+      loki = loki.concat(flatten(elements[i]));
+    } else {
+      loki.push(elements[i]);
+    }
+  }
+  return loki;
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 };
