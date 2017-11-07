@@ -32,13 +32,9 @@ const pairs = (obj) => {
   // http://underscorejs.org/#pairs
   const keyArr = keys(obj);
   const valArr = values(obj);
-
-  let newArray = [];
   const bigArray = [];
   for (let i = 0; i < keyArr.length; i++) {
-    newArray.push(keyArr[i], valArr[i]);
-    bigArray.push(newArray);
-    newArray = [];
+    bigArray.push([keyArr[i], valArr[i]]);
   }
   return bigArray;
 };
