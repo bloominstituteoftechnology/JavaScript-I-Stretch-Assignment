@@ -9,12 +9,21 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const newArray = [];
+  for (let i = 0; i < elements.length; i++) {
+    newArray.push(cb(elements[i]));
+  }
+  return newArray;
 };
+
 
 const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
