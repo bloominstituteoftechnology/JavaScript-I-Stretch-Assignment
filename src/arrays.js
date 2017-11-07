@@ -24,6 +24,7 @@ const map = (elements, cb) => {
   return newArray;
 };
 
+
 const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
