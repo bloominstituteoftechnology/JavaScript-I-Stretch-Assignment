@@ -62,18 +62,19 @@ const filter = (elements, cb) => {
 
 /* STRETCH PROBLEM */
 
-const newArray = [];
+
 const flatten = (elements) => {
-    // Flattens a nested array (the nesting can be to any depth).
-    // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  // Flattens a nested array (the nesting can be to any depth).
+  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  let newArr = [];
   for (let i = 0; i < elements.length; i++) {
-    if (elements[i] instanceof Array) {
-      flatten(elements[i]);
+    if (Array.isArray(elements[i])) {
+      newArr = newArr.concat(flatten(elements[i]));
     } else {
-      newArray.push(elements[i]);
+      newArr.push(elements[i]);
     }
   }
-  return newArray;
+  return newArr;
 };
 
 /* eslint-enable no-unused-vars, max-len */
