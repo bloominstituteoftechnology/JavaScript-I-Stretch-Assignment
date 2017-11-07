@@ -24,17 +24,23 @@ const map = (elements, cb) => {
   return mapArr;
 };
 
-const reduce = (elements, cb, startingValue) => {
+const reduce = (elements, cb, startingValue = elements.shift()) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `starting-Value` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  let closure = startingValue || elements[0];
-  for (let i = (startingValue ? 0:1); i < elements.length; i++) {
-    closure += cb(elements[i], i);
+  const copiedElements = elements.slice();
+  let memo;
+  if (startingValue === undefined) {
+    memo = copiedElements.shift();
+  } else {
+    memo = startingValue;
   }
-  return closure;
-}; console.log(reduce([1,2,3],(item) => item,10));
+  each(elements, (item) => {
+    memo = cb(memo, item);
+  });
+  return memo;
+};
 
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
