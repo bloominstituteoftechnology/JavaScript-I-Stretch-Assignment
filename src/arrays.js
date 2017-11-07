@@ -22,8 +22,6 @@ const map = (elements, cb) => {
   const arrRes = [];
   for (let i = 0; i < elements.length; i++) { // loop through as many times are there are elements in array
     // arrRes.push(cb(elements[i])); // each time run the db function passing it each new element and push on to arrRes
-    // arrRes[i] = cb(elements[i]);
-    // each(elements, item => (arrRes.push(cb(item))));
     arrRes[i] = cb(elements[i]);
   }
   return arrRes;  // return complete new array
