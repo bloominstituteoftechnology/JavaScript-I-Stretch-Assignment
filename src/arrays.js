@@ -32,7 +32,6 @@ const reduce = (elements, cb, startingValue) => {
   let sum = elements[0];
   if (startingValue !== undefined) sum = startingValue + elements[0];
   for (let i = 1; i < elements.length; i++) {
-    // sum += elements[i];
     sum = cb(sum, elements[i]);
   }
   return sum;
