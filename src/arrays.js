@@ -52,10 +52,20 @@ const filter = (elements, cb) => {
 };
 
 /* STRETCH PROBLEM */
-
+// taken from https://stackoverflow.com/questions/27266550/how-to-flatten-nested-array-in-javascript
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  let ret = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (Array.isArray(elements[i])) {
+      ret = ret.concat(flatten(elements[i])); // if the array element is iteslf an array, recursively flatten it
+                                             // and  add (concat) it to to the array you are building
+    } else {
+      ret.push(elements[i]);  // if it's not an arry push it to array you are building
+    }
+  }
+  return ret;
 };
 
 /* eslint-enable no-unused-vars, max-len */
