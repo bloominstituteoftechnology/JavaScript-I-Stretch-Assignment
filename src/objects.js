@@ -14,7 +14,6 @@ const values = (obj) => {
   // http://underscorejs.org/#values
   return Object.values(obj);
 };
-console.log(keys({a: 10, b:20}), values({a: 10, b:20}))
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
