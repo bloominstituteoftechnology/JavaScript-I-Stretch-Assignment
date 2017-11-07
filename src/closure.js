@@ -5,7 +5,10 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
-};
+  const counterVar = 0;
+  const newCounter = () => { 
+    counterVar += 1;
+  
 
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.

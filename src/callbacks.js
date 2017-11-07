@@ -32,11 +32,9 @@ const contains = (item, list, cb) => {
 
   for(let i = 0; i < list.length; i++){
     if(list[i] === item){
-      par = true;
       cb(true);
     }
     else {
-      par = false;
       cb(false);
     }
   }
@@ -50,7 +48,9 @@ const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  
 };
+  
 
 /* eslint-enable */
 module.exports = {
