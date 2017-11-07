@@ -7,7 +7,7 @@ const firstItem = (arr, cb) => {
 
 const getLength = (arr, cb) => {
   // getLength passes the length of the array into the callback.
-  cb(arr.length);
+
 };
 
 const last = (arr, cb) => {
@@ -17,7 +17,7 @@ const last = (arr, cb) => {
 
 const sumNums = (x, y, cb) => {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  cb(x + y);
+  
 };
 
 const multiplyNums = (x, y, cb) => {
@@ -28,6 +28,7 @@ const multiplyNums = (x, y, cb) => {
 const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  if ()
 };
 
 /* STRETCH PROBLEM */
@@ -36,6 +37,7 @@ const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  let newArr = []
 };
 
 /* eslint-enable */
