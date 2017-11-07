@@ -16,6 +16,17 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  let counterVar = 0;
+  return {   // Can be refactored using center();
+    increment: () => {
+      counterVar++;
+      return counterVar;
+    },
+    decrement: () => {
+      counterVar--;
+      return counterVar;
+    },
+  };
 };
 
 const limitFunctionCallCount = (cb, n) => {
