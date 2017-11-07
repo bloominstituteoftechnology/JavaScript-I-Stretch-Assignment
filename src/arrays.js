@@ -9,20 +9,33 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+<<<<<<< HEAD
   
   for (let index = 0; index < elements.length; index++) {
     elements = (index, cb(index)
+=======
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+>>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
   }
 };
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+<<<<<<< HEAD
   const mappedValues = [];
   for (let i = 0; i < elements.length; i++) {
     mappedValues.push(cb(elements[i]));
   }
   return mappedValues;
+=======
+  const newArr = [];
+  for (let i = 0; i < elements.length; i++) {
+    newArr.push(cb(elements[i]));
+  }
+  return newArr;
+>>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -42,7 +55,12 @@ const find = (elements, cb) => {
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
   for (let i = 0; i < elements.length; i++) {
+<<<<<<< HEAD
     if (cb(elements[i])) {
+=======
+    cb(elements[i]);
+    if (cb(elements[i]) === true) {
+>>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
       return elements[i];
     }
   }
@@ -52,7 +70,18 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+<<<<<<< HEAD
   const newArr = elements.map(find(elements));
+=======
+  const arrAll = [];
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i]);
+    if (cb(elements[i]) === true) {
+      arrAll.push(elements[i]);
+    }
+  }
+  return arrAll;
+>>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
 };
 /* STRETCH PROBLEM */
 

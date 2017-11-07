@@ -38,7 +38,6 @@ const contains = (item, list, cb) => {
       cb(false);
     }
   }
-
 };
 
 

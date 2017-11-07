@@ -5,6 +5,10 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
   return (Object.keys(obj));
 };
 
@@ -13,7 +17,16 @@ const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
+<<<<<<< HEAD
   return (Object.values(obj));
+=======
+  const keyArr = Object.keys(obj);
+  const valueArr = [];
+  for (let i = 0; i < keyArr.length; i++) {
+    valueArr.push(obj[keyArr[i]]);
+  }
+  return valueArr;
+>>>>>>> cf9999781b67ad235a2d6fbc4e38721e59a8c69a
 };
 
 
