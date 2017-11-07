@@ -32,16 +32,14 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => { // Need to Review the requirements, I think it is doing what it is suposed to
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
-  let newCounter = 0;
-
-  const returnFunction = (arg1, arg2, arg3, arg4, arg5, arg6, arg7) => {
-    newCounter++;
-    if (newCounter <= n) {
-      cb(arg1, arg2, arg3, arg4, arg5, arg6, arg7);  // Refactor a method to handle multiple arguments!
+  let callCount = 0;
+  return (...args) => {
+    if (callCount === n) {
+      return null;
     }
+    callCount++;
+    return cb(...args);
   };
-
-  return returnFunction;
 };
 
 /* STRETCH PROBLEM */
