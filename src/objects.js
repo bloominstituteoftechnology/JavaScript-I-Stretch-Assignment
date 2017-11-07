@@ -9,6 +9,8 @@ const keys = (obj) => {
 };
 
 const values = (obj) => {
+  const newObj = Object.keys(obj);
+  return Object.keys(obj);
 };
 
 const mapObject = (obj, cb) => {
