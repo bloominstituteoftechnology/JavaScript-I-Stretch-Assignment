@@ -32,6 +32,9 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+
+
+  // see bottom of file for working code if needed, otherwise can delete this comment. thanks
 };
 
 const find = (elements, cb) => {
@@ -49,6 +52,8 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+
+  // see bottom of file for working code if needed, otherwise can delete this comment. thanks
 };
 
 /* STRETCH PROBLEM */
@@ -78,3 +83,23 @@ module.exports = {
   filter,
   flatten,
 };
+
+
+/*
+reduce
+const reduce = (elements, cb, startingValue = elements.shift()) => {  google default params , es6
+for (let i = 0; i < elements.length; i++) {
+  startingValue = cb(startingValue, elements[i]);
+}
+return startingValue;
+}
+
+filter
+const res = [];
+for (let i = 0; i < elements.length; i++) {
+  if (cb(elements[i])) { // if true add to res array
+    res.push(elements[i]);
+  }
+}
+return res;
+*/
