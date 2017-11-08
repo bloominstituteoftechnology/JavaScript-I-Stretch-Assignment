@@ -55,13 +55,13 @@ const cacheFunction = (cb) => {
       // newObj[Object.keys(newObj)[i]] = item
       // newObj[item] = item;
       newObj[item] = cb();
-      cb(newObj[item]);
+      newObj[item]();
     } else {
       newObj[item] = item;
-      cb(newObj[item]);
+      newObj[item]();
     }
     // }
-    return cb();
+    return newObj[item]();
   };
 };
 
