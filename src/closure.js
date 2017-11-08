@@ -46,7 +46,27 @@ const cacheFunction = (cb) => {
   // If the returned function is invoked with arguments that it has already seen
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
+
+  const newObj = {};
+  return (item) => {
+    // for (let i = 0; i < Object.keys(newObj).length; i++) {
+      // console.log(item);
+    if (newObj[item] === undefined) {
+      // newObj[Object.keys(newObj)[i]] = item
+      // newObj[item] = item;
+      newObj[item] = cb();
+      cb(newObj[item]);
+    } else {
+      newObj[item] = item;
+      cb(newObj[item]);
+    }
+    // }
+    return cb();
+  };
 };
+
+// const foo = x => (x * x);
+// cacheFunction(foo(2));
 
 /* eslint-enable no-unused-vars */
 

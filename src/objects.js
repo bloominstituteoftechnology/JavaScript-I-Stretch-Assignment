@@ -42,7 +42,6 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
-  // const arr = [];
   const newOb = {};
   for (let i = 0; i < keys(obj).length; i++) {
     newOb[values(obj)[i]] = keys(obj)[i];
@@ -54,7 +53,11 @@ const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+
+  return obj;
 };
+
+// defaults()
 
 /* eslint-enable no-unused-vars */
 
