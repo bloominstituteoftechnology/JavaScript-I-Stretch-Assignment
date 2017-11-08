@@ -19,7 +19,7 @@ const map = (elements, cb) => {
   // Return the new array.
   const x = [];
   for (let i = 0; i < elements.length; i++) {
-x.push(cb(elements[i]));
+    x.push(cb(elements[i]));
   }
   return x;
 };
@@ -29,12 +29,12 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  const elementsCopy = elementsCopy.splice();
-  let memo = startingValue || elementsCopy.shift();
-  each(elementsCopy, (item) => {
-    memo = cb(memo, item);
-  });
-  return memo;
+  let sum = elements[0];
+  if (startingValue !== undefined) sum = startingValue + elements[0];
+  for (let i = 1; i < elements.length; i++) {
+    sum = cb(sum, elements[i]);
+  }
+  return sum;
 };
 
 const find = (elements, cb) => {
@@ -42,8 +42,9 @@ const find = (elements, cb) => {
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
   for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i])); return elements[i];
+    if (cb(elements[i])) return elements[i];
   }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
