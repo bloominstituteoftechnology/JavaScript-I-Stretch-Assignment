@@ -20,6 +20,7 @@ const values = (obj) => {
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
  // http://underscorejs.org/#mapObject
+ // So I really really like Object.entries(obj) how cool
   const answer = {};
   const entries = Object.entries(obj);
   for (let i = 0; i < entries.length; i++) {
@@ -31,6 +32,8 @@ const mapObject = (obj, cb) => {
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+  const answer = Object.entries(obj);
+  return answer;
 };
 
 /* STRETCH PROBLEMS */
@@ -39,12 +42,26 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  const answer = {};
+  const toSwitch = Object.entries(obj);
+  for (let i = 0; i < toSwitch.length; i++) {
+    answer[toSwitch[i][1]] = toSwitch[i][0];
+  }
+  return answer;
 };
 
 const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+  const defaultEntries = Object.entries(defaultProps);
+  const objKeys = Object.keys(obj);
+  for (let i = 0; i < defaultEntries.length; i++) {
+    if (!(objKeys.includes(defaultEntries[i][0]))) {
+      obj[defaultEntries[i][0]] = defaultEntries[i][1];
+    }
+  }
+  return obj;
 };
 
 /* eslint-enable no-unused-vars */
