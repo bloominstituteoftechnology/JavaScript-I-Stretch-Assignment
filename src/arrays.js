@@ -105,8 +105,17 @@ const flatten = (elements) => {
     }
 
   } return arr;
+/* 
+const flattenedArray = reduce(
+  elements, (prev, next) => {
+    if (Array.isArray(next)) return prev.concat(flatten(next));
+    return prev.concat(next);
+  },
+ [],
    // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+};
+return flattenedArray;
 };
 
 /* eslint-enable no-unused-vars, max-len */
