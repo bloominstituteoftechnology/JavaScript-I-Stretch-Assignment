@@ -24,6 +24,7 @@ const mapObject = (obj, cb) => {
   keyArr.forEach((key) => {
     result[key] = cb(obj[key]);
   });
+  return result;
 };
 
 const pairs = (obj) => {
