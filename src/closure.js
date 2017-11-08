@@ -48,20 +48,17 @@ const cacheFunction = (cb) => {
   // `cb` should only ever be invoked once for a given set of arguments.
 
   const newObj = {};
+  // console.log(newObj, arr, cb);
   return (item) => {
-    // for (let i = 0; i < Object.keys(newObj).length; i++) {
-      // console.log(item);
     if (newObj[item] === undefined) {
-      // newObj[Object.keys(newObj)[i]] = item
-      // newObj[item] = item;
-      newObj[item] = cb();
-      newObj[item]();
-    } else {
-      newObj[item] = item;
-      newObj[item]();
+      newObj[item] = cb;
+      return newObj[item](item);
+        // console.log(newObj);
     }
-    // }
-    return newObj[item]();
+
+    return newObj[item];
+    // console.log(newObj, arr, item);
+    // return newObj
   };
 };
 
