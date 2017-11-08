@@ -53,7 +53,7 @@ const find = (elements, cb) => {
       return elements[i];
     }
   }
-  return false;
+  return undefined;
 };
 
 const filter = (elements, cb) => {
