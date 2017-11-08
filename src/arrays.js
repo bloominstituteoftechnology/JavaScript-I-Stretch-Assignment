@@ -4,41 +4,79 @@
 // You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
 // You can use the functions that you have already written to help solve the other problems
 
+
+// https://code.tutsplus.com/tutorials/how-to-use-map-filter-reduce-in-javascript--cms-26209
 const each = (elements, cb) => {
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const arrRes = [];
+  for (let i = 0; i < elements.length; i++) { // loop through as many times are there are elements in array
+    // arrRes.push(cb(elements[i])); // each time run the db function passing it each new element and push on to arrRes
+    arrRes[i] = cb(elements[i]);
+  }
+  return arrRes;  // return complete new array
 };
 
-const reduce = (elements, cb, startingValue) => {
+const reduce = (elements, cb, startingValue = elements.shift()) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  for (let i = 0; i < elements.length; i++) {
+    startingValue = cb(startingValue, elements[i]);
+  }
+  return startingValue;
 };
 
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i]) === true) {
+      return (elements[i]);
+    }
+  }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const newArr = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i]) === true) {
+      newArr.push(elements[i]);
+    }
+  }
+  return newArr;
 };
 
 /* STRETCH PROBLEM */
-
+// taken from https://stackoverflow.com/questions/27266550/how-to-flatten-nested-array-in-javascript
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  let ret = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (Array.isArray(elements[i])) {
+      ret = ret.concat(flatten(elements[i])); // if the array element is iteslf an array, recursively flatten it
+                                             // and  add (concat) it to to the array you are building
+    } else {
+      ret.push(elements[i]);  // if it's not an arry push it to array you are building
+    }
+  }
+  return ret;
 };
 
 /* eslint-enable no-unused-vars, max-len */
@@ -51,3 +89,23 @@ module.exports = {
   filter,
   flatten,
 };
+
+
+/*
+reduce
+const reduce = (elements, cb, startingValue = elements.shift()) => {  google default params , es6
+for (let i = 0; i < elements.length; i++) {
+  startingValue = cb(startingValue, elements[i]);
+}
+return startingValue;
+}
+
+filter
+const res = [];
+for (let i = 0; i < elements.length; i++) {
+  if (cb(elements[i])) { // if true add to res array
+    res.push(elements[i]);
+  }
+}
+return res;
+*/
