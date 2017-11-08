@@ -52,8 +52,13 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
-
-  // see bottom of file for working code if needed, otherwise can delete this comment. thanks
+  const newArr = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i]) === true) {
+      newArr.push(elements[i]);
+    }
+  }
+  return newArr;
 };
 
 /* STRETCH PROBLEM */
