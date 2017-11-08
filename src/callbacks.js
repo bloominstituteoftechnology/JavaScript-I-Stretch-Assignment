@@ -39,8 +39,6 @@ for (let i = 0; i < list.length; i++) {
   }
 }
 
-};
-
 /* STRETCH PROBLEM */
 
 const removeDuplicates = (array, cb) => {
