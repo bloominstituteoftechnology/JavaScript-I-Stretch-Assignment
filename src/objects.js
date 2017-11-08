@@ -17,9 +17,9 @@ const mapObject = (obj, cb) => {
     // http://underscorejs.org/#mapObject
   const mapped = {};
 
-  const keyPair = Object.keys(obj);
-  for (let i = 0; i < keyPair.length; i++) {
-    mapped[keyPair[i]] = cb(obj[keyPair[i]]);
+  const myKeys = Object.keys(obj);
+  for (let i = 0; i < myKeys.length; i++) {
+    mapped[myKeys[i]] = cb(obj[myKeys[i]]);
   }
   return mapped;
 };
@@ -27,8 +27,8 @@ const mapObject = (obj, cb) => {
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
-  return Object.keys(obj).map((data) => {
-    return [data, obj[data]];
+  return Object.keys(obj).map((key) => {
+    return [key, obj[key]];
   });
 };
 
