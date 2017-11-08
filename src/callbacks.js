@@ -12,6 +12,7 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   cb(arr[arr.length -1]);
+};
 
 const sumNums = (x, y, cb) => {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
@@ -41,6 +42,13 @@ const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  let newArr = [];
+  for (let i = 0; i < array.length; i++) {
+    if (newArr.includes(array[i]) === false) {
+      newArr.push(array[i]);
+    }
+  }
+  cb(newArr);
 };
 
 /* eslint-enable */
