@@ -51,7 +51,9 @@ const filter = (elements, cb) => {
   // Return an empty array if no elements pass the truth test
   const x = [];
   for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i])) x.push(elements[i]);
+    if (cb(elements[i])) {
+      x.push(elements[i]);
+    }
   }
   return x;
 };
