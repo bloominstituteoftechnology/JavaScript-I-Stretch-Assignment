@@ -30,7 +30,7 @@ const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 
-c
+for (let i = 0; i < list.length; i++) {
   if (list[i] == item) {
     cb(true);
   }
@@ -48,14 +48,7 @@ const removeDuplicates = (array, cb) => {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 
-for (let i = 0; i < array.length; i++) {
-  for (let k = i + 1; k < array[i]; k++) {
-
-  }
-
-}
-
-let newArray
+  
 
 };
 
