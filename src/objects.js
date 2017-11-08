@@ -5,6 +5,11 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
+  const Arr = [];
+  for (let i = 0; i < obj.length; i++) {
+    Arr[i] += obj[i];
+  }
+  return Arr;
 };
 
 const values = (obj) => {
