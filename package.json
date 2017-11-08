@@ -4,8 +4,8 @@
   "description": "JavaScript I",
   "main": "index.js",
   "scripts": {
-    "test": "eslint tests/*.js && eslint src/*.js && jest --verbose",
-    "test:watch": "npm test -- --watch"
+    "test": "jest --verbose ",
+    "watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
