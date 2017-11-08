@@ -48,22 +48,14 @@ const cacheFunction = (cb) => {
   // `cb` should only ever be invoked once for a given set of arguments.
 
   const newObj = {};
-  // console.log(newObj, arr, cb);
   return (item) => {
     if (newObj[item] === undefined) {
       newObj[item] = cb;
       return newObj[item](item);
-        // console.log(newObj);
     }
-
     return newObj[item];
-    // console.log(newObj, arr, item);
-    // return newObj
   };
 };
-
-// const foo = x => (x * x);
-// cacheFunction(foo(2));
 
 /* eslint-enable no-unused-vars */
 
