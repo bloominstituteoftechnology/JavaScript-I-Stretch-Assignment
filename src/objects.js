@@ -30,7 +30,16 @@ const mapObject = (obj, cb) => {
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
-
+  const arr = [];
+  const objKeys = keys(obj);
+  const objVals = values(obj);
+  let innerArr = [];
+  for (let i = 0; i < objKeys.length; i++) {
+    innerArr.push(objKeys[i], objVals[i]);
+    arr.push(innerArr);
+    innerArr = [];
+  }
+  return arr;
 };
 
 /* STRETCH PROBLEMS */
@@ -39,6 +48,15 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  const newObj = {};
+  const objKeys = Object.keys(obj);
+  const objVals = Object.values(obj);
+  for (let i = 0; i < objKeys.length; i++) {
+    const hereKey = objKeys[i];
+    const hereValue = objVals[i];
+    newObj[hereValue] = hereKey;
+  }
+  return newObj;
 };
 
 const defaults = (obj, defaultProps) => {
