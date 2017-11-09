@@ -67,3 +67,21 @@ module.exports = {
   contains,
   removeDuplicates,
 };
+
+
+const pairs = (obj) => {
+  // Convert an object into a list of [key, value] pairs.
+  // http://underscorejs.org/#pairs
+  // return Object.entries(obj);
+  const objKeys = Object.keys(obj);
+  const objValues = Object.values(obj);
+  const arrOfPairs = [];
+  let pair = [];
+  for (let i = 0; i < objKeys.length; i++) {
+    pair.push(objKeys[i], objValues[i]);
+    arrOfPairs.push(pair);
+    pair = [];
+  }
+  // returns list of tuples
+  return arrOfPairs;
+};
