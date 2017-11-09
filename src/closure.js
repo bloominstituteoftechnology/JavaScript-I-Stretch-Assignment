@@ -18,6 +18,8 @@ const counterFactory = () => {
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
 /*
+
+// Work in progress
   let counter = 0;
 
   const increment () {
@@ -28,7 +30,15 @@ const counterFactory = () => {
   };
   myObj = {increment, decrement};
   return myObj;
-  */
+
+// New approach
+  let count = 0;
+
+  const myObj = {
+    increments: count++,
+    decrement: count--,
+  };
+    */
 };
 
 const limitFunctionCallCount = (cb, n) => {
