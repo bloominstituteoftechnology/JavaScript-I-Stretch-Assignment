@@ -64,17 +64,19 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  const flattenedArr = [];
-  for (let i = 0; i < elements.length; i++) {
-    if (!Array.isArray(elements[i])) {
-      flattenedArr.push(elements[i]);
-    } else {
-      for (let j = 0; j < elements[i].length; j++) {
-        flattenedArr.push(elements[i][j]);
-      }
-    }
-  }
+  // create finalArr that is flattened
+  // forEach item in the array arg that was received:
+  // if it is an array (Array.isArray prototype func) then
+    // .push using spread operator and recursive call to function flatten
+      // with that item as arg (ad nauseaum)
+  // else (it must not be an array) and push to the flattened arr
+  // return flattened array
 
+  const flattenedArr = [];
+  elements.forEach((item) => {
+    if (Array.isArray(item)) flattenedArr.push(...flatten(item));
+    else flattenedArr.push(item);
+  });
   return flattenedArr;
 };
 
