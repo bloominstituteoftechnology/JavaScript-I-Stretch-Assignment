@@ -73,7 +73,7 @@ const flatten = (elements) => {
   // return flattened array
 
   const flattenedArr = [];
-  elements.forEach((item) => {
+  each(elements, (item) => {
     if (Array.isArray(item)) flattenedArr.push(...flatten(item));
     else flattenedArr.push(item);
   });
