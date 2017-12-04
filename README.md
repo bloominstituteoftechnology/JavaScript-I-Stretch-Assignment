@@ -45,6 +45,6 @@ Do not use any of the built in Javascript Array methods like .forEach .map etc. 
 * Run the command `npm i` to install needed node packages.
 * Run the command `npm test` to run the tests.
 * Work through the files and make the tests pass.
-* Suggested order: `callbacks.js` (no tests), `arrays.js`, `objects.js`, `closure.js`.
+* Suggested order: `callbacks.js`, `arrays.js`, `objects.js`, `closure.js`.
 * Submit a pull request when you are finished and we will review your code.
 >>>>>>> Initial commit
