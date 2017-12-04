@@ -1,6 +1,9 @@
 // Complete the following functions.
 
-const counter = () => {
+const counter = (number) => {
+  number+=1;
+  return number;
+
   // Return a function that when invoked increments and returns a counter variable.
   // Example: const newCounter = counter();
   // newCounter(); // 1
@@ -8,6 +11,16 @@ const counter = () => {
 };
 
 const counterFactory = () => {
+  let binary={
+    increment:function(number){
+      return number++;
+
+    },
+    decrement:function(counter){
+      return counter--;
+    },
+  }
+  return binary;
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
@@ -21,6 +34,21 @@ const limitFunctionCallCount = (cb, n) => {
 /* STRETCH PROBLEM */
 
 const cacheFunction = (cb) => {
+  funct(){
+    cache={
+      
+          }
+    if(cache.includes(cb)===true){
+      return cb;
+    }else{
+      cb(cb);
+    }
+    
+    
+    cache.cb=cb;
+    
+    
+  }
   // Should return a funciton that invokes `cb`.
   // A cache (object) should be kept in closure scope.
   // The cache should keep track of all arguments have been used to invoke this function.
