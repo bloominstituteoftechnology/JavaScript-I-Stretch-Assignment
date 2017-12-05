@@ -1,7 +1,8 @@
 /* eslint-disable */
 
-const firstItem = (arr, cb) => {
+const firstItem = (arr, callBack) => {
   // firstItem passes the first item of the given array to the callback function.
+  callBack(arr[0]);
 };
 
 const getLength = (arr, cb) => {
@@ -20,10 +21,7 @@ const multiplyNums = (x, y, cb) => {
   // multiplyNums multiplies two numbers and passes the result to the callback.
 };
 
-const contains = (item, list, cb) => {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
-};
+const contains = (item, list, cb) => {};
 
 /* STRETCH PROBLEM */
 
