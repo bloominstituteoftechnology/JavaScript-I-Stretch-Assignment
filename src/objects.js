@@ -12,26 +12,24 @@ const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
-    return Object.values(obj);
+  return Object.values(obj);
 };
 
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
   const newObj = {};
-  const valueList = Object.values(obj);
-  const keyList = Object.keys(obj);
-  for (var i = 0; i < key.length; i++) {
-    newObj[keylist[i]] = cb(valueList[i]);
+  for (let i = 0; i < Object.keys(obj).length; i++) {
+    newObj[Object.keys(obj)[i]] = cb(Object.values(obj)[i]);
   }
   return newObj;
-  }
 };
+
 
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
-  Object.entries(obj);
+  return Object.entries(obj);
 };
 
 /* STRETCH PROBLEMS */
@@ -40,7 +38,11 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
-
+  const newObj = {};
+  for (let i = 0; i < Object.keys(obj).length; i++) {
+    newObj[Object.values(obj)[i]] = Object.keys(obj)[i];
+  }
+  return newObj;
 };
 
 const defaults = (obj, defaultProps) => {

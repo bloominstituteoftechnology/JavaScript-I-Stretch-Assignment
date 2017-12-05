@@ -1,6 +1,6 @@
 // Complete the following functions.
 // These functions only need to work with arrays.
-// Do NOT use the built in array methods to solve these. forEach, map, reduce, filter, includes, etc.
+// Do NOT use the built-in array methods to solve these. forEach, map, reduce, filter, includes, etc.
 // You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
 // You can use the functions that you have already written to help solve the other problems
 
@@ -10,7 +10,7 @@ const each = (elements, cb) => {
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
   for (let i = 0; i < elements.length; i += 1) {
-    console.log(cb(elements[i], i));
+    cb(elements[i], i);
   }
 };
 
@@ -27,21 +27,21 @@ const map = (elements, cb) => {
 const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
-  // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
-  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  let result = null;
-  for (let i = 0; i < elements.length; i += 1) {
-    result += cb(startingValue || elements[0], elements[i]);
-  }
-  return result;
+  // `startingValue` should be the first argument passed to `cb` and the array element should be the
+  // second argument.
+  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]`
+  // the initial value.
+
+
 };
 
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
-
-
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) { return elements[i]; }
+  }
 };
 
 const filter = (elements, cb) => {
@@ -49,9 +49,7 @@ const filter = (elements, cb) => {
   // Return an empty array if no elements pass the truth test
   const filtered = [];
   for (let i = 0; i < elements.length; i += 1) {
-    if (cb(elements[i])) {
-      filtered.push(elements[i]);
-    }
+    if (cb(elements[i])) { filtered.push(elements[i]); }
   }
   return filtered;
 };
@@ -61,7 +59,15 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-
+  const flatArray = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (Array.isArray(elements[i])) {
+      elements[i] = elements[i][0];
+      flatten(elements[i]);
+    }
+    flatArray.push(elements[i]);
+  }
+  return flatArray;
 };
 
 /* eslint-enable no-unused-vars, max-len */
