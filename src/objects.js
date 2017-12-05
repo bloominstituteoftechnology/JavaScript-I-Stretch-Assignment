@@ -15,6 +15,7 @@ const values = (obj) => {
   return Object.values(obj);
 };
 
+// Stuggled with mapObject
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
@@ -45,11 +46,21 @@ const invert = (obj) => {
   return newObj;
 };
 
+// Struggled with defaults
 const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+  // const targetKeys = Object.keys(obj);
+  // const sourceKeys = Object.keys(defaultProps);
 
+  // targetKeys.filter(i => sourceKeys.includes(i));
+  Object.keys(defaultProps).forEach((key) => {
+    if (!(key in obj)) {
+      obj[key] = defaultProps[key];
+    }
+  });
+  return obj;
 };
 
 /* eslint-enable no-unused-vars */

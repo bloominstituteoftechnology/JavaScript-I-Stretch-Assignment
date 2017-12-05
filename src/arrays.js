@@ -18,12 +18,16 @@ const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
   const newArray = [];
-  for (let i = 0; i < elements.length; i += 1) {
-    newArray.push(cb(elements[i]));
-  }
+  // for (let i = 0; i < elements.length; i += 1) {
+  //   newArray.push(cb(elements[i]));
+  // }
+  each(elements, (item, index) => {
+    newArray.push(cb(item, index));
+  });
   return newArray;
 };
 
+// Struggled with reduce.
 const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
@@ -31,8 +35,15 @@ const reduce = (elements, cb, startingValue) => {
   // second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]`
   // the initial value.
-
-
+  if (!startingValue) { startingValue = elements.shift(0); }
+  let result = startingValue;
+  each(elements, (el) => {
+    result = cb(result, el);
+  });
+  // for (let i = 0; i < elements.length; i += 1) {
+  //   result = cb(result, elements[i]);
+  // }
+  return result;
 };
 
 const find = (elements, cb) => {
@@ -48,25 +59,28 @@ const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
   const filtered = [];
-  for (let i = 0; i < elements.length; i += 1) {
-    if (cb(elements[i])) { filtered.push(elements[i]); }
-  }
+  // for (let i = 0; i < elements.length; i += 1) {
+  //   if (cb(elements[i])) { filtered.push(elements[i]); }
+  // }
+  each(elements, (item) => {
+    return cb(elements[item]) ? filtered.push(elements[item]) : filtered;
+  });
   return filtered;
 };
 
 /* STRETCH PROBLEM */
-
+// Struggled with flatten.
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  const flatArray = [];
-  for (let i = 0; i < elements.length; i++) {
-    if (Array.isArray(elements[i])) {
-      elements[i] = elements[i][0];
-      flatten(elements[i]);
+  let flatArray = [];
+  each(elements, (item) => {
+    if (Array.isArray(item)) {
+      flatArray = flatArray.concat(flatten(item));
+    } else {
+      flatArray.push(item);
     }
-    flatArray.push(elements[i]);
-  }
+  });
   return flatArray;
 };
 
