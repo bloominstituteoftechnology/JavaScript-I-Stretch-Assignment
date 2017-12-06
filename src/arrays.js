@@ -9,7 +9,6 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
-  const each = [elements, cb];
   for (let i = 1; i < elements.length; i++) {
     cb(elements[i], i);
     }
@@ -70,7 +69,7 @@ const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
   const outPut = [];
-  each(elements, () => {
+  each(elements, (num) => {
     if(Array.isArray(num)) {
       flatten(num);
     } else {
