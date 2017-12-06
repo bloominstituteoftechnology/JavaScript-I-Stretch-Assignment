@@ -42,7 +42,7 @@ const removeDuplicates = (array, cb) => {
       obj[array[i]] = true;
     }
   }
-   cb(resultArr);
+  cb(resultArr);
 };
 
 /* eslint-enable */

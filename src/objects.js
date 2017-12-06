@@ -20,6 +20,7 @@ const mapObject = (obj, cb) => {
 };
 
 const pairs = (obj) => {
+  const pairsArr = [];
   const objkeys = Object.keys(obj);
   const objValues = Object.values(obj);
   for (let i = 0; i < objkeys.length; i++) {
