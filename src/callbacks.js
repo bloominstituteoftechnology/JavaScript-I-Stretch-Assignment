@@ -34,11 +34,7 @@ const contains = (item, list, cb) => {
 /* STRETCH PROBLEM */
 
 const removeDuplicates = (array, cb) => {
-  let uniqueItems = [];
-  array.forEach((element) => {
-    !uniqueItems.includes(element) ? uniqueItems.push(element) : array;
-  });
-  cb(uniqueItems);
+  cb(array.filter((i,idx) => array.lastIndexOf(i) === idx));
 };
 
 /* eslint-enable */
