@@ -34,17 +34,10 @@ const contains = (item, list, cb) => {
 /* STRETCH PROBLEM */
 
 const removeDuplicates = (array, cb) => {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
-  // let noDups = array.filter( (item,index,col) => {
-  //   return col.indexOf(item) === col.lastIndexOf(item);
-  // })
-  // cb(noDups);
   let uniqueItems = [];
-  for (let i = 0; i < array.length; i++) {
-    !uniqueItems.includes(array[i]) ? uniqueItems.push(array[i]) : array
-  }
+  array.forEach((element) => {
+    !uniqueItems.includes(element) ? uniqueItems.push(element) : array;
+  });
   cb(uniqueItems);
 };
 
