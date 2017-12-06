@@ -1,22 +1,26 @@
 // Complete the following functions.
 
 const counter = () => {
-  // Return a function that when invoked increments and returns a counter variable.
-  // Example: const newCounter = counter();
-  // newCounter(); // 1
-  // newCounter(); // 2
+  let count = 0;
+  return () => ++count;
 };
 
 const counterFactory = () => {
-  // Return an object that has two methods called `increment` and `decrement`.
-  // `increment` should increment a counter variable in closure scope and return it.
-  // `decrement` should decrement the counter variable and return it.
+  // let counts = 0;
+  // return {
+  //   increment: () => ++counts,
+  //   decrement: () => --counts,
 };
 
 const limitFunctionCallCount = (cb, n) => {
-  // Should return a function that invokes `cb`.
-  // The returned function should only allow `cb` to be invoked `n` times.
-};
+  let count = 0;
+  return (...args) => {
+    // watch for n. -> "Base Case"
+    if (n === count) return null; // once cb is called n amount of times, return null
+    count++; // else, invoke cb() and increment counter
+    return cb(...args);
+  };
+}; // The returned function should only allow `cb` to be invoked `n` times.
 
 /* STRETCH PROBLEM */
 
