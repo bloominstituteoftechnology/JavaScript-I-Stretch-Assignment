@@ -38,6 +38,9 @@ const cacheFunction = (cb) => {
   // `cb` should only ever be invoked once for a given set of arguments.
   const resultCache = {};
   return (input) => {
+    // if ({}.hasOwnProperty.call(cache, input)) return resultCache[input]
+    // resultCache[input] = cb(input);
+    // return resultCache[input];
     if (Object.keys(resultCache).length === 0) {
       resultCache[input] = cb(input);
       return resultCache[input];
