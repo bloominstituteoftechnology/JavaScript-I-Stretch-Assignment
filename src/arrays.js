@@ -3,13 +3,18 @@
 // Do NOT use the built in array methods to solve these. forEach, map, reduce, filter, includes, etc.
 // You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
 // You can use the functions that you have already written to help solve the other problems
-
+const numArray = [1, 2, 3, 4];
 const each = (elements, cb) => {
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  numArray.push(elements);
+  cb(elements)
 };
+
+each(numArray)
+
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
