@@ -30,14 +30,13 @@ const contains = (item, list, cb) => {
   // Pass true to the callback if it is, otherwise pass false.
 
   let result = false;
-  for(let i=0; i<list.length-1; i++){
+  for (let i=0; i<list.length; i++) {
     if(item === list[i]){
       result = true;
     }
   }
   cb(result);
 };
-
 /* STRETCH PROBLEM */
 
 const removeDuplicates = (array, cb) => {
@@ -45,6 +44,15 @@ const removeDuplicates = (array, cb) => {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 
+  //* loop through the array, use indexOf to check the index of the current element
+  //* if it returns -1 (element does not exist) then push that element into the new array
+  let newArr = [];
+  for (let i=0; i < array.length; i++) {
+    if (newArr.indexOf(array[i]) === -1) {
+      newArr.push(array[i]);
+    }
+  }
+  cb(newArr);
 };
 
 /* eslint-enable */
