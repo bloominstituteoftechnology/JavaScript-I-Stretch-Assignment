@@ -9,11 +9,27 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+
+  //* use for loop to loop through each element in the array
+  //* inside for loop, invoke the cb function and pass in the current element and index
+
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+
+  //* loop through each element in the array and invoke the callback
+  //* the callback then returns an element, push the returned element into the new array
+  const newArray = [];
+  for (let i = 0; i < elements.length; i++) {
+    const element = cb(elements[i]);
+    newArray.push(element);
+  }
+  return newArray;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -21,6 +37,7 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+
 };
 
 const find = (elements, cb) => {
