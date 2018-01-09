@@ -32,11 +32,16 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
   if (startingValue === undefined) {
     startingValue = elements[0];
+    for (let i = 1; i < elements.length; i++) {
+      cb(startingValue += elements[i]);
+    }
   }
-  for (let i = 0; i < elements.length; i++) {
-    cb(elements[i] + startingValue);
+  if (startingValue !== undefined) {
+    for (let i = 0; i < elements.length; i++) {
+      cb(startingValue += elements[i]);
+    }
+    return startingValue;
   }
-  return cb();
 };
 
 const find = (elements, cb) => {
