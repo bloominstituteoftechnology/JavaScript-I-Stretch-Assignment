@@ -29,14 +29,11 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  let accumulator;
-  let initialIndex;
+  let [accumulator] = elements;
+  let initialIndex = 1;
   if (startingValue) {
     accumulator = startingValue;
     initialIndex = 0;
-  } else {
-    accumulator = elements[0];
-    initialIndex = 1;
   }
   for (let i = initialIndex; i < elements.length; i += 1) {
     accumulator = cb(accumulator, elements[i]);
@@ -66,13 +63,17 @@ const filter = (elements, cb) => {
 
 /* STRETCH PROBLEM */
 
-const flatten = (elements) => {
-  // Flattens a nested array (the nesting can be to any depth).
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  return elements.reduce((a, b) => {
-    return a.concat(Array.isArray(b) ? flatten(b) : b);
-  }, []);
-};
+// const flatten = (elements) => {
+//   // Flattens a nested array (the nesting can be to any depth).
+//   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+//   return elements.reduce((a, b) => {
+//     return a.concat(Array.isArray(b) ? flatten(b) : b);
+//   }, []);
+// };
+
+// I started with the above, but the Linter didn't like how I had the brackets/blocks
+// to me this looks bad...
+const flatten = elements => elements.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
 /* eslint-enable no-unused-vars, max-len */
 
