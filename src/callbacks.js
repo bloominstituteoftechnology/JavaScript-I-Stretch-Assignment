@@ -31,7 +31,7 @@ const contains = (item, list, cb) => {
 /* STRETCH PROBLEM */
 
 const removeDuplicates = (array, cb) => {
-  // can use forEach loop ...removeDuplicates removes all duplicate values from the given array.
+  cb([...new Set(array)]);// can use forEach loop ...removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 };
