@@ -5,12 +5,31 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
+  let count = 0;
+  const generator = () => {
+    count++;
+    return count;
+  };
+  return generator;
 };
 
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  let count = 0;
+  return {
+    increment() {
+      count++;
+      this.counter = count;
+      return this.counter;
+    },
+    decrement() {
+      count--;
+      this.counter = count;
+      return this.counter;
+    },
+  };
 };
 
 const limitFunctionCallCount = (cb, n) => {
