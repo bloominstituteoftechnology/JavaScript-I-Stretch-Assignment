@@ -5,6 +5,9 @@
 // You can use the functions that you have already written to help solve the other problems
 
 const each = (elements, cb) => {
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
@@ -12,6 +15,8 @@ const each = (elements, cb) => {
 };
 
 const map = (elements, cb) => {
+  const newArray = [];
+  elements.forEach();
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
 };
