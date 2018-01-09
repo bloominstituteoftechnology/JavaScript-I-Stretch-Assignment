@@ -31,10 +31,17 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
   if (startingValue === undefined) {
     startingValue = elements[0];
+    let starter = startingValue;
+    for (let i = 1; i < elements.length; i++) {
+      starter = cb(starter, elements[i]);
+    }
+    return starter;
   }
+  let starter = startingValue;
   for (let i = 0; i < elements.length; i++) {
-    cb(startingValue, elements[i]);
+    starter = cb(starter, elements[i]);
   }
+  return starter;
 };
 
 const find = (elements, cb) => {
@@ -42,7 +49,9 @@ const find = (elements, cb) => {
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
   for (let i = 0; i < elements.length; i++) {
-    cb(elements[i]);
+    if (cb(elements[i])) {
+      return elements[i];
+    }
   }
   return undefined;
 };
@@ -50,6 +59,13 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const newArray = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      newArray.push(elements[i]);
+    }
+  }
+  return newArray;
 };
 
 /* STRETCH PROBLEM */
@@ -57,6 +73,9 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  return elements.reduce((memo, num) => {
+    return memo.concat(Array.isArray(num) ? flatten(num) : num);
+  }, []);
 };
 
 /* eslint-enable no-unused-vars, max-len */
