@@ -75,10 +75,6 @@ const filter = (elements, cb) => {
 /* STRETCH PROBLEM */
 
 const flatten = (elements) => {
-  const newArray = [];
-  for (let i = 0; i < elements.length; i++) {
-    newArray.push(elements[i]);
-  }
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 };
