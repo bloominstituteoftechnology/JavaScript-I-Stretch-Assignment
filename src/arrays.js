@@ -22,6 +22,9 @@ const reduce = (elements, cb, startingValue) => {
   let sum = 0;
   elements.forEach((element) => {
     sum = cb(startingValue, elements);
+    if (startingValue === undefined) {
+      startingValue = 0;
+    }
   });
   return sum;
 };
@@ -33,7 +36,6 @@ const reduce = (elements, cb, startingValue) => {
 const find = (elements, cb) => {
   elements.forEach((element) => {
     cb(elements.findIndex);
-    
   });
 };
   // Look through each value in `elements` and pass each element to `cb`.
