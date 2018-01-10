@@ -9,11 +9,20 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
+
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const elements2 = [];
+  for (let i = 0; i < elements.length; i++) {
+    elements2[i] = cb(elements[i]);
+  }
+  return elements2;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -21,17 +30,40 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  let combined = startingValue;
+  let i = 0;
+  if (startingValue === undefined) {
+    combined = elements[0];
+    i = 1;
+  }
+  for (; i < elements.length; i++) {
+    combined = cb(combined, elements[i]);
+  }
+  return combined;
 };
 
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      return elements[i];
+    }
+  }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const myArray = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      myArray.push(elements[i]);
+    }
+  }
+  return myArray;
 };
 
 /* STRETCH PROBLEM */
