@@ -1,6 +1,6 @@
 
 const arrayMethods = require('../src/arrays');
-/* eslint-disable no-undef */
+/*eslint-disable*/
 describe('arrays', () => {
   describe('each', () => {
     it('should invoke cb on each array element', () => {
@@ -117,4 +117,4 @@ describe('arrays', () => {
     });
   });
 });
-/* eslint-enable no-undef */
+/* eslint-disable*/

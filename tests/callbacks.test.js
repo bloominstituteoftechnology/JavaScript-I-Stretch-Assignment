@@ -1,5 +1,5 @@
 const callBackMethods = require('../src/callbacks');
-/* eslint-disable no-undef */
+/*eslint-disable*/
 
 describe('callback functions', () => {
   const listOfFood = [
