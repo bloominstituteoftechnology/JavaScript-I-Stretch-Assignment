@@ -11,7 +11,6 @@ describe('callback functions', () => {
   ];
 
   describe('firstItem', () => {
-    cb(arr[0]);
     it('should pass the first item in the list to the callBack', () => {
       let itemToTest;
       callBackMethods.firstItem(listOfFood, (first) => {
