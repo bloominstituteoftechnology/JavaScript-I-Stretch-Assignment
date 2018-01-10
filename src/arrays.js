@@ -31,10 +31,14 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 
 const find = (elements, cb) => {
+  elements.forEach((element) => {
+    cb(elements.findIndex);
+    
+  });
+};
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
-};
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
