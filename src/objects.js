@@ -5,22 +5,39 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
+  const names = Object.keys(obj);
+  return names;
 };
 
 const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
+  const properties = Object.values(obj);
+  return properties;
 };
 
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
+  const names = Object.keys(obj);
+  const properties = Object.values(obj);
+  for (let i = 0; i < names.length; i++) {
+    obj[names[i]] = cb(properties[i]);
+  }
+  return obj;
 };
 
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+  const propNames = Object.keys(obj);
+  const propValues = Object.values(obj);
+  const list = [];
+  propNames.forEach((element, i) => {
+    list.push([propNames[i], propValues[i]]);
+  });
+  return list;
 };
 
 /* STRETCH PROBLEMS */
@@ -29,6 +46,13 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  const propNames = Object.keys(obj);
+  const propValues = Object.values(obj);
+  const reversedObj = {};
+  propNames.forEach((element, i) => {
+    reversedObj[`${propValues[i]}`] = `${propNames[i]}`;
+  });
+  return reversedObj;
 };
 
 const defaults = (obj, defaultProps) => {
@@ -36,6 +60,7 @@ const defaults = (obj, defaultProps) => {
   // Return `obj`.
   // http://underscorejs.org/#defaults
 };
+
 
 /* eslint-enable no-unused-vars */
 
