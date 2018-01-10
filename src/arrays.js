@@ -30,9 +30,14 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  let memo;
-  for (let i = 0; i < elements.length; i++) {
-    memo += cb(startingValue, elements[i]);
+  let memo = startingValue;
+  let i = 0;
+  if (startingValue === undefined) {
+    memo = elements[0];
+    i++;
+  }
+  for (; i < elements.length; i++) {
+    memo = cb(memo, elements[i]);
   }
   return memo;
 };
@@ -65,13 +70,6 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  const newArray = [];
-  for (let i = 0; i < elements.length; i++) {
-    for (let x = 0; x < elements[x].length; i++) {
-      newArray.push(elements[x]);
-    }
-  }
-  return newArray;
 };
 
 /* eslint-enable no-unused-vars, max-len */
