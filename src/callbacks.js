@@ -4,7 +4,6 @@ const firstItem = (arr, cb) => {
   cb(arr[0]);
 };
 
-
 const getLength = (arr, cb) => {
   cb(arr.length);
 };
