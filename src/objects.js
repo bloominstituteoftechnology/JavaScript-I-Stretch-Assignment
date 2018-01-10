@@ -40,7 +40,7 @@ const invert = (obj) => {
   let invertedObj = {};
   for (let i = 0; i < Object.keys(obj).length; i++) {
     invertedObj = {
-      [Object.values(obj)[i]]: Object.keys(obj)[i],
+      [Object.values(obj).shift()]: Object.keys(obj).shift(),
     };
   }
   return invertedObj;
