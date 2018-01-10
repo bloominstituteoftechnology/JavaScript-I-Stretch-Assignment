@@ -46,20 +46,16 @@ const find = (elements, cb) => {
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
   for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i]) === true) return elements[i];
-    return undefined;
+    if (cb(elements[i])) return elements[i];
   }
 };
-//-------------------
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
   const pass = [];
   for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i] === true)) {
-      pass.push(elements[i]);
-    }
+    if (cb(elements[i])) pass.push(elements[i]);
   } return pass;
 };
 //-------------------
@@ -70,8 +66,12 @@ const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 /* eslint-enable no-unused-vars, max-len */
+  const flattenedArr = reduce(elements, (memo, item) => {
+    if (Array.isArray(item)) return memo.concat(flatten(item));
+    return memo.concat(item);
+  }, []);
 };
-
+//-----
 module.exports = {
   each,
   map,

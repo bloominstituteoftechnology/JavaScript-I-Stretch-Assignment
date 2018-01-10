@@ -21,7 +21,7 @@ const mapObject = (obj, cb) => {
   Object.keys(obj).forEach(key => obj[key] = cb(obj[key]));
   return obj;
 };
-//----------
+
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
@@ -41,9 +41,10 @@ const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
-  if (Object.values(obj) === undefined) {
-    Object.defaults(obj, defaultProps);
-  }
+  Object.keys(defaultProps).forEach((key) => {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) return;
+    obj[key] = defaultProps[key];
+  });
   return obj;
 };
 //--------
