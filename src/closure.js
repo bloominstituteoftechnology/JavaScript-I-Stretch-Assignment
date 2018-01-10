@@ -44,9 +44,10 @@ const cacheFunction = (cb) => {
   // `cb` should only ever be invoked once for a given set of arguments.
   const cache = {};
   return (arg) => {
-    if (cache[arg]) return cache[arg];
-    cache[arg] = cb(arg);
-    return cache[arg];
+    if (arg in cache) return cache[arg];
+    const result = cb(arg);
+    cache[arg] = result;
+    return result;
   };
 };
 
