@@ -12,8 +12,7 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  const lastItem = arr.pop()
-  cb(lastItem);
+  cb(arr[arr.length - 1]);
 };
 
 const sumNums = (x, y, cb) => {
@@ -34,10 +33,9 @@ const contains = (item, list, cb) => {
   for (let i = 0; i < list.length; i++) {
     if (item === list[i]) {
       cb(true);
-    } else {
+    } else 
       cb(false);
     }
-  }
 };
 
 /* STRETCH PROBLEM */
