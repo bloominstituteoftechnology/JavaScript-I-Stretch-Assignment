@@ -35,6 +35,14 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  let timesInvoked = 0;
+  return (...args) => {
+    if (timesInvoked === n) {
+      return null;
+    }
+    timesInvoked++;
+    return cb(...args);
+  };
 };
 
 /* STRETCH PROBLEM */
@@ -46,6 +54,10 @@ const cacheFunction = (cb) => {
   // If the returned function is invoked with arguments that it has already seen
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
+  const cache = {};
+  return () => {
+    return cb();
+  };
 };
 
 /* eslint-enable no-unused-vars */
