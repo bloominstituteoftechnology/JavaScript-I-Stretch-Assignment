@@ -18,7 +18,10 @@ const values = (obj) => {
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
-  return Object.mapObject(obj, cb);
+  for (let i = 0; i < Object.keys(obj).length; i++) {
+    obj[Object.keys(obj)[i]] = cb(Object.values(obj)[i]);
+  }
+  return obj;
 };
 
 const pairs = (obj) => {
@@ -26,7 +29,7 @@ const pairs = (obj) => {
   // http://underscorejs.org/#pairs
   const arrOfPairs = [];
   for (let i = 0; i < Object.keys(obj).length; i++) {
-    const arroOfPairs = arrOfPairs.push([Object.keys(obj)[i], Object.values(obj)[i]]);
+    arrOfPairs.push([Object.keys(obj)[i], Object.values(obj)[i]]);
   }
   return arrOfPairs;
 };

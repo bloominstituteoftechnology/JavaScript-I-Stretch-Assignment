@@ -19,8 +19,7 @@ const map = (elements, cb) => {
   // Return the new array.
   const mappedArray = [];
   for (let i = 0; i < elements.length; i++) {
-    cb(elements[i]);
-    mappedArray.push(elements[i] * 2);
+    mappedArray.push(cb(elements[i]));
   }
   return mappedArray;
 };
@@ -33,12 +32,12 @@ const reduce = (elements, cb, startingValue) => {
   if (startingValue === undefined) {
     startingValue = elements[0];
     for (let i = 1; i < elements.length; i++) {
-      cb(startingValue, elements[i]);
+      startingValue = cb(startingValue, elements[i]);
     }
     return startingValue;
   } else if (startingValue !== undefined) {
     for (let i = 0; i < elements.length; i++) {
-      cb(startingValue, elements[i]);
+      startingValue = cb(startingValue, elements[i]);
     }
     return startingValue;
   }
@@ -58,6 +57,13 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const truthyArr = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i] === true)) {
+      truthyArr.push(elements[i]);
+    }
+  }
+  return truthyArr;
 };
 
 /* STRETCH PROBLEM */
