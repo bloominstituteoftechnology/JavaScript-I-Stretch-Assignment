@@ -1,37 +1,81 @@
 /* eslint-disable */
 
+const altCoins = ['Ripple', 'Tronix', 'Pivx', 'Waves', 'Enjin Coin'];
+
+
 const firstItem = (arr, cb) => {
-  // firstItem passes the first item of the given array to the callback function.
-};
+  cb(arr[0])
+}
+firstItem(altCoins, firstItem => {
+  console.log(`The first item is ${firstItem}.`)
+})
+
 
 const getLength = (arr, cb) => {
-  // getLength passes the length of the array into the callback.
+  cb(arr.length);
 };
+getLength(altCoins, length => {
+  console.log(`The length of the array is ${length}.`);
+});
+
 
 const last = (arr, cb) => {
-  // last passes the last item of the array into the callback.
+  cb(arr[arr.length - 1]);
 };
+last(altCoins, lastCoin => {
+  console.log(`The last item in the array is ${lastCoin}.`);
+});
 
-const sumNums = (x, y, cb) => {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
+
+
+const sumNums = (num1, num2, cb) => {
+  cb(num1 + num2);
 };
+sumNums(5, 10, sum => {
+  console.log(`The sum is ${sum}.`);
+});
 
-const multiplyNums = (x, y, cb) => {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+
+const multiplyNums = (num1, num2, cb) => {
+  cb(num1 * num2);
 };
+multiplyNums(5, 10, product => {
+  console.log(`The product is ${product}.`);
+});
 
-const contains = (item, list, cb) => {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
+
+const contains = (arr, str, cb) => {
+  const isInArray = () => {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === str) {
+        return true;
+      }
+    } return false;
+  };
+  cb(isInArray());
 };
+contains(altCoins, 'Potcoin', result => {
+  console.log(result ? 'Potcoin is in the array' : 'Potcoin is not in the array');
+});
 
-/* STRETCH PROBLEM */
-
-const removeDuplicates = (array, cb) => {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+const removeDuplicates = (arr, cb) => {
+  var mySet = new Set(arr);
+  cb([...mySet]);
 };
+removeDuplicates(altCoins, uniqueCoins => {
+  console.log(`altCoins with duplicates removed: ${uniqueCoins}`);
+});
+
+
+const forEach = (arr, cb) => {
+  for (let i = 0; i < arr.length; i++) {
+    cb(arr[i], i);
+  }
+};
+forEach(altCoins, (value, index) => {
+  console.log(`${value} is at index ${index}.`);
+});
+
 
 /* eslint-enable */
 module.exports = {
@@ -41,5 +85,5 @@ module.exports = {
   sumNums,
   multiplyNums,
   contains,
-  removeDuplicates,
-};
+  removeDuplicates
+}
