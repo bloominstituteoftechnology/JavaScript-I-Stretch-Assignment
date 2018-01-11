@@ -4,11 +4,11 @@ const altCoins = ['Ripple', 'Tronix', 'Pivx', 'Waves', 'Enjin Coin'];
 
 
 const firstItem = (arr, cb) => {
-  cb(arr[0]);
-};
+  cb(arr[0])
+}
 firstItem(altCoins, firstItem => {
-  console.log(`The first item is ${firstItem}.`);
-});
+  console.log(`The first item is ${firstItem}.`)
+})
 
 
 const getLength = (arr, cb) => {
@@ -85,5 +85,5 @@ module.exports = {
   sumNums,
   multiplyNums,
   contains,
-  removeDuplicates,
-};
+  removeDuplicates
+}
