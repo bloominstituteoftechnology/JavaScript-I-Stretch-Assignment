@@ -31,8 +31,7 @@ const limitFunctionCallCount = (cb, n) => {
   function limit(...theArgs) {
     if (count <= n) {
       cb(...theArgs);
-    } else {
-      count++;
+      return count++;
     }
   }
   return limit;
