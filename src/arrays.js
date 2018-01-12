@@ -18,7 +18,7 @@ const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
   const newArr = [];
-  for (let i = 0; i <= elements.length; i++) {
+  for (let i = 0; i < elements.length; i++) {
     newArr.push(cb(elements[i]));
   }
   return newArr;
@@ -29,11 +29,12 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  let start = startingValue;
-  if (start === undefined) { start = elements[0]; }
-  for (let i = 0; i < elements.length; i++) {
-    start = cb(start, elements[i]);
-  } return start;
+  const elementsCopy = elements.slice();
+  let memo = startingValue || elementsCopy.shift();
+  each(elementsCopy, (item) => {
+    memo = cb(memo, item);
+  });
+  return memo;
 };
 
 const find = (elements, cb) => {
@@ -50,6 +51,11 @@ const find = (elements, cb) => {
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const filteredValues = [];
+  each(elements, (item) => {
+    if (cb(item)) filteredValues.push(item);
+  });
+  return filteredValues;
 };
 
 /* STRETCH PROBLEM */
@@ -57,6 +63,11 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  const flattenedArr = reduce(elements, (memo, item) => {
+    if (Array.isArray(item)) return memo.concat(flatten(item));
+    return memo.concat(item);
+  }, []);
+  return flattenedArr;
 };
 
 /* eslint-enable no-unused-vars, max-len */
