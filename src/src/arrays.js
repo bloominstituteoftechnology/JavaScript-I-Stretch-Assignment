@@ -20,21 +20,20 @@ const map = (elements, cb) => {
     newArray.push(cb(elements[i]));
   }
   return newArray;
-
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
 };
 
 const reduce = (elements, cb, startingValue) => {
-  let startingPoint = 1;
+  let startingPoint = 0;
   if (startingValue === undefined) {
     startingValue = elements[0];
     startingPoint = 1;
+    for (let i = startingPoint; i < elements.length; i++) {
+      startingValue = cb(startingValue, elements[i]);
+    }
+    return startingValue;
   }
-  for (let i = startingPoint; i < elements.length; i++) {
-    startingValue = cb(startingValue, elements[i]);
-  }
-  return startingValue;
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
@@ -43,10 +42,10 @@ const reduce = (elements, cb, startingValue) => {
 
 const find = (elements, cb) => {
   for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i]) === true) {
+    if (cb(elements[i])) {
       return elements[i];
-    }
-  }
+    }  
+  };
   return undefined;
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
@@ -54,14 +53,6 @@ const find = (elements, cb) => {
 };
 
 const filter = (elements, cb) => {
-  const newArr = [];
-  for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i])) {
-      newArr.push(elements[i]);
-    }
-  }
-  return newArr;
-
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
 };
