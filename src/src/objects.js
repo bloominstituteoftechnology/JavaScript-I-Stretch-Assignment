@@ -2,26 +2,18 @@
 // Reference http://underscorejs.org/ for examples.
 
 const keys = (obj) => {
-  return Object.keys(obj);
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
 };
 
 const values = (obj) => {
-  return Object.values(obj);
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
 };
 
 const mapObject = (obj, cb) => {
-  const newObject = {};
-  const key = Object.keys(obj);
-  for (let i = 0; i < keys.length; i++) {
-    const value = cb(obj[key[i]]);
-  }
-  return newObject;
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
 };
