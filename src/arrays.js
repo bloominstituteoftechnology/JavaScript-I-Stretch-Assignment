@@ -5,7 +5,9 @@
 // You can use the functions that you have already written to help solve the other problems
 
 const each = (elements, cb) => {
-  // Iterates over a list of elements, yielding each in turn to the `cb` function.
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }// Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
@@ -42,6 +44,7 @@ const flatten = (elements) => {
 };
 
 /* eslint-enable no-unused-vars, max-len */
+
 
 module.exports = {
   each,
