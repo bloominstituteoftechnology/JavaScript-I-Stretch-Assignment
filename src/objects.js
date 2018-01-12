@@ -5,6 +5,7 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
+  return Object.getOwnPropertyNames(obj);
 };
 
 const values = (obj) => {
@@ -16,6 +17,7 @@ const values = (obj) => {
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
+  // Object.entries into array, loop cb(i)
 };
 
 const pairs = (obj) => {
