@@ -5,22 +5,35 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
+  return Object.keys(obj);
 };
 
 const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
+  return Object.values(obj);
 };
 
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
+  Object.keys(obj).forEach(key => (obj[key] = cb(obj[key])));
+  return obj;
 };
 
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+  return Object.entries(obj);
+  // why does this not pass but does the same???
+  // const kays = Object.keys(obj);
+  // const velues = Object.values(obj);
+  // const arrOfPairs = [];
+  // for (let i = 0; i < values.length; i++) {
+  //   arrOfPairs.push([kays[i], velues[i]]);
+  // }
+  // return arrOfPairs;
 };
 
 /* STRETCH PROBLEMS */
