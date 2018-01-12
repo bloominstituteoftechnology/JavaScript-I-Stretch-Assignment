@@ -34,24 +34,39 @@ const limitFunctionCallCount = (cb, n) => {
 
 /* STRETCH PROBLEM */
 
+// This is essentially the way Redis works! Cool.
+// This is the answer provided by the instructor;
+// TODO: Implement this yourself later.
 const cacheFunction = (cb) => {
-  // const cache = {};
-  // let argz;
-  // const original = cb;
-  // cb = function (...args) {
-  //   argz = args;
-  //   return original.apply(this, ...args);
-  // };
-
-  // return () => {
-  //   cb(argz);
-  //   if (!cache[argz]) {
-  //     const result = cb(argz);
-  //     cache[argz] = result;
-  //     return result;
-  //   } return cache[argz];
-  // }
+  const cache = {};
+  return (...args) => {
+    const keys = Object.keys(cache);
+    const argsString = args.toString();
+    if (keys.indexOf(argsString) !== -1) {
+      return cache[argsString];
+    }
+    const result = cb(...args);
+    cache[argsString] = result;
+    return result;
+  }
 };
+
+// const cache = {};
+// let argz;
+// const original = cb;
+// cb = function (...args) {
+//   argz = args;
+//   return original.apply(this, ...args);
+// };
+
+// return () => {
+//   cb(argz);
+//   if (!cache[argz]) {
+//     const result = cb(argz);
+//     cache[argz] = result;
+//     return result;
+//   } return cache[argz];
+// }
 
 /* eslint-enable no-unused-vars */
 
