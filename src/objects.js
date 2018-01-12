@@ -2,23 +2,26 @@
 // Reference http://underscorejs.org/ for examples.
 
 const keys = (obj) => {
+  return Object.keys(obj);
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
 };
 
 const values = (obj) => {
-  // Return all of the values of the object's own properties.
+  return Object.values(obj);// Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
 };
 
 const mapObject = (obj, cb) => {
+
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
 };
 
 const pairs = (obj) => {
+  return Object.entries(obj);
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
 };
@@ -33,7 +36,7 @@ const invert = (obj) => {
 
 const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
-  // Return `obj`.
+  return obj;// Return `obj`.
   // http://underscorejs.org/#defaults
 };
 
