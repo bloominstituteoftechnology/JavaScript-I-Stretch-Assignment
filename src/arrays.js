@@ -9,29 +9,51 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const arr = [];
+  for (let i = 0; i < elements.length; i++) {
+    arr.push(cb(elements[i]));
+  }
+  return arr;
 };
 
+// reduce: Array(a) -> fn(acc, curr) -> a -> a
 const reduce = (elements, cb, startingValue) => {
-  // Combine all elements into a single value going from left to right.
-  // Elements will be passed one by one into `cb` along with the `startingValue`.
-  // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
-  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  if (startingValue === undefined) {
+    startingValue = elements[0];
+    for (let i = 1; i < elements.length; i++) {
+      startingValue = cb(startingValue, elements[i]);
+    }
+  } else {
+    for (let i = 0; i < elements.length; i++) {
+      startingValue = cb(startingValue, elements[i]);
+    }
+  }
+  return startingValue;
 };
 
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  return reduce(elements, (acc, curr) => {
+    return cb(curr) ? curr : undefined;
+  }, undefined);
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  return reduce(elements, (acc, curr) => {
+    return cb(curr) ? acc.concat(curr) : acc;
+  }, []);
 };
 
 /* STRETCH PROBLEM */

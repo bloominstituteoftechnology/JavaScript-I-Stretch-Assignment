@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint tests/*.js && eslint src/*.js && jest --verbose",
+    "test:nolint": "jest --verbose",
+    "mytest": "npm run test:nolint -- --watch",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
