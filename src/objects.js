@@ -37,6 +37,7 @@ const pairs = (obj) => {
     answer[i] = [objKeys[i], objVals[i]];
   }
   return answer;
+  // Or just use Object.entries!
 };
 
 /* STRETCH PROBLEMS */

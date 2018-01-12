@@ -58,10 +58,16 @@ const filter = (elements, cb) => {
 
 /* STRETCH PROBLEM */
 
+// Flattens a nested array (the nesting can be to any depth).
+// Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+// Recursive definition:
 const flatten = (elements) => {
-  // Flattens a nested array (the nesting can be to any depth).
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  if (Array.isArray(elements)) {
+    return [].concat(...elements.map(flatten));
+  // base case:
+  } return elements;
 };
+
 
 /* eslint-enable no-unused-vars, max-len */
 
