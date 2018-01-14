@@ -1,10 +1,10 @@
 // Complete the following functions.
 
 const counter = () => {
-  let count = 0;
+  const count = [0];
   return () => {
-    count++;
-    return count;
+    count[0]++;
+    return count[0];
   };
 };
 
