@@ -74,9 +74,12 @@ const flatten = (elements) => {
   const flattenedArr = [];
   for (let i = 0; i < elements.length; i++) {
     if (Array.isArray(elements[i]) === true) {
-      flatten(elements[i]);
+      let j = 0;
+      flatten(flattenedArr.push(elements[i][j]));
+      j++;
+    } else {
+      flattenedArr.push(elements[i]);
     }
-    flattenedArr.push(elements[i]);
   }
   return flattenedArr;
 };
