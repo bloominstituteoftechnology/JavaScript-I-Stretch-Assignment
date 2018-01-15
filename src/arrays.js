@@ -25,12 +25,15 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  const sum = 0;
-  if (!startingValue) startingValue = elements[0];
-  for (let i = 1; i < elements.length; i++) {
+  let i = 0;
+  if (startingValue === undefined) {
+    startingValue = elements[0];
+    i++;
+  }
+  for (; i < elements.length; i++) {
     startingValue = cb(startingValue, elements[i]);
   }
-  return sum;
+  return startingValue;
 };
 
 const find = (elements, cb) => {
@@ -38,17 +41,18 @@ const find = (elements, cb) => {
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
   for (let i = 0; i <= elements.length; i++) {
-    const isTrue = cb(elements[i]);
-    if (isTrue) {
-      return elements[i];
-    }
-    return undefined;
+    if (cb(elements[i])) return elements[i];
   }
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const arr = [];
+  for (let i = 0; i <= elements.length; i++) {
+    if (cb(elements[i])) arr.push(elements[i]);
+  }
+  return arr;
 };
 
 /* STRETCH PROBLEM */
