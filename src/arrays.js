@@ -70,8 +70,16 @@ const filter = (elements, cb) => {
 /* STRETCH PROBLEM */
 
 const flatten = (elements) => {
-  // Flattens a nested array (the nesting can be to any depth).
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  let newArray = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (Array.isArray(elements[i])) {
+      newArray = newArray.concat(flatten(elements[i]));  // recursion. calling flatten (checks if something is an array)
+      // and then concat takes two arrays and makes one
+    } else {
+      newArray.push(elements[i]);
+    }
+  }
+  return newArray;
 };
 
 /* eslint-enable no-unused-vars, max-len */
