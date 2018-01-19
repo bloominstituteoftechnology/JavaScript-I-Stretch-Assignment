@@ -28,8 +28,10 @@ const multiplyNums = (x, y, cb) => {
 const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  cb(list.contains = item);
-  return ('item not present');
+  cb(list.contains === item);  // failed because I used '=' instead of '==='
+      // return ('Item not found');  // failed    because I returned string instead of boolean 
+  return (false);  // failed 1) because 
+  
 };
 
 /* STRETCH PROBLEM */
