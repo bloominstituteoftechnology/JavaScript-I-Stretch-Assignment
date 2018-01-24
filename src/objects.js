@@ -5,14 +5,14 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
-  return Object.keys(obj);
+  return Object.keys(obj);  // returns an array of all the keys
 };
 
 const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
-  return Object.values(obj);
+  return Object.values(obj);  // returns an array of all the values
 };
 
 const mapObject = (obj, cb) => {
@@ -42,7 +42,9 @@ const invert = (obj) => {
   const newObj = {};
   const entries = Object.entries(obj);
   for (let i = 0; i < entries.length; i++) {
-    newObj[entries[i][1]] = entries[i][0];
+    newObj[entries[i][1]] = entries[i][0];  // remember that for entries, there's only 2 items, a key and a value
+    // so entries[i] is the value and entries [0] is a key.
+    // having entries[i][1] will find the value in entries on that item and swap it with the corresponding key
   }
   return newObj;
 };
