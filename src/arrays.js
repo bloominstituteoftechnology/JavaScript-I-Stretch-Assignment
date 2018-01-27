@@ -5,6 +5,10 @@
 // You can use the functions that you have already written to help solve the other problems
 
 const each = (elements, cb) => {
+  // for (let i = 0; i < elements.length; i++) {
+  //   cb(elements[i], i);
+  // }
+
   for (let i = 0; i < elements.length; i++) {
     cb(elements[i], i);
   }
@@ -15,10 +19,16 @@ const each = (elements, cb) => {
 };
 
 const map = (elements, cb) => {
+  // const newArr = [];
+  // for (let i = 0; i < elements.length; i++) {
+  //   const replaceArr = cb(elements[i]);
+  //   newArr.push(replaceArr);
+  // }
+  // return newArr;
   const newArr = [];
+
   for (let i = 0; i < elements.length; i++) {
-    const replaceArr = cb(elements[i]);
-    newArr.push(replaceArr);
+    newArr.push(cb(elements[i]));
   }
   return newArr;
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
@@ -26,16 +36,26 @@ const map = (elements, cb) => {
 };
 
 const reduce = (elements, cb, startingValue) => {
+  // if (startingValue === undefined) {
+  //   startingValue = elements[0];
+  // }
+
+  // let memo = startingValue;
+
+  // for (let i = 1; i < elements.length; i++) {
+  //   memo = cb(memo, elements[i]);
+  // }
+  // return memo;
+  let memo = 0;
   if (startingValue === undefined) {
     startingValue = elements[0];
+    memo += 1;
   }
 
-  let memo = startingValue;
 
-  for (let i = 1; i < elements.length; i++) {
-    memo = cb(memo, elements[i]);
+  for (let i = memo; i < elements.length; i++) {
+    cb(startingValue, elements[i]);
   }
-  return memo;
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
@@ -43,12 +63,12 @@ const reduce = (elements, cb, startingValue) => {
 };
 
 const find = (elements, cb) => {
-  for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i])) {
-      return elements[i];
-    }
-  }
-  return undefined;
+  // for (let i = 0; i < elements.length; i++) {
+  //   if (cb(elements[i])) {
+  //     return elements[i];
+  //   }
+  // }
+  // return undefined;
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
@@ -69,6 +89,15 @@ const filter = (elements, cb) => {
 /* STRETCH PROBLEM */
 
 const flatten = (elements) => {
+  const newArr = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (Array.isArray(elements[i])) {
+      newArr.concat(flatten(elements[i]));
+    } else {
+      newArr.push(elements[i]);
+    }
+  }
+  return newArr;
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 };
