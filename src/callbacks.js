@@ -12,8 +12,7 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  const length = arr.length
-  return cb(arr[length - 1]);
+  return cb(arr[arr.length - 1]);
 };
 
 const sumNums = (x, y, cb) => {
@@ -26,15 +25,17 @@ const multiplyNums = (x, y, cb) => {
   return cb(x * y);
 };
 
+const each = (elements, cb) => {
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
+};
+
+
 const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  if (list.indexOf(item) === -1) {
-    return cb(false);
-  }
-  else {
-    return cb(true);
-  }
+  cb(list.some(x => x === item))
 };
 
 /* STRETCH PROBLEM */
@@ -43,8 +44,17 @@ const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
-  let newArr = Array.from(new Set(array))
-  return cb(newArr);
+
+  let result = [];
+
+  each(array, item => {
+    contains(item, result, isInArray => (
+      isInArray ? null : result.push(item)));
+  });
+
+  // Old answer:
+  // let result = Array.from(new Set(array))
+  return cb(result);
 };
 
 /* eslint-enable */

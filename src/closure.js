@@ -48,7 +48,7 @@ const cacheFunction = (cb) => {
     const result = cb(...args);
     cache[argsString] = result;
     return result;
-  }
+  };
 };
 
 // const cache = {};
