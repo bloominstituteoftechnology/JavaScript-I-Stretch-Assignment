@@ -55,8 +55,8 @@ const removeDuplicates = (array, cb) => {
 
   const newArr = [];
   each(array, (value, index) => {
-    contains(value, newArr, (isValue) => {
-      if (!isValue) {
+    contains(value, newArr, (isInNewArr) => {
+      if (!isInNewArr) {
         newArr.push(value);
       }
     });
