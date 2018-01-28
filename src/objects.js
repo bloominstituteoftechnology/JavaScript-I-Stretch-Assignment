@@ -45,7 +45,7 @@ const invert = (obj) => {
     newObj[els[i][1]] = els[i][0];
   }
   return newObj;
-  };
+};
 
   // solution provided by Dan
 

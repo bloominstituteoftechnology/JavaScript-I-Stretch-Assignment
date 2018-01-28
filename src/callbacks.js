@@ -34,12 +34,11 @@ const contains = (item, list, cb) => {
    // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 
-for (let i = 0; i < list.length; i++) {
-  if (list[i] === item) {
-    return cb(true);
-  } 
-  cb(false);
-}
+  if(list.indexOf(item) === -1){
+    cb(false);
+ }else {
+     cb(true);
+ }
 };
 
 /* STRETCH PROBLEM */
@@ -62,7 +61,7 @@ const removeDuplicates = (array, cb) => {
       }
     });
   });
-return newArr;
+return cb(newArr);
 };
 
 /* eslint-enable */
