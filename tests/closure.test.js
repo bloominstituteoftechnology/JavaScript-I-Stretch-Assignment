@@ -43,6 +43,7 @@ describe('closure', () => {
     it('should return a function', () => {
       expect(typeof closureMethods.limitFunctionCallCount()).toBe('function');
     });
+
     it('should return a wrapped version of the original function that can only be invoked n times', () => {
       const foo = () => (true);
       const limitedFunction = closureMethods.limitFunctionCallCount(foo, 2);
@@ -50,6 +51,7 @@ describe('closure', () => {
       limitedFunction();
       expect(limitedFunction()).toBe(null);
     });
+
     it('should properly handle arguments in the wrapped function', () => {
       const foo = (x, y, z) => (x + y + z);
       const limitedFunction = closureMethods.limitFunctionCallCount(foo, 2);
