@@ -5,7 +5,15 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
+  const count = 1;
+  function increments() {
+    return count;
+  }
+  return increments;
 };
+
+const newCount = counter();
+
 
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.

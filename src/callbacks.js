@@ -9,7 +9,7 @@ const getLength = (arr, cb) => {
 };
 
 const last = (arr, cb) => {
-  return cb(arr[arr.length-1]);
+  return cb(arr[arr.length - 1]);
 };
 
 const sumNums = (x, y, cb) => {
@@ -30,6 +30,10 @@ const contains = (item, list, cb) => {
       } else cb(false);
     };
 };
+/*
+const contains = (item, list, cb) => {
+ cb(list.includes(item));
+*/
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 
