@@ -30,7 +30,8 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
   startingValue = 0;
-
+/*   elements = [];
+ */
   for (let i = 0; i < elements.length; i++) {
     startingValue += elements[i];
     cb(startingValue + elements[i]);
@@ -42,6 +43,14 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i]);
+    if (cb(elements[i]) === true) {
+      return elements[i];
+    } else if (elements[i] === false) {
+      return undefined;
+    }
+  }
 };
 
 const filter = (elements, cb) => {

@@ -1,4 +1,4 @@
-/* eslint-disable */
+ /* eslint-disable */
 
 const firstItem = (arr, cb) => {
   return cb(arr[0]);
