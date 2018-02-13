@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const firstItem = (arr, cb) => {
   // firstItem passes the first item of the given array to the callback function.
 };
@@ -41,5 +39,5 @@ module.exports = {
   sumNums,
   multiplyNums,
   contains,
-  removeDuplicates,
+  removeDuplicates
 };
