@@ -1,6 +1,8 @@
 # JavaScript I
 
-## Instructions
+This project is designed to get you used to working with all of the concepts we cover during the first 2 days of JavaScript Fundamentals week.
+
+## Project initialization
 
 Do not use any of the built in Javascript Array methods like .forEach .map etc. If you'd like feel free to reuse any of your functions along the way though! 
 
