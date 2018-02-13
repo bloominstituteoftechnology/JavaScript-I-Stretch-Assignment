@@ -1,5 +1,7 @@
 # JavaScript I
 
+This project is designed to get you used to working with all of the concepts we cover during the first 2 days of JavaScript Fundamentals week.
+
 ## Project initialization
 
 * `Fork and Clone` this repository and cd into it.
