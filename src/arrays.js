@@ -1,3 +1,5 @@
+// SAVE ME BABY JESUS FROM THE LINT GODS.
+
 // Complete the following functions.
 // These functions only need to work with arrays.
 // Do NOT use the built in array methods to solve these. forEach, map, reduce, filter, includes, etc.
@@ -18,12 +20,12 @@ const each = (elements, cb) => {
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
-  const newArray = [];
-  each(elements, (item, index) => {
-    newArray.push(cb(item, index));
-  });
-
-  return newArray;
+  // const newArray = [];
+  // each(elements, (item, index) => {
+  //   newArray.push(cb(item, index));
+  // });
+  //
+  // return newArray;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -32,19 +34,19 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 
-  const newElements = elements.slice();
-
-  if (!startingValue) {
-    startingValue = newElements.shift();
-  }
-
-  let memo = startingValue;
-
-  each(newElements, (el) => {
-    memo = cb(memo, el);
-  });
-
-  return memo;
+  // const newElements = elements.slice();
+  //
+  // if (!startingValue) {
+  //   startingValue = newElements.shift();
+  // }
+  //
+  // let memo = startingValue;
+  //
+  // each(newElements, (el) => {
+  //   memo = cb(memo, el);
+  // });
+  //
+  // return memo;
 };
 
 const find = (elements, cb) => {
@@ -52,24 +54,24 @@ const find = (elements, cb) => {
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
 
-  for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i])) {
-      return elements[i];
-    }
-  }
+  // for (let i = 0; i < elements.length; i++) {
+  //   if (cb(elements[i])) {
+  //     return elements[i];
+  //   }
+  // }
 };
 
 const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
-  const truthArray = [];
-
-  for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i])) {
-      truthArray.push(elements[i]);
-    }
-  }
-  return truthArray;
+  // const truthArray = [];
+  //
+  // for (let i = 0; i < elements.length; i++) {
+  //   if (cb(elements[i])) {
+  //     truthArray.push(elements[i]);
+  //   }
+  // }
+  // return truthArray;
 };
 
 /* STRETCH PROBLEM */
@@ -78,14 +80,14 @@ const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 
-  let outPut = [];
-  each(elements, (num) => {
-    if (Array.isArray(num)) outPut = outPut.concat(flatten(num));
-    else {
-      outPut.push(num);
-    }
-  });
-  return outPut;
+  // let outPut = [];
+  // each(elements, (num) => {
+  //   if (Array.isArray(num)) outPut = outPut.concat(flatten(num));
+  //   else {
+  //     outPut.push(num);
+  //   }
+  // });
+  // return outPut;
 };
 
 /* eslint-enable no-unused-vars, max-len */
