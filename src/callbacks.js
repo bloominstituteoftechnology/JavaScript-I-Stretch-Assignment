@@ -1,12 +1,15 @@
 const firstItem = (arr, cb) => {
+  cb(arr[0]);
   // firstItem passes the first item of the given array to the callback function.
 };
 
 const getLength = (arr, cb) => {
+  cb(arr.length);
   // getLength passes the length of the array into the callback.
 };
 
 const last = (arr, cb) => {
+  
   // last passes the last item of the array into the callback.
 };
 
