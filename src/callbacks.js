@@ -10,7 +10,7 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  const lastItem = arr.length - 1;
+  const lastItem = arr[arr.length - 1];
   cb(lastItem);
 };
 
