@@ -20,7 +20,7 @@ const mapObject = (obj, cb) => {
   // http://underscorejs.org/#mapObject
   const entries = Object.entries(obj);
   for (let i = 0; i < entries.length; i++) {
-    obj[entries[i[0]]] = cb(entries[i[1]]);
+    obj[entries[i][0]] = cb(entries[i][1]);
   }
   return obj;
 };
@@ -37,12 +37,19 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  const reversedObj = {};
+  const entries = Object.entries(obj);
+  for (let i = 0; i < entries.length; i++) {
+    reversedObj[entries[i][1]] = entries[i][0];
+  }
+  return reversedObj;
 };
 
 const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+
 };
 
 /* eslint-enable no-unused-vars */
