@@ -19,14 +19,15 @@ const map = (elements, cb) => {
 };
 
 const reduce = (elements, cb, startingValue) => {
-  let sum = 0;
-  elements.forEach((element) => {
-    sum = cb(startingValue, elements);
-    if (startingValue === undefined) {
-      startingValue = 0;
-    }
-  });
-  return sum;
+  let i = 0;
+  if (startingValue === undefined) {
+    startingValue = elements[0];
+    i++;
+  }
+  for (i = 0; i < elements.length; i++) {
+    startingValue = cb(startingValue, elements[i]);
+  }
+  return startingValue;
 };
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
