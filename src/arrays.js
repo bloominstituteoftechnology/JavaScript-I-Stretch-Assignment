@@ -75,6 +75,15 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  let output = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (Array.isArray(elements[i])) {
+      output = output.concat(flatten(elements[i]));
+    } else {
+      output.push(elements[i]);
+    }
+  }
+  return output;
 };
 
 /* eslint-enable no-unused-vars, max-len */
