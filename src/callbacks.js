@@ -1,5 +1,5 @@
 const firstItem = (arr, cb) => {
-  // firstItem passes the first item of the given array to the callback function.
+  // firstItem passes the first item of the given array to the callback function..
 };
 
 const getLength = (arr, cb) => {
