@@ -14,12 +14,20 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const newArr = [];
+  for (let i = 0; i < elements.length; i++) {
+    newArr.push(cb(elements[i]));
+  }
+  return newArr;
 };
 
 const reduce = (elements, cb, startingValue) => {
