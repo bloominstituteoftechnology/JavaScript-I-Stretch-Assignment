@@ -17,11 +17,11 @@ const each = (elements, cb) => {
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
-  const results = [];
-  each(elements, (element) => {
-    results.push(cb(element));
-  });
-  return results;
+  newArray = [];
+  for (i =0; i < elements.length; i++){
+   newArray.push(cb(elements[i]));
+  }
+  return newArray;
 };
 
 const reduce = (elements, cb, startingValue) => {
