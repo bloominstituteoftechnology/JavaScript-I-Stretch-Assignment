@@ -14,7 +14,7 @@ This project is designed to get you used to working with all of the concepts we 
 * When you feel like you've completed the problem, be sure to run, `npm test <file name>` to get see if your code works properly... and to check if you have any linting errors.
 * Work until you have all of the tests passing.
 
-## Running the tests
+## Running the tests. 
 
 Example:
 
