@@ -24,8 +24,10 @@ Do not use any of the built in Javascript Array methods like .forEach .map etc. 
 * In each project file you'll see a series of problems to work through,.
 * When you feel like you've completed the problem, be sure to run, `npm test <file name>` to get see if your code works properly... and to check if you have any linting errors.
 * Work until you have all of the tests passing.
-  ## Running the tests
-  Example:
+
+## Running the tests
+
+Example:
 
 ```
 npm test arrays
