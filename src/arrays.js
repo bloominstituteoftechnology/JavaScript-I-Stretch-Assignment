@@ -82,12 +82,12 @@ const flatten = (elements) => {
   let yesArr = [];
   for (let i = 0; i < elements.length; i++) {
     if (Array.isArray(elements[i])) {
-      newArr = newArr.concat(flatten(elements[i]));
+      yesArr = yesArr.concat(flatten(elements[i]));
     } else {
-      newArr.push(elements[i]);
+      yesArr.push(elements[i]);
     }
   }
-  return newArr;
+  return yesArr;
 };
 
 /* eslint-enable no-unused-vars, max-len */
