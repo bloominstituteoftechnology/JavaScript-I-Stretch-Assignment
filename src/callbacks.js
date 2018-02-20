@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const firstItem = (arr, cb) => {
   cb(arr[0]);
 };
@@ -40,5 +38,5 @@ module.exports = {
   sumNums,
   multiplyNums,
   contains,
-  removeDuplicates,
+  removeDuplicates
 };
