@@ -28,6 +28,12 @@ const mapObject = (obj, cb) => {
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+  const objKeys = Object.keys(obj);
+  const objVals = Object.values(obj);
+  const pairArr = objKeys.map((item) => {
+    return [item, objVals[objKeys.indexOf(item)]];
+  });
+  return pairArr;
 };
 
 /* STRETCH PROBLEMS */
