@@ -47,7 +47,7 @@ const removeDuplicates = (array, cb) => {
     array.forEach(notInUnique);
   }
   cb(uniqueArray);
-};
+}; // **Callbacks are worrying me. There use doesn't feel second nature.
 
 /* eslint-enable */
 module.exports = {
