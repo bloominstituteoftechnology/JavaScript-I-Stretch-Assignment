@@ -32,9 +32,11 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 
 const find = (elements, cb) => {
-  elements.forEach((element) => {
-
-  });
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      return elements[i];
+    }
+  }
 };
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
