@@ -47,7 +47,8 @@ const removeDuplicates = (array, cb) => {
     array.forEach(notInUnique);
   }
   cb(uniqueArray);
-}; // **Callbacks are worrying me. There use doesn't feel second nature.
+}; // **Callbacks are worrying me. There use doesn't feel second nature. why is for loop needed here doesn't
+// .forEach loop through each element in array  already and pass it to notInUnique function?
 
 /* eslint-enable */
 module.exports = {
