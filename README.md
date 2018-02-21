@@ -26,3 +26,4 @@ npm test arrays
 npm test closure
 -> executes all of the tests in the `src/tests/closure.tests.js file`
 ```
+attendence
