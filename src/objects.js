@@ -42,7 +42,7 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
-  //return Object.assign(defaultProps, obj);
+  // return Object.assign(defaultProps, obj);
   const objKeys = Object.keys(obj);
   const objVals = Object.values(obj);
   for (let i = 0; i < objKeys.length; i++) {
@@ -61,7 +61,7 @@ const defaults = (obj, defaultProps) => {
   const objKeys = Object.keys(obj);
   const objVals = Object.values(obj);
   for (let i = 0; i < defVals.length; i++) {
-    if (!(obj[defKeys[i]])) obj[defKeys[i]] = defVals[i];
+    if (!obj[defKeys[i]]) obj[defKeys[i]] = defVals[i];
   }
   return obj;
 };
@@ -74,5 +74,5 @@ module.exports = {
   mapObject,
   pairs,
   invert,
-  defaults,
+  defaults
 };
