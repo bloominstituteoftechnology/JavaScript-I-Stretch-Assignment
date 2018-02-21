@@ -19,15 +19,12 @@ const map = (elements, cb) => {
 };
 
 const reduce = (elements, cb, startingValue) => {
-  let i = 0;
-  if (startingValue === undefined) {
-    startingValue = elements[0];
-    i++;
+  let memo = elements.shift();
+  if (startingValue !== undefined) memo = cb(memo, startingValue);
+  for (let i = 0; i < elements.length; i++) {
+    memo = cb(memo, elements[i]);
   }
-  for (i = 0; i < elements.length; i++) {
-    startingValue = cb(startingValue, elements[i]);
-  }
-  return startingValue;
+  return memo;
 };
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
