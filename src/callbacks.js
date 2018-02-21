@@ -23,9 +23,16 @@ const multiplyNums = (x, y, cb) => {
 };
 
 const contains = (item, list, cb) => {
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === item) {
+      return cb(true);
+    }
+  }
+  return cb(false);
+};
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-};
+
 
 /* STRETCH PROBLEM */
 
