@@ -14,12 +14,18 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const mappedArr = [];
+  each(elements, item => (mappedArr.push(cb(item))));
+  return mappedArr;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -28,6 +34,16 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  let memo = startingValue;
+  let i = 0;
+  if (startingValue === undefined) {
+    memo = elements[0];
+    i++;
+  }
+  for (; i < elements.length; i++) {
+    memo = cb(memo, elements[i]);
+  }
+  return memo;
 };
 
 const find = (elements, cb) => {
@@ -35,12 +51,22 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      return elements[i];
+    }
+  }
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const result = [];
+  elements.forEach((item) => {
+    if (cb(item)) result.push(item);
+  });
+  return result;
 };
 
 /* STRETCH PROBLEM */
