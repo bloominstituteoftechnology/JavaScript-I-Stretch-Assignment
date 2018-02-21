@@ -48,24 +48,26 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
-    each(element => {
-    if (cb(elements[i])) {
-      return elements[i];
+  let i = 0;
+  each(element =>) {
+      if (cb(elements[i])) {
+    return elements[i];
       }
-    });
+    };
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
-  const newArray = [];
-  each (element => {
+  const newArr =[];
+  let i = 0;
+  each (element =>) {
     if (cb(element[i])) {
-      newArray.push(elements[i]);
+      newArr.push(elements[i]);
     }
-  });
-  return newArrary;
+  };
+  return newArr;
 };
 
 /* STRETCH PROBLEM */
@@ -74,10 +76,10 @@ const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
   let newArray = [];
-  for (let i = 0; i < elements.length; i++) {
-    if (Array.isArray(elements[i])) {
-    newArray = newArray.concat(flatten(elements[i]));
-  } else {
+    for (let i = 0; i < elements.length; i++) {
+      if (Array.isArray(elements[i])) {
+      newArray = newArray.concat(flatten(elements[i]));
+  }   else {
     newArray.push(elements[i]);
   }
   }
