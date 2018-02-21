@@ -27,6 +27,7 @@ const counterFactory = () => {
     decrement: () => {
       count--;
       return count;
+      
     }
   };
   return myFactory;
