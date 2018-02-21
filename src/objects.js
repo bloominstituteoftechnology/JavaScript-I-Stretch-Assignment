@@ -42,12 +42,27 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  const objKeys = Object.keys(obj);
+  const objVals = Object.values(obj);
+  for (let i = 0; i < objKeys.length; i++) {
+    obj[objVals[i]] = objKeys[i];
+    delete obj[objKeys[i]];
+  }
+  return obj;
 };
 
 const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+  const defKeys = Object.keys(defaultProps);
+  const defVals = Object.values(defaultProps);
+  const objKeys = Object.keys(obj);
+  const objVals = Object.values(obj);
+  for (let i = 0; i < defVals.length; i++) {
+    if (!(obj[defKeys[i]])) obj[defKeys[i]] = defVals[i];
+  }
+  return obj;
 };
 
 /* eslint-enable no-unused-vars */
