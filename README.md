@@ -28,3 +28,4 @@ npm test closure
 ```
 
 *Charletta Bullard
+*Jeremy Kepf
