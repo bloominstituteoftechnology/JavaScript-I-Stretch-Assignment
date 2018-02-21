@@ -42,6 +42,7 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  //return Object.assign(defaultProps, obj);
   const objKeys = Object.keys(obj);
   const objVals = Object.values(obj);
   for (let i = 0; i < objKeys.length; i++) {
