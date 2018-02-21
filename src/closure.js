@@ -33,18 +33,33 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
-  let numInvoked = 0;
-  return () => {
-    numInvoked++;
-    if (numInvoked > n) return;
-    cb();
-    return;
+  // let numInvoked = 0;
+  // return () => {
+  //   numInvoked++;
+  //   if (numInvoked > n) return;
+  //   cb();
+  //   return;
+  // };
+  let limit = 0;
+  const limitedCall = (...arg) => {
+    // creates a new function with unlimited args
+    let memo = cb(...arg); // setting momo/ans to be returned
+    if (limit === n) {
+      // check if limit hit
+      memo = null; // change memo to null
+    } else {
+      limit += 1; // increment counter
+    }
+    return memo; // return memo
   };
+  return limitedCall; // return inner function
 };
 
 const foo = () => true;
 const limitedFunction = limitFunctionCallCount(foo, 2);
-limitedFunction();
+console.log(limitedFunction());
+console.log(limitedFunction());
+console.log(limitedFunction());
 
 /* STRETCH PROBLEM */
 
