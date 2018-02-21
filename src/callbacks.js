@@ -36,6 +36,13 @@ const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  const newArray = array.slice();
+  for (let i = 0; i < newArray.length - 1; i++) {
+    if (newArray[i] === newArray[i++]) {
+      newArray.splice(i + 1, 1);
+    }
+  }
+  cb(newArray);
 };
 
 /* eslint-enable */
