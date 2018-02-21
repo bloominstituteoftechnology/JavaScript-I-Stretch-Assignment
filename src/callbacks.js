@@ -3,7 +3,7 @@ const firstItem = (arr, cb) => {
   return cb(arr[0]);
 };
 
-const getLength = (arr, cb) => {
+const getLength = (arr, cb) => {                                                                                  // Partner was Yan Koslovskiy //
   // getLength passes the length of the array into the callback.
   return cb(arr.length);
 };

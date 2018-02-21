@@ -4,7 +4,7 @@ const counter = () => {
   // Return a function that when invoked increments and returns a counter variable.
   // Example: const newCounter = counter();
   // newCounter(); // 1
-  // newCounter(); // 2
+  // newCounter(); // 2                                                                                     // Partner was Yan Koslovskiy //
   let count = 0;
   return () => ++count;
 };
