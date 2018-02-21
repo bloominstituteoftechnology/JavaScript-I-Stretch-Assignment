@@ -5,17 +5,27 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
+
+  return Object.keys(obj);
 };
+
+// See 'Object.keys()': https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
 
 const values = (obj) => {
   // Return all of the values of the object's own properties.
-  // Ignore functions
+  // Ignore functions // #QUESTION: This is automatic within the 'Object.keys' since functions are not enumerable correct?
   // http://underscorejs.org/#values
+
+  return Object.keys(obj).map(key => obj[key]); // what does 'key => obj[key]' mean?
 };
+// #QUESTION: After 'const keys' is achieved, then .map (using a Method Chain)is used to map the string of keys back
+// into properties on the object 'obj'.  Correct?
 
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
+  Object.keys(obj).forEach(key => (obj[key] = cb(obj[key])));
+  return obj;
 };
 
 const pairs = (obj) => {
