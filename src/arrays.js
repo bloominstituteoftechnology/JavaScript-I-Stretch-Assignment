@@ -15,7 +15,7 @@ const each = (elements, cb) => {
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
   for (let i = 0; i < elements.length; i++) {
-    cb(elements[i]);
+    cb(elements[i], i);
   }
 };
 
@@ -23,7 +23,11 @@ const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
-
+  const doneBeenMapped = [];
+  for (let i = 0; i < elements.length; i++) {
+    doneBeenMapped.push(cb(elements[i]));
+  }
+  return doneBeenMapped;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -45,12 +49,20 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) return elements[i];
+  }
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const doneBeenFiltered = [];
+  elements.forEach((item) => {
+    if (cb(item)) doneBeenFiltered.push(item);
+  });
+  return doneBeenFiltered;
 };
 
 /* STRETCH PROBLEM */
