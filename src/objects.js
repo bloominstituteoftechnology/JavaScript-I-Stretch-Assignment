@@ -37,7 +37,7 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
-  const keysArr = keys(obj);
+  const keysArr = keys(obj); //Object.keys(obj)
   const dupe = {};
   for (let i = 0; i < keysArr.length; i++) {
     dupe[obj[keysArr[i]]] = keysArr[i];
