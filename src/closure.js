@@ -1,6 +1,6 @@
 // Complete the following functions.
 // Brett, Juber, Josh Pair Programming
-//Another comment 
+// Another comment
 
 const counter = () => {
   // Return a function that when invoked increments and returns a counter variable.
