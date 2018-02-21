@@ -32,16 +32,24 @@ const map = (elements, cb) => {
   return arr;
 };
 
+  // reduce([1, 2, 3, 4, 6, 9], (memo, startingValue) => {memo + startingValue}, 0);
 const reduce = (elements, cb, startingValue) => {
   // Do NOT use .reduce, to complete this function.
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  // elements = [ 2, 3, 4, 6, 9]
+  // cb = function we're calling on each element
+  // startingValue =  0
+  // memo = 10
   let memo = elements.shift();
   if (startingValue !== undefined) memo = cb(memo, startingValue);
   for (let i = 0; i < elements.length; i++) {
     memo = cb(memo, elements[i]);
+    // 10 + 6 = 16
+    // 16 + 9 = 25
+    // totalProductSoFar * currentElement depending on callback function
   }
   return memo;
 };
