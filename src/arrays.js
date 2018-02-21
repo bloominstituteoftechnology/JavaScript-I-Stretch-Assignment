@@ -31,13 +31,13 @@ const map = (elements, cb) => {
   return newArr;
 };
 
-const reduce = (elements, cb, startingValue) => {
+const reduce = (elements, cb, startingValue) => {  // ************************
   // Do NOT use .reduce, to complete this function.
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  let memo = elements.shift();
+  let memo = elements.shift(); // *Study code (Solution was provided in Q&A)
   if (startingValue !== undefined) memo = cb(memo, startingValue);
   for (let i = 0; i < elements.length; i++) {
     memo = cb(memo, elements[i]);
@@ -74,10 +74,10 @@ const flatten = (elements) => {
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
   let newArr = [];
   for (let i = 0; i < elements.length; i++) {
-    if (Array.isArray(elements[i])) {
-      newArr = newArr.concat(flatten(elements[i]));
+    if (Array.isArray(elements[i])) { // if it is an array...
+      newArr = newArr.concat(flatten(elements[i])); // flatten it first then merge it with array called newArr to form a larger new array also called newArr
     } else {
-      newArr.push(elements[i]);
+      newArr.push(elements[i]); // if the item in the elements array at index[i] is not an array, then just add it to the end of the new large array we created called newArr
     }
   }
   return newArr;

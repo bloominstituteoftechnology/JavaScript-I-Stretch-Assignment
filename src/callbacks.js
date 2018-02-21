@@ -44,8 +44,8 @@ const removeDuplicates = (array, cb) => {
   // Do not mutate the original array.
   const newArr = [];
   for (let i = 0; i < array.length; i++) {
-    if (newArr.indexOf(array[i]) === -1) {
-      newArr.push(array[i]);
+    if (newArr.indexOf(array[i]) === -1) { // if the item at array[i] does not already exist in newArr (signified by -1), then ... (read note below)
+      newArr.push(array[i]); // push that item onto newArr
     }
   }
   cb(newArr);
