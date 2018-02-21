@@ -18,10 +18,8 @@ const values = (obj) => {
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
-  const output = Object.keys(obj);
-  for (let i = 0; i < obj.length; i++) {
-    output[i] = cb(output[i]);
-  }
+  const output = obj;
+  const vals = Object.values(obj).forEach(cb);
 };
 
 const pairs = (obj) => {
@@ -36,6 +34,14 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+
+  const a = Object.keys(obj);
+  const b = Object.values(obj);
+  const output = {};
+  for (let i = 0; i < a.length; i++) {
+    output[obj[a[i]]] = b[i];
+  }
+  return output;
 };
 
 const defaults = (obj, defaultProps) => {
