@@ -33,7 +33,7 @@ const reduce = (elements, cb, startingValue) => {
 
 const find = (elements, cb) => {
   elements.forEach((element) => {
-    cb(elements.findIndex);
+
   });
 };
   // Look through each value in `elements` and pass each element to `cb`.
