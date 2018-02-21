@@ -27,6 +27,14 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  let limit = 0;
+  return (...args) => {
+    if (limit >= n) {
+      return null;
+    }
+    limit++;
+    return cb(...args);
+  };
 };
 
 /* STRETCH PROBLEM */
