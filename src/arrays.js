@@ -9,6 +9,9 @@
 */
 
 const each = (elements, cb) => {
+  for(let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
   // Do NOT use forEach to complete this function.
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
@@ -17,12 +20,24 @@ const each = (elements, cb) => {
 };
 
 const map = (elements, cb) => {
-  // Do NOT use .map, to complete this function.
+  
+  const newArray = [];
+  for(let i = 0; i < elements.length; i++)
+  return newArray.push(cb(elements[i], i));
+}
+return newArray;
+};
+// Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
-};
 
 const reduce = (elements, cb, startingValue) => {
+  let memo= elements.shift();
+  if (startingValue !== undefined) memo = cb(memo, startingValue);
+  for (let i = 0; i< elements.length; i++){
+    memo = cb(memo, elements[i]);
+  }
+  return memo;
   // Do NOT use .reduce, to complete this function.
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
@@ -46,6 +61,15 @@ const filter = (elements, cb) => {
 /* STRETCH PROBLEM */
 
 const flatten = (elements) => {
+ let newArr = [];
+ for (let i = 0; i < elements.length; i++){
+   if(Arr.isArray(elements[i])){
+     newArr = newArr.concat(flatten(elements[i]))
+   } else {
+     newArr.push(elements[i]);
+   }
+ }
+ return newArr;
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 };
@@ -60,3 +84,4 @@ module.exports = {
   filter,
   flatten
 };
+
