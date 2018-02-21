@@ -14,6 +14,9 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
@@ -51,6 +54,11 @@ const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const newArr = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) newArr.push(elements[i]);
+  }
+  return newArr;
 };
 
 /* STRETCH PROBLEM */
