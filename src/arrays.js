@@ -27,7 +27,7 @@ const map = (elements, cb) => {
   for (let i = 0; i < elements.length; i++) {
     arr[i] = cb(elements[i]);
   }
-  // return arr; test case for collaboration tests
+  return arr;
 };
 
 const reduce = (elements, cb, startingValue) => {
