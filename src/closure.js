@@ -5,7 +5,6 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
-
   let count = 0;
   return () => {
     count++;
@@ -17,7 +16,6 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
-
   let count = 0;
   const myFactory = {
     increment: () => {
@@ -27,7 +25,6 @@ const counterFactory = () => {
     decrement: () => {
       count--;
       return count;
-      
     }
   };
   return myFactory;
@@ -35,6 +32,14 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  let i = 0;
+  return (...theArgs) => {
+    if (i < n) {
+      i++;
+      return cb(...theArgs);
+    }
+    return null;
+  };
 };
 
 /* STRETCH PROBLEM */
