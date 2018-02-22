@@ -55,22 +55,16 @@ const cacheFunction = (cb) => {
   // `cb` should only ever be invoked once for a given set of arguments.
   // PSEUDO CODE
   // Cache object all arguments that have been used
-  // Invoke cb & add arguments to cache
   // if statement checks arguments against cache object
   // Return cache results and does not invoke cb
+  // Invoke cb & add arguments to cache
   const cache = {};
-  const check = () => {
-    for (let args in cache) {
-      if (args === arg) return true;
-    } return false;
-  }
-  return (arg) => {
-    if (check) return cache;
-    cache.arg = arg;
-    cb(arg);
-  }
+  return (...arg) => {
+    if (arg in cache) return cache;
+    cache[arg] = arg;
+    return cb(...arg);
+  };
 };
-
 /* eslint-enable no-unused-vars */
 
 module.exports = {

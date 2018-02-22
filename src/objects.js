@@ -18,8 +18,9 @@ const values = (obj) => {
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
-  const output = obj;
-  const vals = Object.values(obj).forEach(cb);
+  const output = {};
+  Object.keys(obj).forEach(x => output[x] = cb(obj[x]));
+  return output;
 };
 
 const pairs = (obj) => {
@@ -39,7 +40,7 @@ const invert = (obj) => {
   const b = Object.values(obj);
   const output = {};
   for (let i = 0; i < a.length; i++) {
-    output[obj[a[i]]] = b[i];
+    output[obj[a[i]]] = a[i];
   }
   return output;
 };
@@ -48,6 +49,17 @@ const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+  const initialProps = Object.keys(obj);
+  const propsToFill = Object.keys(defaultProps);
+  let match = false;
+  for (let i = 0; i < propsToFill.length; i++) {
+    for (let j = 0; j < initialProps.length; j++) {
+      if (propsToFill[i] === initialProps[j]) match = true;
+    }
+    if (!match) obj[propsToFill[i]] = defaultProps[propsToFill[i]];
+    match = false;
+  }
+  return obj;
 };
 
 /* eslint-enable no-unused-vars */
