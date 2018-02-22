@@ -54,6 +54,15 @@ const cacheFunction = (cb) => {
   // If the returned function is invoked with arguments that it has already seen
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
+  const cache = {};
+  return (x) => {
+    const check = Object.prototype.hasOwnProperty.call(cache, x);
+    if (check) {
+      return cache[x];
+    }
+    cache[x] = cb(x);
+    return cache[x];
+  };
 };
 
 /* eslint-enable no-unused-vars */
