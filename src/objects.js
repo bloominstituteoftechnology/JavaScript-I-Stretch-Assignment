@@ -28,7 +28,7 @@ const mapObject = (obj, cb) => {
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
-
+  return Object.entries(obj);
 };
 
 /* STRETCH PROBLEMS */
@@ -43,6 +43,7 @@ const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+  return Object.assign(defaultProps, obj);
 };
 
 /* eslint-enable no-unused-vars */
