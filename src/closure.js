@@ -54,8 +54,8 @@ const cacheFunction = (cb) => {
   // `cb` should only ever be invoked once for a given set of arguments.
   const cache = {};
   return (x) => {
-    if (cache.hasOwnProperty(x)) return cache[x];
-
+    const check = Object.prototype.hasOwnProperty.call(cache, x);
+    if (check) return cache[x];
     cache[x] = cb(x);
     return cache[x];
   };
