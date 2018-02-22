@@ -43,9 +43,17 @@ const find = (elements, cb) => {
   // Return `undefined` if no elements pass the truth test.
 
 const filter = (elements, cb) => {
+  const emptyArr = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      emptyArr.push(elements[i]);
+    }
+  }
+  return emptyArr;
+};
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
-};
+
 
 /* STRETCH PROBLEM */
 
