@@ -1,16 +1,18 @@
 const firstItem = (arr, cb) => {
   // firstItem passes the first item of the given array to the callback function.
-  cb(arr[0]); // **How would I do this using shift?
+ // **How would I do this using shift?
+  cb(arr[0]);
 };
 
 const getLength = (arr, cb) => {
   // getLength passes the length of the array into the callback.
-  cb(arr.length); // **Should I be using return?
+  cb(arr.length);
 };
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  cb(arr[arr.length - 1]); // **How would I do this with pop?
+ // **How would I do this with pop?
+  cb(arr[arr.length - 1]);
 };
 
 const sumNums = (x, y, cb) => {
@@ -42,13 +44,11 @@ const removeDuplicates = (array, cb) => {
       uniqueArray.push(item);
     }
   }
-
-  for (let i = 0; i < array.length; i++) {
-    array.forEach(notInUnique);
-  }
+  // Write a function called removeDuplicates that removes all duplicate values from the given array.
+  // Pass the array to the callback function.  Do not mutate the original array.
+  array.forEach(notInUnique);
   cb(uniqueArray);
-}; // **Callbacks are worrying me. There use doesn't feel second nature. why is for loop needed here doesn't
-// .forEach loop through each element in array  already and pass it to notInUnique function?
+};
 
 /* eslint-enable */
 module.exports = {
