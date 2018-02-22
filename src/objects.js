@@ -57,6 +57,7 @@ const defaults = (obj, defaultProps) => {
   }
   return obj;
 };
+// return Object.assign(defaultProps, obj);
 
 /* eslint-enable no-unused-vars */
 
