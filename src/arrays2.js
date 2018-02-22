@@ -1,11 +1,11 @@
 /*
-  Complete the following functions.
-  These functions only need to work with arrays.
-  A few of these functions mimic the behavior of the `Built` in JavaScript Array Methods.
-  The idea here is to recreate the functions from scratch BUT if you'd like,
-  feel free to Re-use any of your functions you build within your other functions.
-  You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
-  You can use the functions that you have already written to help solve the other problems
+Complete the following functions.
+These functions only need to work with arrays.
+A few of these functions mimic the behavior of the `Built` in JavaScript Array Methods.
+The idea here is to recreate the functions from scratch BUT if you'd like,
+feel free to Re-use any of your functions you build within your other functions.
+You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
+You can use the functions that you have already written to help solve the other problems
 */
 
 const each = (elements, cb) => {
@@ -14,8 +14,8 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
-  for (let i = 0; i < elements.length; i++) {
-    cb(elements[i], i);
+  for (let index = 0; index < elements.length; index++) {
+    cb(elements[index], index);
   }
 };
 
@@ -24,9 +24,7 @@ const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
   const array = [];
-  for (let i = 0; i < elements.length; i++) {
-    array[i] = cb(elements[i]);
-  }
+  each(elements, (element, index) => array.push(cb(element, index)));
   return array;
 };
 
@@ -36,22 +34,13 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  /*
-  if (startingValue === undefined) {
-    let  = elements[0];
+  let memo = startingValue;
+
+  if (memo === undefined) {
+    memo = elements.shift();
   }
 
-  for (let i = 0; i < elements.length; i++) {
-    startingValue += cb(startingValue, elements[i]);
-  }
-  return startingValue;
-  */
-  let memo = elements.shift();
-  if (startingValue !== undefined) memo = cb(memo, startingValue);
-
-  for (let i = 0; i < elements.length; i++) {
-    memo = cb(memo, elements[i]);
-  }
+  each(elements, element => memo = cb(memo, element));
   return memo;
 };
 
@@ -60,9 +49,17 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
-  for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i])) return elements[i];
-  }
+  /* for (let i = 0; i < elements.length; i++) {
+      if (cb(elements[i])) return elements[i];
+    }
+    return undefined;
+  };
+  */
+  each(elements, (element, index) => {
+    if (cb(element)) {
+      return element;
+    }
+  });
   return undefined;
 };
 
@@ -71,12 +68,11 @@ const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
   const newArr = [];
-
-  for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i])) {
-      newArr.push(elements[i]);
+  each(elements, (element, index) => {
+    if (cb(element)) {
+      newArr.push(element);
     }
-  }
+  });
   return newArr;
 };
 
@@ -87,13 +83,14 @@ const flatten = (elements) => {
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
   let newArr = [];
 
-  for (let i = 0; i < elements.length; i++) {
-    if (Array.isArray(elements[i])) {
-      newArr = newArr.concat(flatten(elements[i]));
+  each(elements, (element, index) => {
+    if (Array.isArray(element)) {
+      newArr = newArr.concat(flatten(element));
     } else {
-      newArr.push(elements[i]);
+      newArr.push(element);
     }
-  }
+  });
+
   return newArr;
 };
 
