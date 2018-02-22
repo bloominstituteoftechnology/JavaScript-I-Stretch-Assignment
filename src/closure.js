@@ -19,6 +19,17 @@ const counterFactory = () => {
 
   // declare your count let
   // return an object who's properties are two methods described above
+  let count = 0;
+  return {
+    increment: () => {
+      count++;
+      return count;
+    },
+    decrement: () => {
+      count--;
+      return count;
+    }
+  };
 };
 
 const limitFunctionCallCount = (cb, limit) => {
