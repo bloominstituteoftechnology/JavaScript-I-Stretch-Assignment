@@ -53,12 +53,21 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) return elements[i];
+  }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const newArray = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) newArray.push(elements[i]);
+  }
+  return newArray;
 };
 
 /* STRETCH PROBLEM */
