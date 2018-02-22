@@ -56,9 +56,8 @@ const cacheFunction = (cb) => {
   // `cb` should only ever be invoked once for a given set of arguments.
   const cache = {};
   return (squared) => {
-    if (!(squared in cache)) {
-      return cache[squared] = cb[squared];
-    }
+    if (squared in cache) return cache[squared];
+    cache[squared] = cb(squared);
     return cache[squared];
   };
 };
