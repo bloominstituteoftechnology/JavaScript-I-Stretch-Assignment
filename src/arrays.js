@@ -28,7 +28,7 @@ const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
-  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value
 };
 
 const find = (elements, cb) => {
@@ -60,6 +60,20 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  const flattenedArr = [];
+
+  function flattenArr(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (!(arr[i] instanceof Array)) {
+        flattenedArr.push(arr[i]);
+      }
+      if ((arr[i] instanceof Array) && (arr[i].length > 0)) {
+        flattenArr(arr[i]);
+      }
+    }
+  }
+  flattenArr(elements);
+  return flattenedArr;
 };
 
 /* eslint-enable no-unused-vars, max-len */
