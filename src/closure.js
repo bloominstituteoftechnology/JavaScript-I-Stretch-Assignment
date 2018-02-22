@@ -55,7 +55,14 @@ const cacheFunction = (cb) => {
   // `cb` should only ever be invoked once for a given set of arguments.
   const cacheObj = {};
 
-  return () => { cb(); };
+  return (num) => {
+    if (num in cacheObj) {
+      return cacheObj[num];
+    }
+    cacheObj[num] = cb(num);
+
+    return cacheObj[num];
+  };
 };
 
 /* eslint-enable no-unused-vars */
