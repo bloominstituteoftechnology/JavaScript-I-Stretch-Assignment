@@ -24,9 +24,13 @@ const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
   const arr = [];
-  for (let i = 0; i < elements.length; i++) {
-    arr[i] = cb(elements[i]);
-  }
+  each(elements, (element) => {
+    arr.push(cb(element));
+  });
+  // for (let i = 0; i < elements.length; i++) {
+  //  // arr[i] = cb(elements[i]);
+  //   arr.push(cb(elements[i]));
+  // }
   return arr;
 };
 
@@ -36,16 +40,12 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  if (startingValue === undefined) {
-    startingValue = elements[0];
-  }
-  let singleValue = startingValue;
-  // startingValue = 0;
+  let memo = elements.shift();
+  if (startingValue !== undefined) memo = cb(memo, startingValue);
   for (let i = 0; i < elements.length; i++) {
-    // startingValue = elements[0];
-    singleValue += cb(singleValue, elements[i]);
+    memo = cb(memo, elements[i]);
   }
-  return singleValue;
+  return memo;
 };
 
 const find = (elements, cb) => {
@@ -54,22 +54,37 @@ const find = (elements, cb) => {
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
   for (let i = 0; i < elements.length; i++) {
-    if (cb(elements[i]) === true);
+    if (cb(elements[i])) return elements[i];
   }
-  return 1;
+  return undefined;
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const arr = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      arr.push(elements[i]);
+    }
+  }
+  return arr;
 };
-
 /* STRETCH PROBLEM */
 
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  let arr = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (Array.isArray(elements[i])) {
+      arr = arr.concat(flatten(elements[i]));
+    } else {
+      arr.push(elements[i]);
+    }
+  }
+  return arr;
 };
 
 /* eslint-enable no-unused-vars, max-len */
