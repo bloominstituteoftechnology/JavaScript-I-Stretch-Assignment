@@ -14,12 +14,20 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i += 1) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const arr = [];
+  for (let i = 0; i < elements.length; i += 1) {
+    arr.push(cb(elements[i]));
+  }
+  return arr;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -28,6 +36,16 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  let [accumulator] = elements;
+  let initialIndex = 1;
+  if (startingValue) {
+    accumulator = startingValue;
+    initialIndex = 0;
+  }
+  for (let i = initialIndex; i < elements.length; i += 1) {
+    accumulator = cb(accumulator, elements[i]);
+  }
+  return accumulator;
 };
 
 const find = (elements, cb) => {
@@ -35,20 +53,36 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i += 1) {
+    if (cb(elements[i])) return elements[i];
+  }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const arr = [];
+  for (let i = 0; i < elements.length; i += 1) {
+    if (cb(elements[i])) arr.push(elements[i]);
+  }
+  return arr;
 };
 
 /* STRETCH PROBLEM */
 
-const flatten = (elements) => {
-  // Flattens a nested array (the nesting can be to any depth).
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-};
+// const flatten = (elements) => {
+//   // Flattens a nested array (the nesting can be to any depth).
+//   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+//   return elements.reduce((a, b) => {
+//     return a.concat(Array.isArray(b) ? flatten(b) : b);
+//   }, []);
+// };
+
+// I started with the above, but the Linter didn't like how I had the brackets/blocks
+// to me this looks bad...
+const flatten = elements => elements.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
 /* eslint-enable no-unused-vars, max-len */
 
