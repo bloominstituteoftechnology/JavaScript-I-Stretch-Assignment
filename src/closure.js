@@ -16,29 +16,24 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
-  const newObj = {};
+
   let count = 0;
-  newObj.increment = () => {
-    count++;
-    return count;
+  return {
+    increment: () => (++count),
+    decrement: () => (--count),
   };
-  newObj.decrement = () => {
-    count--;
-    return count;
-  };
-  return newObj;
 };
 
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
-  let callCount = 0;
-  return () => {
-    if (callCount === limit) {
-      return null;
+  let count = 0;
+  return (...args) => { // using a rest parameter They literally mean “gather the remaining parameters into an array”.
+    if (count === n) {
+      return null; // returning null if the count n has been met
     }
-    callCount++;
-    return cb();
+    count++;
+    return cb(...args); /// passing the args array
   };
 };
 
