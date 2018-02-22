@@ -52,8 +52,11 @@ const defaults = (obj, defaultProps) => {
   const defaultEntries = Object.entries(defaultProps);
   const objEntries = Object.entries(obj);
   for (let i = 0; i < objEntries.length; i++) {
-    
+    if (obj[defaultEntries[i][0]] === undefined) {
+      obj[defaultEntries[i][0]] = defaultEntries[i][1];
+    }
   }
+  return obj;
 };
 
 /* eslint-enable no-unused-vars */
