@@ -1,5 +1,6 @@
 const closureMethods = require('../src/closure');
 /* eslint-disable no-undef */
+
 describe('closure', () => {
   describe('counter', () => {
     it('should return a function', () => {

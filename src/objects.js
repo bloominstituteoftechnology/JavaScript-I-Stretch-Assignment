@@ -6,8 +6,8 @@ const keys = (obj) => {
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
 
-  var keys = Object.keys(obj);
-  return keys;
+  const iskeys = Object.keys(obj);
+  return iskeys;
 };
 
 const values = (obj) => {
@@ -15,48 +15,28 @@ const values = (obj) => {
   // Ignore functions
   // http://underscorejs.org/#values
   const notFunc = [];
-  for(const key in obj){
-  
-  const value = obj[key];
-  if(typeOf value !== 'function'){
-  
-  notFunc.push(value);
-  return notFunc;
-  }else{
-  
-  return false;
+  const iskeys = Object.keys(obj);
+  if (typeof iskeys !== 'function') {
+    notFunc.push(iskeys);
+    return notFunc;
   }
-
- 
- 
 };
 
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
 
-  for(const key in obj){
-  
-  if(obj.hasOwnProperty(key)){
-  
-  cb(obj[key]);
-  }
-
-  }
- 
+  const isval = Object.values(obj);
+  cb(isval);
 };
 
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
   const arr = [];
-  for(const key in obj){
-  
-  if(obj.hasOwnProperty(key)){
-  	  arr.push(key + '=' obj[key])
-  }
-  };
-  const result = arr.join(',')
+  const iskey = Object.keys(obj);
+  const isval = Object.values(obj);
+  arr.push.apply(arr, [iskey, isval]);
 };
 
 /* STRETCH PROBLEMS */
