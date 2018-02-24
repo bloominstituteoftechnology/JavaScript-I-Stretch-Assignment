@@ -1,4 +1,8 @@
-const each = (arr, cb) => arr.forEach((v, i) => cb(v, i));
+const each = (arr, cb) => {
+  for (let i = 0; i < arr.length; i++) {
+    cb(arr[i], i);
+  }
+};
 
 const map = (arr, cb) => {
   const output = [];
@@ -23,10 +27,7 @@ const filter = (arr, cb) => {
   return output;
 };
 
-const flatten = arr => arr.reduce((a, c) => {
-  if (Array.isArray(c)) return a.concat(flatten(c));
-  return a.concat(c);
-}, []);
+const flatten = arr => arr.reduce((a, c) => (Array.isArray(c) ? a.concat(flatten(c)) : a.concat(c)), []);
 
 /* eslint-enable no-unused-vars, max-len */
 
