@@ -5,13 +5,10 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
-  const result = () => {
-    let count = 0;
-    return () => {
-      count++;
-
-      return count;
-    };
+  let count = 0;
+  return () => {
+    count++;
+    return count;
   };
 };
 
@@ -21,26 +18,31 @@ const counterFactory = () => {
   // `decrement` should decrement the counter variable and return it.
 
   let count = 0;
+  function changeBy(val) {
+    count += val;
+  }
   return () => {
-    const myObj = {};
-    myObj.increment = function () {
-      count++;
-      return count;
+    const obj = {
+      increment: () => {
+        return changeBy(1);
+      },
+      decrement: () => {
+        return changeBy(-1);
+      }
     };
-    myObj.decrement = function () {
-      count--;
-      return count;
-    };
-    return myObj;
   };
 };
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  let callCount = 0;
   return () => {
-  n.forEach(function(i) {
-  cb();
-});  
+    if (callCount === n) {
+      return null;
+    }
+    callCount++;
+    return cb();
+  };
 };
 
 /* STRETCH PROBLEM */
@@ -57,8 +59,8 @@ const cacheFunction = (cb) => {
 /* eslint-enable no-unused-vars */
 
 module.exports = {
-counter,
-counterFactory,
-cacheFunction,
-limitFunctionCallCount
+  counter,
+  counterFactory,
+  cacheFunction,
+  limitFunctionCallCount
 };

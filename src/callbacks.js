@@ -12,8 +12,7 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  const result = arr.length[-1];
-  return cb(result);
+  cb(arr[arr.length - 1]);
 };
 
 const sumNums = (x, y, cb) => {
@@ -31,7 +30,7 @@ const multiplyNums = (x, y, cb) => {
 const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  if (list.indexOf(item)) {
+  if (list.includes(item)) {
     cb(true);
   } else {
     cb(false);
