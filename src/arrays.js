@@ -13,6 +13,12 @@ const each = (elements, cb) => {
     cb(elements[i], i);
   }
 };
+
+// TEST
+// each([1, 2, 3, 4], (item, index) => {
+//   console.log(item, index)
+// })
+
 const map = (elements, cb) => {
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
@@ -50,6 +56,11 @@ const reduce = (elements, cb, startingValue) => {
   return accumulator;
 };
 
+const add = (x, y) => (x + y);
+const arr = [1, 2, 3];
+// console.log(add(3, 5));
+// console.log(reduce(arr, add, 0));
+
 const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
@@ -58,7 +69,8 @@ const find = (elements, cb) => {
     if (cb(elements[i]) === true) {
       return elements[i];
     }
-  } return undefined;
+  }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
@@ -69,29 +81,41 @@ const filter = (elements, cb) => {
     if (cb(elements[i])) {
       newArray.push(elements[i]);
     }
-  } return newArray;
+  }
+  return newArray;
 };
-
 
 /* STRETCH PROBLEM */
 
+// Solved without Using spread operator:
 const flatten = (elements) => {
-  // Flattens a nested array (the nesting can be to any depth). // Since this function must work with "any" depth of nesting, a recursive array flattening function is necessary
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-
-  const flat = [];
-  elements.forEach((item) => {
-    if (Array.isArray(item)) { // This uses the Array constructors 'isArray' property which returns true if a variable is an array, and false if not.
-      flat.push(...flatten(item)); // If ^ finds an array, that array must be flattened into individual items, then those items are looped back through the 'flatten' function.
-    } else { // What looks like an ellipsis '...' is called a spread operator (see link below)
-      flat.push(item);// Through recursion, eventually all the arrays will be flattened to a single list of items (with no arrays), and those items will be pushed into one flattened array.
-    } // #QUESTION: How do you know whether a semi-colon is required or not???
+  // as long as item is an array, recurse
+  // push non-array type item into results
+  const results = [];
+  each(elements, (item) => {
+    if (Array.isArray(item)) {
+      // console.log(item)
+      const nestedArray = flatten(item);
+      each(nestedArray, (nestedItem) => {
+        // console.log(results)
+        // console.log(nestedItem)
+        results.push(nestedItem);
+        // console.log(results)
+      });
+    } else {
+      results.push(item);
+      // console.log(results)
+    }
   });
-  return flat;
+  return results;
 };
-// Based on the following discussion thread: https://stackoverflow.com/questions/30048388/javascript-recursive-array-flattening
-//  //On "Spread Operator": https://docs.microsoft.com/en-us/scripting/javascript/reference/spread-operator-decrement-dot-dot-dot-javascript
-/* eslint-enable no-unused-vars, max-len */
+
+// console.log(flatten([1, [2],
+//   [
+//     [3]
+//   ],
+//   [4]
+// ]))
 
 module.exports = {
   each,
