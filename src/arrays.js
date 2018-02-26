@@ -16,7 +16,7 @@ const each = (elements, cb) => {
   // based off http://underscorejs.org/#each
   for (let i = 0; i < elements.length; i++) {
     cb(elements[i], i);
-  }                                                                                                                                     // Partner was Yan Koslovskiy //
+  }
 };
 
 const map = (elements, cb) => {
@@ -29,7 +29,6 @@ const map = (elements, cb) => {
   }
   return newArray;
 };
-
 const reduce = (elements, cb, startingValue) => {
   // Do NOT use .reduce, to complete this function.
   // Combine all elements into a single value going from left to right.
