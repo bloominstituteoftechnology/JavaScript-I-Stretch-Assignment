@@ -1,6 +1,6 @@
 const firstItem = (arr, cb) => {
   // firstItem passes the first item of the given array to the callback function.
- // **How would I do this using shift?
+ // **TA**How would I do this using shift? cb(arr.shift()); Why doesn't that work?
   cb(arr[0]);
 };
 
@@ -28,7 +28,7 @@ const multiplyNums = (x, y, cb) => {
 const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  cb(list.includes(item)); // **Pretty easy.
+  cb(list.includes(item));
 };
 
 /* STRETCH PROBLEM */
