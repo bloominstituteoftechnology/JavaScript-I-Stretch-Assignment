@@ -40,7 +40,7 @@ const removeDuplicates = (array, cb) => {
   const uniqueArray = [];
 
   function notInUnique(item) {
-    if (uniqueArray.indexOf(item) === -1) {
+    if (!uniqueArray.includes(item)) {
       uniqueArray.push(item);
     }
   }
