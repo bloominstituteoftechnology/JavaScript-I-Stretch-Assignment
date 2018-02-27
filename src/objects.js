@@ -40,11 +40,11 @@ const invert = (obj) => {
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
   const objKeys = Object.keys(obj);
-  const objValues = Object.values(obj);
   const invObj = {};
-  for (let i = 0; i < objKeys.length; i++) {
-    invObj[objValues[i]] = objKeys[i];
-  }
+  // for (let i = 0; i < objKeys.length; i++) {
+  //   invObj[objValues[i]] = objKeys[i];
+  // }
+  objKeys.forEach(key => invObj[obj[key]] = key);
   return invObj;
 };
 
@@ -53,9 +53,12 @@ const defaults = (obj, defaultProps) => {
   // Return `obj`.
   // http://underscorejs.org/#defaults
   const defaultKeys = Object.keys(defaultProps);
-  for (let i = 0; i < defaultKeys.length; i++) {
-    if (obj[defaultKeys[i]] === undefined) obj[defaultKeys[i]] = defaultProps[defaultKeys[i]];
-  }
+  // for (let i = 0; i < defaultKeys.length; i++) {
+  //   if (obj[defaultKeys[i]] === undefined) obj[defaultKeys[i]] = defaultProps[defaultKeys[i]];
+  // }
+  defaultKeys.forEach((key) => {
+    if (obj[key] === undefined) obj[key] = defaultProps[key];
+  });
   return obj;
 };
 
