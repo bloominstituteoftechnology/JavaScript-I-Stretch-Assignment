@@ -27,9 +27,7 @@ const filter = (arr, cb) => {
   return output;
 };
 
-const flatten = arr => arr.reduce((a, c) => (Array.isArray(c) ? a.concat(flatten(c)) : a.concat(c)), []);
-
-/* eslint-enable no-unused-vars, max-len */
+const flatten = arr => arr.reduce((a, c) => (Array.isArray(c) ? [...a, ...flatten(c)] : [...a, c]), []);
 
 module.exports = {
   each,
