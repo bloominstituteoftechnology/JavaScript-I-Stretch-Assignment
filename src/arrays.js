@@ -70,8 +70,10 @@ const flatten = (elements) => {
   const flattenedArr = [];
   const recursiveCall = (arr) => {
     for (let i = 0; i < arr.length; i++) {
-      if (!(elements[i] instanceof Array)) {
-        flattenedArr.push(elements[i]);
+      if (!(arr[i] instanceof Array)) {
+        flattenedArr.push(arr[i]);
+      } else {
+        recursiveCall(arr[i])
       }
     }
   }
