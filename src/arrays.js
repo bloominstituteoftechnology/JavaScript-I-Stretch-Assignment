@@ -36,14 +36,13 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  let answer;
-  if (startingValue !== undefined) {
-    answer = startingValue;
-  } else answer = elements.splice(0, 1)[0];
+  // why does let memo = elements.shift() work while let memo = elements[0] not work?
+  let memo = elements.shift();
+  if (startingValue !== undefined) memo = cb(memo, startingValue);
   for (let i = 0; i < elements.length; i++) {
-    answer = cb(answer, elements[i]);
+    memo = cb(memo, elements[i]);
   }
-  return answer;
+  return memo;
 };
 
 const find = (elements, cb) => {
