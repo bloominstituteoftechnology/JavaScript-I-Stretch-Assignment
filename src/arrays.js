@@ -36,6 +36,14 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  let answer;
+  if (startingValue !== undefined) {
+    answer = startingValue;
+  } else answer = elements.splice(0, 1)[0];
+  for (let i = 0; i < elements.length; i++) {
+    answer = cb(answer, elements[i]);
+  }
+  return answer;
 };
 
 const find = (elements, cb) => {
