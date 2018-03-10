@@ -15,7 +15,7 @@ const each = (elements, cb) => {
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
   for (let i = 0; i < elements.length; i++) {
-    cb(elements, i);
+    cb(elements[i], elements.indexOf(elements[i]));
   }
 };
 
