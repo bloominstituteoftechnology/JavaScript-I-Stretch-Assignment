@@ -53,6 +53,13 @@ const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const filteredItems = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      filteredItems.push(elements[i]);
+    }
+  }
+  return filteredItems;
 };
 
 /* STRETCH PROBLEM */
@@ -60,6 +67,14 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  const flattenedArr = [];
+  const recursiveCall = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (!(elements[i] instanceof Array)) {
+        flattenedArr.push(elements[i]);
+      }
+    }
+  }
 };
 
 /* eslint-enable no-unused-vars, max-len */
