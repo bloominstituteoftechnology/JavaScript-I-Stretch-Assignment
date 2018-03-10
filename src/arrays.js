@@ -73,10 +73,12 @@ const flatten = (elements) => {
       if (!(arr[i] instanceof Array)) {
         flattenedArr.push(arr[i]);
       } else {
-        recursiveCall(arr[i])
+        recursiveCall(arr[i]);
       }
     }
-  }
+  };
+  recursiveCall(elements);
+  return flattenedArr;
 };
 
 /* eslint-enable no-unused-vars, max-len */
