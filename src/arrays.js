@@ -37,9 +37,9 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
   // why does let memo = elements.shift() work while let memo = elements[0] not work?
-  let memo = elements.shift();
+  let memo = elements[0];
   if (startingValue !== undefined) memo = cb(memo, startingValue);
-  for (let i = 0; i < elements.length; i++) {
+  for (let i = 1; i < elements.length; i++) {
     memo = cb(memo, elements[i]);
   }
   return memo;
