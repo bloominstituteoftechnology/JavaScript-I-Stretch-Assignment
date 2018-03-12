@@ -12,11 +12,16 @@ const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
+  return Object.values(obj);
 };
 
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
+  const objValues = Object.values(obj);
+  for (let i = 0; i < objValues.length; i++) {
+    
+  }
 };
 
 const pairs = (obj) => {
