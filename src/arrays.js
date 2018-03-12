@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 // Complete the following functions.
 // These functions only need to work with arrays.
 // Do NOT use the built in array methods to solve these. forEach, map, reduce, filter, includes, etc.
@@ -41,7 +43,11 @@ const reduce = (elements, cb, startingValue) => {
 };
 
 const find = (elements, cb) => {
-  
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      return elements[i];
+    }
+  }
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.

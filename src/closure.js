@@ -40,7 +40,7 @@ const limitFunctionCallCount = (cb, n) => {
 /* STRETCH PROBLEM */
 
 const cacheFunction = (cb) => {
-  
+
   // Should return a funciton that invokes `cb`.
   // A cache (object) should be kept in closure scope.
   // The cache should keep track of all arguments have been used to invoke this function.
