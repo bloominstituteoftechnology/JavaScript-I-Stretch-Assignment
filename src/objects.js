@@ -20,8 +20,9 @@ const mapObject = (obj, cb) => {
   // http://underscorejs.org/#mapObject
   const objValues = Object.values(obj);
   for (let i = 0; i < objValues.length; i++) {
-    
+    cb(obj[objValues[i]]);
   }
+  return obj;
 };
 
 const pairs = (obj) => {
