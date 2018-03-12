@@ -18,7 +18,12 @@ const values = (obj) => {
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
-  
+  const objKeys = Object.keys(obj);
+  const mappedObj = {};
+  for (let i = 0; i < objKeys.length; i++) {
+    mappedObj[objKeys[i]] = cb(obj[objKeys[i]]);
+  }
+  return mappedObj;
 };
 
 const pairs = (obj) => {
