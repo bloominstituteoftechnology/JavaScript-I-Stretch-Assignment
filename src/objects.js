@@ -51,7 +51,12 @@ const defaults = (obj, defaultProps) => {
   // Return `obj`.
   // http://underscorejs.org/#defaults
   const defaultKeys = Object.keys(defaultProps);
-  
+  for (let i = 0; i < defaultKeys.length; i++) {
+    if (typeof obj[defaultKeys[i]] === 'undefined') {
+      obj[defaultKeys[i]] = defaultProps[defaultKeys[i]];
+    }
+  }
+  return obj;
 };
 
 /* eslint-enable no-unused-vars */
