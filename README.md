@@ -13,7 +13,7 @@ This project is designed to get you used to working with all of the concepts we 
 * When you feel like you've completed the problem, be sure to run, `yarn test <file name>` to get see if your code works properly... and to check if you have any linting errors.
 * Work until you have all of the tests passing.
 
-## Running the tests
+## Running the tests. 
 
 Example:
 
@@ -25,3 +25,4 @@ yarn test arrays
 yarn test closure
 -> executes all of the tests in the `src/tests/closure.tests.js file`
 ```
+I am collaborating with Edward Manda 

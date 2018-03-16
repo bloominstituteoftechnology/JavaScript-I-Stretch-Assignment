@@ -5,17 +5,60 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
+  let count = 0;
+  return () => {
+    count++;
+    return count;
+  };
 };
+const myCounter = counter();
+myCounter();
 
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  // return {
+  //   increment: () => {
+  //     count++;
+  //     return count;
+  //   },
+  //   decrement: () => {
+  //     count--;
+  //     return count;
+  //   }
+  // };
+  let count = 0;
+  return {
+    increment: () => {
+      count++;
+      return count;
+    },
+    decrement: () => {
+      count--;
+      return count;
+    }
+  };
 };
 
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  let callCount = 0;
+
+  // while (callCount <= n) {
+  return (...args) => {
+    if (callCount === n) return null;
+    callCount++;
+    return cb(...args);
+  };
+  // return (...args) => {
+  //   if (callCount === n) {
+  //     return null;
+  //   }
+  //   callCount++;
+  //   return cb(...args);
+  // };
 };
 
 /* STRETCH PROBLEM */
@@ -27,6 +70,14 @@ const cacheFunction = (cb) => {
   // If the returned function is invoked with arguments that it has already seen
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
+  let memo = {};
+  return (args) => {
+    if (memo === args) {
+      return memo;
+    }
+    memo = args;
+    return cb(args);
+  };
 };
 
 /* eslint-enable no-unused-vars */
