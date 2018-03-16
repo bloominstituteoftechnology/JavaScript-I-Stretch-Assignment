@@ -1,5 +1,6 @@
 const objectMethods = require('../src/objects');
 /* eslint-disable no-undef */
+
 describe('objects', () => {
   describe('keys', () => {
     it('should return an array', () => {
@@ -132,5 +133,3 @@ describe('objects', () => {
     });
   });
 });
-
-/* eslint-enable no-undef */
