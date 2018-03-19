@@ -12,9 +12,7 @@ const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
-  return Object.keys(obj).map((key, i) => {
-    return obj[key];
-  });
+  return Object.values(obj);
 };
 
 const mapObject = (obj, cb) => {

@@ -51,8 +51,6 @@ const removeDuplicates = (array, cb) => {
   cb(duplicate);
 };
 
-// I googled the solution to the stretch problem as I was curious about the answer.
-
 /* eslint-enable */
 module.exports = {
   firstItem,
