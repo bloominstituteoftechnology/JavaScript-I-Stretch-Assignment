@@ -8,68 +8,6 @@
   You can use the functions that you have already written to help solve the other problems
 */
 
-const each = (elements, cb) => {
-  // Do NOT use forEach to complete this function.
-  // Iterates over a list of elements, yielding each in turn to the `cb` function.
-  // This only needs to work with arrays.
-  // You should also pass the index into `cb` as the second argument
-  // based off http://underscorejs.org/#each
-};
-
-const map = (elements, cb) => {
-  // Do NOT use .map, to complete this function.
-  // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
-  // Return the new array.
-};
-
-const reduce = (elements, cb, startingValue) => {
-  // Do NOT use .reduce, to complete this function.
-  // Combine all elements into a single value going from left to right.
-  // Elements will be passed one by one into `cb` along with the `startingValue`.
-  // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
-  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-};
-
-const find = (elements, cb) => {
-  // Do NOT use .includes, to complete this function.
-  // Look through each value in `elements` and pass each element to `cb`.
-  // If `cb` returns `true` then return that element.
-  // Return `undefined` if no elements pass the truth test.
-};
-
-const filter = (elements, cb) => {
-  // Do NOT use .filter, to complete this function.
-  // Similar to `find` but you will return an array of all elements that passed the truth test
-  // Return an empty array if no elements pass the truth test
-};
-
-/* STRETCH PROBLEM */
-
-const flatten = (elements) => {
-  // Flattens a nested array (the nesting can be to any depth).
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-};
-
-/* eslint-enable no-unused-vars, max-len */
-
-module.exports = {
-  each,
-  map,
-  reduce,
-  find,
-  filter,
-  flatten
-};
-/*
-  Complete the following functions.
-  These functions only need to work with arrays.
-  A few of these functions mimic the behavior of the `Built` in JavaScript Array Methods.
-  The idea here is to recreate the functions from scratch BUT if you'd like,
-  feel free to Re-use any of your functions you build within your other functions.
-  You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
-  You can use the functions that you have already written to help solve the other problems
-*/
-
 //setting up an array as a const
 const eleArray = [3,6,8,5,4];
   // Do NOT use forEach to complete this function.
@@ -181,19 +119,34 @@ return filteredArray;
 
 /* STRETCH PROBLEM */
 
-const flattenArray = [[1, 2],[3, 4, 5], [6, 7, 8, 9]]
-const flatten = (elements) => {
-  // Flattens a nested array (the nesting can be to any depth).
+// Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  var myNewArray3 = [];
-    for (var i = 0; i < elements.length; ++i) {
-      for (var j = 0; j < elements[i].length; ++j)
-        myNewArray3.push(elements[i][j]);
+
+
+// sets a const with the varibale name of flattenArray to  be equal to an array of arrays
+
+const flattenArray = [[1, 2],[3, 4, 5], [6, 7, 8, 9]]
+// flatten is the name of the function and fcation is declared using an arrow function
+// also i removed the parenthesize in order to show that they are not needed in the code
+const flatten = elements => {
+  // define a const variable set to myNewArray that holds an empty array
+  const myNewArray = [];
+  // iterate over an the elements array
+    for (let i = 0; i < elements.length; ++i) {
+      // a nested loop that iterates over the iterating array
+      // using j as the index number and current element i
+      for (let j = 0; j < elements[i].length;  ++j)
+      // the element at the index of i and j into myNewArray
+        myNewArray.push(elements[i][j]);
     }
-    
+    //return the newly mapped array(not using .map) 
+   return myNewArray 
   }
-  let value = flatten(flattenArray)
-  console.log(value)
+  // call the flatten function using the flattenArray
+  // setting it to the const variable of value
+  const newflattenedArray = flatten(flattenArray)
+  // log out the new flattened array
+  console.log(newflattenedArray)
 
 /* eslint-enable no-unused-vars, max-len */
 
