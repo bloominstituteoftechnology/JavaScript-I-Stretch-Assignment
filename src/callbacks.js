@@ -10,8 +10,7 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  const item = arr.pop();
-  cb(item);
+  cb(arr[arr.length - 1]);
 };
 
 const sumNums = (x, y, cb) => {
@@ -44,11 +43,11 @@ const removeDuplicates = (array, cb) => {
   // Do not mutate the original array.
   const temp = [];
 
-  array.forEach((element) => {
-    if (!temp.includes(element)) {
-      temp.push(element);
+  for (let index = 0; index < array.length; index++) {
+    if (!temp.includes(array[index])) {
+      temp.push(array[index]);
     }
-  });
+  }
   cb(temp);
 };
 
