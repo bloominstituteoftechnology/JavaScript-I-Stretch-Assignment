@@ -14,12 +14,20 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i <= elements.length - 1; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const arr = [];
+  for (let i = 0; i <= elements.length - 1; i++) {
+    arr.push(cb(elements[i]));
+  }
+  return arr;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -35,6 +43,11 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i]) === true) {
+      return elements[i];
+    }
+  }
 };
 
 const filter = (elements, cb) => {
