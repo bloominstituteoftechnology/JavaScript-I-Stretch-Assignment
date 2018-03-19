@@ -11,16 +11,21 @@ const last = (arr, cb) => {
 };
 
 const sumNums = (x, y, cb) => {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
+  const sum = x + y;
+  cb(sum);
+  // or cb(x+y); sumNums adds two numbers (x, y) and passes the result to the callback.
 };
 
 const multiplyNums = (x, y, cb) => {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+  cb(x * y); // multiplyNums multiplies two numbers and passes the result to the callback.
 };
 
 const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  for (let i = 0; i < list.length; i++) {
+    cb(item === list[i]);
+  }
 };
 
 /* STRETCH PROBLEM */
