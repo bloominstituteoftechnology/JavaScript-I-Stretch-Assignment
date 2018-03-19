@@ -15,7 +15,7 @@ const sumNums = (x, y, cb) => {
 };
 
 const multiplyNums = (x, y, cb) => {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+  cb(x * y);// multiplyNums multiplies two numbers and passes the result to the callback.
 };
 
 const contains = (item, list, cb) => {
