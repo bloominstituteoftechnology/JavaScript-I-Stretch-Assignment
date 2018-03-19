@@ -11,7 +11,7 @@ const last = (arr, cb) => {
 };
 
 const sumNums = (x, y, cb) => {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
+  cb(x+y);// sumNums adds two numbers (x, y) and passes the result to the callback.
 };
 
 const multiplyNums = (x, y, cb) => {
