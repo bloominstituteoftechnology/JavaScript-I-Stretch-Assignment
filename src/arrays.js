@@ -7,14 +7,27 @@
   You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
   You can use the functions that you have already written to help solve the other problems
 */
-
+const eleArray = [3,6,8,5,4];
+let newArray= [];
 const each = (elements, cb) => {
+for (let index = 0; index < eleArray.length; index++) {
+  // newArray.push[elements[i]]
+  cb(elements[i], i)
+  
+};
+
   // Do NOT use forEach to complete this function.
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
+
+
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+
+
+
 };
+each(eleArray);
 
 const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
