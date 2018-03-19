@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn test arrays
+  /usr/local/bin/node /usr/local/bin/yarn test objects
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -3587,7 +3587,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose arrays
+  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose objects
   Directory: /Users/tylarpierson/Desktop/LambdaSchool/JavaScript/JavaScript-I
   Output:
   
