@@ -48,46 +48,68 @@ const map = (elements, cb) => {
   return ourArray
 };
 
+// stting up reduce arrow function
 const reduce = (elements, cb, startingValue) => {
+
   // Do NOT use .reduce, to complete this function.
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  
+
+  // setting a const of starWars to the starting value
   const starWars = startingValue;
+  // initializing total as 0
   let total = 0;
+  //Iterating over the elements array
   for (let index = 0; index < elements.length; index++) {
+    // total equals total plus the current element at the index of i
     total += elements[i];
   }
+  // if the starting value(starWars) is undefined.
   if (startingValue === undefined) {
+    // push in the element at the index of 0 and the total
     cb(elements[0], total);
   }
+  // if the starting value(starWars) is defined then push that and the total
   cb(starWars, total)
 };
-
+ // using find as an arrow function
 const find = (elements, cb) => {
+
   // Do NOT use .includes, to complete this function.
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+
   for (let index = 0; index < elements.length; index++) {
+    // if cb at the element index of i = true.
     if(cb(elements[i]) === true) {
+      // then return element at the index of i
       return elements[i]
     }
-  } return undefined;
+  }
+  // if element at the index of i is equal to false then return undefined
+   return undefined;
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  
+  // set a const that is an array to the variable of filteredArray 
   const filteredArray =[];
 
   for (let index = 0; index < elements.length; index++) {
+    // if cb at the element index of i = true
     if(cb(elements[i]) === true) {
+
+      // push the element at the index of i, into the filteredArray
        filteredArray.push(elements[i]);
     }
-
+// return the new filteredArray
 return filteredArray;
 
   }
