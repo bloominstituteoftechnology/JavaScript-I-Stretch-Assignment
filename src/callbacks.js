@@ -35,7 +35,7 @@ const contains = (item, list, cb) => {
 const removeDuplicates = (array, cb) => {
   const arrNew = [array[0]];
   for (let i = 1; i < array.length; i++) {
-    if (!arrNew.indexOf(array[i]) >= 0) {
+    if (arrNew.indexOf(array[i]) === -1) {
       arrNew.push(array[i]);
     }
   }

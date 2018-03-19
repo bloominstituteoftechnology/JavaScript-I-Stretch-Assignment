@@ -20,12 +20,25 @@ const each = (elements, cb) => {
 };
 
 const map = (elements, cb) => {
+  const arrNew = [];
+  for (let i = 0; i < elements.length; i++) {
+    arrNew[i] = cb(elements[i]);
+  }
+  return arrNew;
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
 };
 
 const reduce = (elements, cb, startingValue) => {
+  if (startingValue === undefined) {
+    startingValue = elements[0];
+  }
+  let sum = 0;
+  for (let i = 0; i < elements.length; i++) {
+    sum += cb(startingValue, elements[i]);
+  }
+  return sum;
   // Do NOT use .reduce, to complete this function.
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
@@ -34,13 +47,22 @@ const reduce = (elements, cb, startingValue) => {
 };
 
 const find = (elements, cb) => {
-  // Do NOT use .includes, to complete this function.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) return elements[i];
+  }
+  return undefined;
+    // Do NOT use .includes, to complete this function.
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
 };
 
 const filter = (elements, cb) => {
+  const arrNew = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) arrNew.push(elements[i]);
+  }
+  return arrNew;
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
@@ -49,8 +71,11 @@ const filter = (elements, cb) => {
 /* STRETCH PROBLEM */
 
 const flatten = (elements) => {
+  const sample = elements.toString();
+  return sample.split(',').map(Number);
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  //
 };
 
 /* eslint-enable no-unused-vars, max-len */
