@@ -1,19 +1,14 @@
 // Complete the following underscore functions.
 // Reference http://underscorejs.org/ for examples.
 
-const keys = (obj) => {
+const keys = obj => Object.keys(obj);
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
-  return Object.keys(obj);
-};
-
-const values = (obj) => {
+const values = obj => Object.values(obj);
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
-  return Object.values(obj);
-};
 
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
@@ -28,11 +23,9 @@ const mapObject = (obj, cb) => {
   return myObj;
 };
 
-const pairs = (obj) => {
+const pairs = obj => Object.entries(obj);
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
-  return Object.entries(obj);
-};
 
 /* STRETCH PROBLEMS */
 
@@ -73,5 +66,5 @@ module.exports = {
   mapObject,
   pairs,
   invert,
-  defaults,
+  defaults
 };
