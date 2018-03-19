@@ -27,9 +27,7 @@ const map = (elements, cb) => {
 
   const newArr = [];
 
-  for (let i = 0; i < elements.length; i++) {
-    newArr.push(cb(elements[i]));
-  }
+  each(elements, item => newArr.push(cb(item)));
 
   return newArr;
 };
@@ -50,6 +48,15 @@ const reduce = (elements, cb, startingValue) => {
   }
 
   return startingValue;
+
+  // ------------- Bonn's Solution ---------
+
+  // const newArr = elements.slice();
+  // let memo = startingValue || newArr.shift();
+  // each(newArr, (item) => {
+  //   memo = cb(memo, item);
+  // });
+  // return memo;
 };
 
 const find = (elements, cb) => {
