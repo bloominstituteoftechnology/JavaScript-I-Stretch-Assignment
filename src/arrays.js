@@ -59,6 +59,10 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  let out;
+  // if cb returns true, make out the index of the current element
+  map(elements, el => (cb(el) ? (out = elements.indexOf(el)) : ''));
+  return elements[out] || undefined;
 };
 
 const filter = (elements, cb) => {
