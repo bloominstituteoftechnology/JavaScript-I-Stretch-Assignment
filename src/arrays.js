@@ -1,3 +1,5 @@
+import { start } from 'repl';
+
 /*
   Complete the following functions.
   These functions only need to work with arrays.
@@ -14,12 +16,23 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  if (!elements.length) {
+    cb([]);
+    return [];
+  }
+  const out = [];
+  const fn = el => cb(el);
+  each(elements, element => out.push(fn(element)));
+  return [...out];
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -27,7 +40,18 @@ const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
-  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  // `startingValue` is the starting value.
+
+  // If `startingValue` is undefined then make `elements[0]` the initial value.
+  startingValue =
+    typeof startingValue === 'undefined'
+      ? (startingValue = elements[0])
+      : startingValue;
+  each(elements, (el, index) => {
+    if (!index && startingValue === elements[0]) return;
+    startingValue = cb(startingValue, el);
+  });
+  return startingValue;
 };
 
 const find = (elements, cb) => {

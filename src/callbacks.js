@@ -35,6 +35,9 @@ const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+
+  // MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+  // Sets are like arrays, except every item is unique.
   cb([...new Set(array)]);
 };
 
