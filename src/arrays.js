@@ -7,29 +7,44 @@
   You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
   You can use the functions that you have already written to help solve the other problems
 */
+
+//setting up an array as a const
 const eleArray = [3,6,8,5,4];
   // Do NOT use forEach to complete this function.
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
-let newArray= [];
-const each = (elements, cb) => {
+  
+  
+  //why!?
+// the  arrow function, set to each
+const each = (elements, cb) =>  {
+  // for itereating over eleArray. 
 for (let index = 0; index < eleArray.length; index++) {
-  // newArray.push[elements[i]]
-  cb(elements[i], i)
+  //pushing the array element and the array index into cb
+ cb(elements[i], i)
   };
 };
+
+//Invoking each with the eleArray
 each(eleArray);
 
+// arrow function set as map
 const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  
+
+  // setting up ourArray as a const 
   const ourArray = []
+  //iterating over elements 
   for (let index = 0; index < elements.length; index++) {
+    //pushing into ourArray the element at index i
     ourArray.push(elements[i])
   }
+  //returning our new pushed array
   return ourArray
 };
 
@@ -66,6 +81,18 @@ const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const filteredArray =[];
+
+  for (let index = 0; index < elements.length; index++) {
+    if(cb(elements[i]) === true) {
+       filteredArray.push(elements[i]);
+    }
+
+return filteredArray;
+
+  }
+
+
 };
 
 /* STRETCH PROBLEM */
