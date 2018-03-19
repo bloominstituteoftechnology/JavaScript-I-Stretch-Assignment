@@ -36,7 +36,7 @@ const limitFunctionCallCount = (cb, n) => {
   };
 };
 
-/* Extra Credit */
+/* STRETCH PROBLEM */
 
 const cacheFunction = (cb) => {
   // Should return a funciton that invokes `cb`.
