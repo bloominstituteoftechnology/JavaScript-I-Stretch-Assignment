@@ -4,8 +4,8 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
+  // this has to be made outside of the returned function
   let incrementor = 0;
-
   return () => ++incrementor;
 };
 
@@ -29,11 +29,8 @@ const limitFunctionCallCount = (cb, n) => {
   // The returned function should only allow `cb` to be invoked `n` times.
   const max = n;
   let cur = 0;
-  return (...args) => {
-    if (cur++ >= max) return null;
-    cur++;
-    return cb(...args);
-  };
+  // function is variable arity
+  return (...args) => (cur++ >= max ? null : cb(...args));
 };
 
 /* STRETCH PROBLEM */
