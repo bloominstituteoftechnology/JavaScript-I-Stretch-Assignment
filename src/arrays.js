@@ -119,10 +119,19 @@ return filteredArray;
 
 /* STRETCH PROBLEM */
 
+const flattenArray = [[1, 2],[3, 4, 5], [6, 7, 8, 9]]
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-};
+  var myNewArray3 = [];
+    for (var i = 0; i < elements.length; ++i) {
+      for (var j = 0; j < elements[i].length; ++j)
+        myNewArray3.push(elements[i][j]);
+    }
+    
+  }
+  let value = flatten(flattenArray)
+  console.log(value)
 
 /* eslint-enable no-unused-vars, max-len */
 
