@@ -54,6 +54,10 @@ const reduce = (elements, cb, startingValue) => {
   return startingValue;
 };
 
+const apply = (elements, cb) => {
+  return map(elements, cb);
+};
+
 const find = (elements, cb) => {
   // Do NOT use .includes, to complete this function.
   // Look through each value in `elements` and pass each element to `cb`.
@@ -61,7 +65,7 @@ const find = (elements, cb) => {
   // Return `undefined` if no elements pass the truth test.
   let out;
   // if cb returns true, make out the index of the current element
-  map(elements, el => (cb(el) ? (out = elements.indexOf(el)) : ''));
+  apply(elements, el => (cb(el) ? (out = elements.indexOf(el)) : ''));
   return elements[out] || undefined;
 };
 
@@ -69,6 +73,10 @@ const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const out = [];
+  // if cb returns true it goes in the container
+  apply(elements, el => (cb(el) ? out.push(el) : ''));
+  return out;
 };
 
 /* STRETCH PROBLEM */
@@ -76,6 +84,13 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  // recursion is a pain
+  return reduce(
+    elements,
+    (el, toFlatten) =>
+      el.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten),
+    []
+  );
 };
 
 /* eslint-enable no-unused-vars, max-len */
