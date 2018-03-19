@@ -37,11 +37,11 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
   if (startingValue) elements.unshift(startingValue);
-  let accumulator = elements[0];
+  let bin = elements[0];
   for (let i = 1; i < elements.length; i++) {
-    accumulator = cb(accumulator, elements[i]);
+    bin = cb(bin, elements[i]);
   }
-  return accumulator;
+  return bin;
 };
 
 const find = (elements, cb) => {
