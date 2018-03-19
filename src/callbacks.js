@@ -1,5 +1,5 @@
 const firstItem = (arr, cb) => {
- cb(arr[0])// firstItem passes the first item of the given array to the callback function.
+  cb(arr[0]);// firstItem passes the first item of the given array to the callback function.
 };
 
 const getLength = (arr, cb) => {
@@ -7,11 +7,11 @@ const getLength = (arr, cb) => {
 };
 
 const last = (arr, cb) => {
-  cb(arr[-1]);// last passes the last item of the array into the callback.
+  cb(arr[arr.length - 1]);// last passes the last item of the array into the callback.
 };
 
 const sumNums = (x, y, cb) => {
-  cb(x+y);// sumNums adds two numbers (x, y) and passes the result to the callback.
+  cb(x + y);// sumNums adds two numbers (x, y) and passes the result to the callback.
 };
 
 const multiplyNums = (x, y, cb) => {
