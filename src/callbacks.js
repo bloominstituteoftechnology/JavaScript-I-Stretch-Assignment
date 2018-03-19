@@ -38,6 +38,10 @@ const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  const result = {};
+  array.forEach((item, index) => result[item] = result[item] + 1 || 1);
+  const newArr = Object.keys(result).map(Number);
+  cb(newArr);
 };
 
 /* eslint-enable */
