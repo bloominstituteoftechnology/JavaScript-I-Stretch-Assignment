@@ -8,24 +8,17 @@
   You can use the functions that you have already written to help solve the other problems
 */
 const eleArray = [3,6,8,5,4];
+  // Do NOT use forEach to complete this function.
+  // Iterates over a list of elements, yielding each in turn to the `cb` function.
+  // This only needs to work with arrays.
+  // You should also pass the index into `cb` as the second argument
+  // based off http://underscorejs.org/#each
 let newArray= [];
 const each = (elements, cb) => {
 for (let index = 0; index < eleArray.length; index++) {
   // newArray.push[elements[i]]
   cb(elements[i], i)
-  
-};
-
-  // Do NOT use forEach to complete this function.
-  // Iterates over a list of elements, yielding each in turn to the `cb` function.
-
-
-  // This only needs to work with arrays.
-  // You should also pass the index into `cb` as the second argument
-  // based off http://underscorejs.org/#each
-
-
-
+  };
 };
 each(eleArray);
 
@@ -33,6 +26,11 @@ const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const ourArray = []
+  for (let index = 0; index < elements.length; index++) {
+    ourArray.push(elements[i])
+  }
+  return ourArray
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -41,6 +39,15 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  const starWars = startingValue;
+  let total = 0;
+  for (let index = 0; index < elements.length; index++) {
+    total += elements[i];
+  }
+  if (startingValue === undefined) {
+    cb(elements[0], total);
+  }
+  cb(starWars, total)
 };
 
 const find = (elements, cb) => {
@@ -48,6 +55,11 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let index = 0; index < elements.length; index++) {
+    if(cb(elements[i]) === true) {
+      return elements[i]
+    }
+  } return undefined;
 };
 
 const filter = (elements, cb) => {
