@@ -14,12 +14,21 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  const newElements = [];
+  for (let i = 0; i < elements.lentgh; i++) {
+    cb(elements[i], i);
+  }
 };
 
 const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+  const newMap = [];
+  for (let i = 0; i < 0; i++) {
+    newMap.push(elements[i]);
+  }
+  return newMap;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -28,6 +37,14 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  for (let i = 0; i < elements.length; i++) {
+    if (startingValue === undefined) {
+      startingValue = elements[0];
+      i++
+    }
+    startingValue = cb(startingValue, elements[i]);
+  }
+  return startingValue;
 };
 
 const find = (elements, cb) => {
@@ -35,12 +52,20 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) return element[i];
+  }
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const newFilter = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) newFilter.push(elements[i]);
+  }
+  return newFilter;
 };
 
 /* STRETCH PROBLEM */
