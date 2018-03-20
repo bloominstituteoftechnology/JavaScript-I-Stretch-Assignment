@@ -27,6 +27,7 @@
     "regenerator-runtime": "^0.10.3"
   },
   "dependencies": {
-    "eslint-config-airbnb": "^14.1.0"
+    "eslint-config-airbnb": "^14.1.0",
+    "yarn": "^1.5.1"
   }
 }
