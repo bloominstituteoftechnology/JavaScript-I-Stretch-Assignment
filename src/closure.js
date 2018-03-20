@@ -1,6 +1,10 @@
 // Complete the following functions.
 
 const counter = () => {
+  let value = 0;
+  return function () {
+    return ++value;
+  };
   // Return a function that when invoked increments and returns a counter variable.
   // Example: const newCounter = counter();
   // newCounter(); // 1
@@ -8,6 +12,15 @@ const counter = () => {
 };
 
 const counterFactory = () => {
+  let value = 0;
+  return myObj = {
+    increment: () => {
+      return ++value;
+    },
+    decrement: () => {
+      return --value;
+    }
+  };
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.

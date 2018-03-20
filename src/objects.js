@@ -35,7 +35,6 @@ const pairs = (obj) => {
     arr.push([prop[i], ties[i]]);
   }
   return arr;
-
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
 };
