@@ -40,6 +40,26 @@ const invert = (obj) => {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  // method #1: use a loop
+  // let result = {}; // holds the inverted key value pairs
+  // let keys = Object.keys(obj);
+  // let vals = Object.values(obj);
+  // // iterate over obj's keys
+  // for (let key of keys) {
+  //   // set props in result to be values of obj
+  //   // values of result will be the properties of obj
+  //   result[obj[key]] = key;
+  // }
+  // return result;
+  // method #2: use array.reduce()
+  return Object.keys(obj).reduce((a, b) => {
+    // initial value of a is {}
+    // set each of obj's keys to a property in a
+    a[obj[b]] = b;
+    // a accumulates inverted key:value pairs
+    return a;
+  }, {});
+  // output: an object with obj's keys as values and obj's values as properties
 };
 
 const defaults = (obj, defaultProps) => {
