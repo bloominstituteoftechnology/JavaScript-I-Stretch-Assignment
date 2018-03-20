@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\jeffr\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test arrays
+  C:\Program Files\nodejs\node.exe C:\Users\jeffr\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test closure
 
 PATH: 
   C:\Users\jeffr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\jeffr\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Dell\DW WLAN Card;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\PharosSystems\Core;C:\Program Files (x86)\Skype\Phone;C:\Program Files\Git\cmd;C:\Program Files\Sublime Text 3;C:\Users\jeffr\AppData\Local\Programs\Python\Python36-32;C:\Program Files\nodejs;C:\Users\jeffr\AppData\Local\Microsoft\WindowsApps;C:\Users\jeffr\AppData\Roaming\npm;C:\Users\jeffr\AppData\Local\atom\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -3587,7 +3587,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c eslint tests/*.js && eslint src/*.js && jest --verbose arrays
+  Arguments: /d /s /c eslint tests/*.js && eslint src/*.js && jest --verbose closure
   Directory: C:\Users\jeffr\Desktop\coding\LAMBDA\IMMERSIVE\Week3 - JavaScript Fundamentals\JavaScript-I
   Output:
   
