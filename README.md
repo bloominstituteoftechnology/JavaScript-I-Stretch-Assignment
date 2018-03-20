@@ -5,6 +5,7 @@ This project is designed to get you used to working with all of the concepts we 
 ## Project initialization
 
 * `Fork and Clone` this repository and cd into it.
+sdfklj
 * Run the command `npm i` to install needed node packages.
 * **JUST** a _reminder_ this command runs a script on your machine based on the `package.json` file you have installed in your project. By running this command, you're telling your project to head over to `npm.org` and download all of the packages you need for this project.
   ## Instructions
