@@ -1,26 +1,26 @@
 const firstItem = (arr, cb) => {
   // firstItem passes the first item of the given array to the callback function.
-cb(arr[0]);
+  cb(arr[0]);
 };
 
 const getLength = (arr, cb) => {
   // getLength passes the length of the array into the callback.
-cb(arr.length);
+  cb(arr.length);
 };
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-cb(arr[arr.length-1]);
+  cb(arr[arr.length - 1]);
 };
 
 const sumNums = (x, y, cb) => {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-cb(x + y);
+  cb(x + y);
 };
 
 const multiplyNums = (x, y, cb) => {
   // multiplyNums multiplies two numbers and passes the result to the callback.
-cb(x * y);
+  cb(x * y);
 };
 
 const contains = (item, list, cb) => {
@@ -36,11 +36,11 @@ const removeDuplicates = (array, cb) => {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
   const NewArray = array.slice();
-for (let i = 0; i < array.length; i++){
-  if (array.includes(array[i], i +1))
-}
-cb(NewArray);
-
+  for (let i = 0; i < array.length; i++) {
+    if (array.includes(array[i], i + 1)) {
+      cb(NewArray);
+    }
+  }
 };
 
 /* eslint-enable */

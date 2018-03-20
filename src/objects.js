@@ -5,8 +5,7 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
-  keysArray = (Object.keys(obj));
-  return keysArray;
+  return Object.keys(obj);
 };
 
 const values = (obj) => {
@@ -32,7 +31,6 @@ const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
   const objArray = Object.keys(obj);
-  const pairedArray = [];
   const returnArray = [];
   for (let i = 0; i < objArray.length; i++) {
     const pairedArray = [];
