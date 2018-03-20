@@ -20,10 +20,10 @@ const eleArray = [3, 6, 8, 5, 4];
 const each = (elements, cb) => {
   //  for itereating over eleArray
   for (let i = 0; i < eleArray.length; i++) {
-    //pushing the array element and the array index into cb
+    // pushing the array element and the array index into cb
 
     cb(elements[i], i);
-  };
+  }
 };
 
 //  Invoking each with the eleArray
@@ -37,14 +37,14 @@ const map = (elements, cb) => {
 
 
   // setting up ourArray as a const
-  const ourArray = []
+  const ourArray = [];
   // iterating over elements
   for (let i = 0; i < elements.length; i++) {
   // pushing into ourArray the element at index i
-    ourArray.push(elements[i])
+    ourArray.push(elements[i]);
   }
   // returning our new pushed array
-  return ourArray
+  return ourArray;
 };
 
 // stting up reduce arrow function
@@ -59,7 +59,7 @@ const reduce = (elements, cb, startingValue) => {
   const starWars = startingValue;
   // initializing total as 0
   let total = 0;
-  //Iterating over the elements array
+  // Iterating over the elements array
   for (let i = 0; i < elements.length; i++) {
     // total equals total plus the current element at the index of i
     total += elements[i];
@@ -70,11 +70,10 @@ const reduce = (elements, cb, startingValue) => {
     cb(elements[0], total);
   }
   // if the starting value(starWars) is defined then push that and the total
-  cb(starWars, total)
+  cb(starWars, total);
 };
 // using find as an arrow function
 const find = (elements, cb) => {
-
   // Do NOT use .includes, to complete this function.
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
@@ -84,7 +83,7 @@ const find = (elements, cb) => {
     // if cb at the element index of i = true.
     if (cb(elements[i]) === true) {
       // then return element at the index of i
-      return elements[i]
+      return elements[i];
     }
   }
   // if element at the index of i is equal to false then return undefined
@@ -102,18 +101,13 @@ const filter = (elements, cb) => {
   for (let i = 0; i < elements.length; i++) {
     // if cb at the element index of i = true
     if (cb(elements[i]) === true) {
-
-      // push the element at the index of i, into the filteredArray
+// push the element at the index of i, into the filteredArray
       filteredArray.push(elements[i]);
     }
     // return the new filteredArray
     return filteredArray;
-
   }
-
-
 };
-
 /* STRETCH PROBLEM */
 
 // Flattens a nested array (the nesting can be to any depth).
@@ -136,21 +130,19 @@ const flatten = (elements) => {
   for (let i = 0; i < elements.length; ++i) {
     // a nested loop that iterates over the iterating array
     // using j as the index number and current element i
-   for (let j = 0; j < elements[i].length; ++j){
+    for (let j = 0; j < elements[i].length; ++j) {
       // the element at the index of i and j into myNewArray
       myNewArray.push(elements[i][j]);
+    }
+  // return the newly mapped array(not using .map)
+    return myNewArray;
   }
-  //return the newly mapped array(not using .map) 
-  return myNewArray;
-}
+};
 // call the flatten function using the flattenArray
 // setting it to the const variable of value
-const newflattenedArray = flatten(flattenArray)
+const newflattenedArray = flatten(flattenArray);
 // log out the new flattened array
-console.log(newflattenedArray)
-
 /* eslint-enable no-unused-vars, max-len */
-
 module.exports = {
   each,
   map,

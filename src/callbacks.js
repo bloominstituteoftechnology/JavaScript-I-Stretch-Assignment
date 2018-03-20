@@ -57,7 +57,8 @@ const contains = (item, list, cb) => {
   }
 
 /* eslint-enable */
-module.exports = {
+
+module.exports ={
   firstItem,
   getLength,
   last,
