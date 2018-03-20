@@ -47,6 +47,13 @@ const cacheFunction = (cb) => {
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
 
+  const cache = {};
+  return function memoize(arg) {
+    if (arg in cache) {
+      return cache[arg];
+    }
+    return cache[arg] = cb(arg);
+  };
 };
 
 /* eslint-enable no-unused-vars */
