@@ -97,23 +97,26 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  flat = [];
-  function flatten(a) {
+  const flat = [];
+  function flattenArr(a) {
       // base case: el in arr is not an array
-      if (!Array.isArray(a)) {
-          flat.push(a);
-      }  
+    if (!Array.isArray(a)) {
+      flat.push(a);
+    } else {
       // recursive case: el is an array
-      else {
-          // iterate over a: go one level into el
-          for (let el of a) {
-              flatten(el);
-          }
-      }
-      return flat;
+      // iterate over a: go one level into el
+      a.forEach(el => flattenArr(el));
+    }
+    return flat;
   }
-  return flatten(elements);
+  return flattenArr(elements);
 };
+// test cases courtesy of FreeCodeCamp
+  // https://www.freecodecamp.org/challenges/steamroller
+// flatten([1, [2], [3, [[4]]]]) returns [1, 2, 3, 4]
+// flatten([1, [], [3, [[4]]]]) returns [1, 3, 4]
+// flatten([[["a"]], [["b"]]]) returns ["a", "b"]
+// flatten([1, {}, [3, [[4]]]]) returns [1, {}, 3, 4]
 
 /* eslint-enable no-unused-vars, max-len */
 
