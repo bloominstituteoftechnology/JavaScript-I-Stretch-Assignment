@@ -45,7 +45,7 @@ const reduce = (elements, cb, startingValue) => {
       cb(elements[i]);
     }
   } else {
-    cb(startingValue);
+    // cb(startingValue);
     for (let i = 0; i < elements.length; i++) {
       startingValue += elements[i];
       cb(elements[i]);
