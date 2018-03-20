@@ -53,12 +53,25 @@ const find = (elements, cb) => {
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      return elements[i];
+    }
+  }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+  const newArr = [];
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      newArr.push(elements[i]);
+    }
+  }
+  return newArr;
 };
 
 /* STRETCH PROBLEM */
@@ -66,6 +79,7 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  return reduce(elements, (acc, el) => acc.concat(Array.isArray(el) ? flatten(el) : el), []);
 };
 
 /* eslint-enable no-unused-vars, max-len */

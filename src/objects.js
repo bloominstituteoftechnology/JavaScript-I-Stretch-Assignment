@@ -39,7 +39,7 @@ const mapObject = (obj, cb) => {
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
-  const entpairs = Object.entries(obj);
+  return Object.entries(obj);
 };
 
 /* STRETCH PROBLEMS */
