@@ -5,22 +5,29 @@ const keys = (obj) => {
   // Retrieve all the names of the object's properties.
   // Return the keys as strings in an array.
   // Based on http://underscorejs.org/#keys
+  const objectNames = Object.keys(obj);
+  return objectNames;
 };
 
 const values = (obj) => {
   // Return all of the values of the object's own properties.
   // Ignore functions
   // http://underscorejs.org/#values
+  const objectValues = Object.values(obj);
+  return objectValues;
 };
 
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
+  Object.keys(obj).forEach(x => (obj[x] = cb(obj[x])));
+  return obj;
 };
 
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+  return Object.entries(obj);
 };
 
 /* STRETCH PROBLEMS */

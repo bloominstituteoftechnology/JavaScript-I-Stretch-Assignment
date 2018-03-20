@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js test arrays
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js test closure
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -3587,7 +3587,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose arrays
+  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose closure
   Directory: /Users/anthony/Documents/Lambda_Projects/week3/JavaScript-I
   Output:
   
