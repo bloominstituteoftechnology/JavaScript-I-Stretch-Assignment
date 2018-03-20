@@ -10,7 +10,8 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  cb(arr.length - 1);
+  const myLast = arr.length - 1;
+  return cb(myLast);
 };
 
 const sumNums = (x, y, cb) => {
