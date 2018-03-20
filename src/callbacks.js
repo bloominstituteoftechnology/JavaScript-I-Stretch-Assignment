@@ -38,16 +38,8 @@ const removeDuplicates = (array, cb) => {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
   // hold unique elements in a new array
-  const result = [];
-  for (let i = 0; i < array.length; i++) {
-    // a unique el should only have one index
-    if (array.indexOf(array[i]) === array.lastIndexOf(array[i])) {
-      // add unique els to result
-      result.push(array[i]);
-    }
-  }
-  // output: an array of unique elements/ els that only occur once
-  return cb(result);
+  const uniqueEls = Array.from(new Set(array));
+  return cb(uniqueEls);
 };
 
 /* eslint-enable */
