@@ -31,9 +31,9 @@ const limitFunctionCallCount = (cb, n) => {
 
   let count = 0;
 
-  return () => {
-    if (count < n) cb();
-    count++;
+  return (...params) => {
+    if (count++ < n) return cb(...params);
+    return null;
   };
 };
 
