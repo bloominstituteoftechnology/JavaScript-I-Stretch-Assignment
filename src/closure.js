@@ -7,7 +7,7 @@ const counter = () => {
   // newCounter(); // 2
   let count = 0;
   return () => {
-    ++count;
+    count++;
     return count;
   };
 };
@@ -19,17 +19,24 @@ const counterFactory = () => {
   let count = 0;
   return {
     increment() {
-      return ++count;
+      return ++count; // adds one to counter
     },
     decrement() {
-      return --count;
+      return --count; // removes one from counter
     }
   };
 };
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
-
+  //  So what we want is n to be the limiting factor for count
+  //  therefore, count should always be less than n while it's counting up
+  let count = 0;
+  // will keep counting until count is equal to n then will stop
+  if (count < n) {
+    cb();
+    count++;
+  }
 };
 
 /* STRETCH PROBLEM */
