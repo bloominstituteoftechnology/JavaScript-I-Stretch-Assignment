@@ -1,22 +1,66 @@
 // Complete the following functions.
 
 const counter = () => {
+  let count = 0;
+  return () => {
+    count++;
+    return count;
+  };
+};
+// const myCounter = counter();
+// console.log(myCounter());
+// console.log(myCounter());
+// console.log(myCounter());
+// console.log(myCounter());
+// console.log(myCounter());
+// console.log(myCounter());
   // Return a function that when invoked increments and returns a counter variable.
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
-};
 
-const counterFactory = () => {
+
+const counterFactory = (() => {
+  let pcounter = 0;
+  function changeBy(val) {
+    pcounter += val;
+  }
+  return {
+    increment: () => {
+      changeBy(1);
+    },
+    decrement: () => {
+      changeBy(-1);
+    },
+    value: () => {
+      return pcounter;
+    }
+  };
+})();
+    // console.log(counterFactory.value()); // logs 0
+    // counterFactory.increment();
+    // counterFactory.increment();
+    // console.log(counterFactory.value()); // logs 2
+    // counterFactory.decrement();
+    // console.log(counterFactory.value()); //1
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
-};
+
 
 const limitFunctionCallCount = (cb, n) => {
+  let timesInvoked = 0;
+  return (...args) => {
+    if (timesInvoked === n) {
+      return null;
+    }
+    timesInvoked++;
+    return cb(...args);
+  };
+};
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
-};
+
 
 /* STRETCH PROBLEM */
 
