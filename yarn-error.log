@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\jared\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test
+  C:\Program Files\nodejs\node.exe C:\Users\jared\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test closure
 
 PATH: 
   C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\jared\AppData\Local\Microsoft\WindowsApps;C:\Users\jared\AppData\Roaming\npm;C:\Program Files\Microsoft VS Code\bin
@@ -3587,7 +3587,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c eslint tests/*.js && eslint src/*.js && jest --verbose
+  Arguments: /d /s /c eslint tests/*.js && eslint src/*.js && jest --verbose closure
   Directory: C:\Users\jared\projects\JavaScript-I
   Output:
   
