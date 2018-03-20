@@ -89,6 +89,21 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+
+  // Create array to hold final result
+  const result = [];
+
+  // Helper function with recursion to adapt for different levels
+  function dig(item) {
+    // Update result array if number is found instead of array
+    if (typeof item === 'number') result.push(item);
+    // Loop through array items looking for number using above if statement
+    for (let i = 0; i < item.length; i++) { dig(item[i]); }
+    // Once all the loops finish return final result
+    return result;
+  }
+
+  return dig(elements);
 };
 
 /* eslint-enable no-unused-vars, max-len */
