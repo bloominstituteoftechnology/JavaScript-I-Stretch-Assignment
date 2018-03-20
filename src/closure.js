@@ -1,3 +1,6 @@
+// Add object methods from object.js
+const objectMethods = require('../src/objects');
+
 // Complete the following functions.
 
 const counter = () => {
@@ -46,6 +49,21 @@ const cacheFunction = (cb) => {
   // If the returned function is invoked with arguments that it has already seen
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
+
+  // Initialize cache in closure scope
+  const cache = {};
+
+  return (arg) => {
+    if (Object.keys(cache).includes(String(arg))) { // if arg was found in cache
+      // return chached result
+      return cache[String[arg]];
+    }
+
+    // if no cahce was found then make one
+    cache[arg] = cb(arg);
+    // reference cache as not to call the callback unnecessarily
+    return cache[arg];
+  };
 };
 
 /* eslint-enable no-unused-vars */
