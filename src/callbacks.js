@@ -10,19 +10,19 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  cb(arr.length[arr.length - 1])
+  //   cb(arr.length[arr.length - 1]);
 };
 
 const sumNums = (x, y, cb) => {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
-  const a = x + y;
-  cb(a);
+  //   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  //   const a = x + y;
+  //   cb(a);
 };
 
 const multiplyNums = (x, y, cb) => {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
-  const a = x * y;
-  cb(a);
+  //   // multiplyNums multiplies two numbers and passes the result to the callback.
+  //   const a = x * y;
+  //   cb(a);
 };
 
 const contains = (item, list, cb) => {
@@ -34,31 +34,28 @@ const contains = (item, list, cb) => {
     } else {
       cb(false);
     }
-
-  };
-
-  /* STRETCH PROBLEM */
-
-  const removeDuplicates = (array, cb) => {
-    // removeDuplicates removes all duplicate values from the given array.
-    // Pass the duplicate free array to the callback function.
-    // Do not mutate the original array.
-    const duplicateFreeArray = []
-
-    // iterate over the array
-    for (let i = 0; i < array.length; i++) {
-
-      if (duplicateFreeArray.indexOf(array[i]) == -1) {
-
-        duplicateFreeArray.push(array[i])
-      }
-    }
-    cb(duplicateFreeArray);
   }
+};
+/* STRETCH PROBLEM */
+
+const removeDuplicates = (array, cb) => {
+  // removeDuplicates removes all duplicate values from the given array.
+  // Pass the duplicate free array to the callback function.
+  // Do not mutate the original array.
+  const duplicateFreeArray = [];
+
+  // iterate over the array
+  for (let i = 0; i < array.length; i++) {
+    if (duplicateFreeArray.indexOf(array[i]) === -1) {
+      duplicateFreeArray.push(array[i]);
+    }
+  }
+  cb(duplicateFreeArray);
+};
 
 /* eslint-enable */
 
-module.exports ={
+module.exports = {
   firstItem,
   getLength,
   last,
