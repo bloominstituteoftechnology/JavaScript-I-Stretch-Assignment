@@ -38,7 +38,23 @@ const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  //
+
+  // 3 days to do it from here https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+
+  // const deduped = array.filter((e, i) => array.indexOf(e) === i);
+  // const deduped = Array.from(new Set(array));
+
+
+  const seen = {};
+
+  const deduped = array.filter((e) => {
+    return seen[e] === true ? false : seen[e] = true;
+  });
+
+  cb(deduped);
 };
+
 
 /* eslint-enable */
 module.exports = {

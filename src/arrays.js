@@ -21,11 +21,11 @@ const map = (elements, cb) => {
   // Do NOT use .map, to complete this function.
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
-  const retVal = [];
+  const mappedArray = [];
 
-  elements.forEach((e => retVal.push(cb(e))));
+  elements.forEach((e => mappedArray.push(cb(e))));
 
-  return retVal;
+  return mappedArray;
 };
 
 const reduce = (elements, cb, startingValue) => {
@@ -51,31 +51,31 @@ const find = (elements, cb) => {
   // Do NOT use .includes, to complete this function.
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
-  // Return `undefined` if no elements pass the truth test.
+  // Return `undefimappedArray` if no elements pass the truth test.
 
-  let retVal;
+  let foundElement;
 
   for (let i = 0; i < elements.length; i++) {
     if (cb(elements[i])) {
-      retVal = elements[i];
+      foundElement = elements[i];
       break;
     }
   }
 
-  return retVal;
+  return foundElement;
 };
 
 const filter = (elements, cb) => {
   // Do NOT use .filter, to complete this function.
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
-  const retVal = [];
+  const filteredArray = [];
 
   elements.forEach((e) => {
-    if (cb(e)) retVal.push(e);
+    if (cb(e)) filteredArray.push(e);
   });
 
-  return retVal;
+  return filteredArray;
 };
 
 /* STRETCH PROBLEM */
