@@ -5,17 +5,38 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
+  let count = 0;
+  return () => {
+    count++;
+    return count;
+  };
 };
 
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  let count = 0;
+  return {
+    increment() {
+      return ++count; // adds one to counter
+    },
+    decrement() {
+      return --count; // removes one from counter
+    }
+  };
 };
-
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  //  So what we want is n to be the limiting factor for count
+  //  therefore, count should always be less than n while it's counting up
+  let count = 0;
+  // will keep counting until count is equal to n then will stop
+  if (count < n) {
+    cb();
+    count++;
+  }
 };
 
 /* STRETCH PROBLEM */
