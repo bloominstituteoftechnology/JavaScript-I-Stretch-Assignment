@@ -26,6 +26,8 @@ const multiplyNums = (x, y, cb) => {
 const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  // includes() returns true if item is in the given array
+  // else includes() returns false
   cb(list.includes(item));
 };
 
@@ -35,12 +37,16 @@ const removeDuplicates = (array, cb) => {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  // hold unique elements in a new array
   const result = [];
   for (let i = 0; i < array.length; i++) {
+    // a unique el should only have one index
     if (array.indexOf(array[i]) === array.lastIndexOf(array[i])) {
+      // add unique els to result
       result.push(array[i]);
     }
   }
+  // output: an array of unique elements/ els that only occur once
   return cb(result);
 };
 
