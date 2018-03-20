@@ -48,14 +48,18 @@ const removeDuplicates = (array, cb) => {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 
+  // Create arr for pushed content
   const noDupArr = [];
 
+  // Loop through array to check which values are held within noDupArr
   for (let i = 0; i < array.length; i++) {
-    if (!noDupArr.includes(array[i])) {
+    if (!noDupArr.includes(array[i])) { // if match is not found
+      // Push missing value to noDupArr
       noDupArr.push(array[i]);
     }
   }
 
+  // Pass duplicate free array into callback
   cb(noDupArr);
 };
 

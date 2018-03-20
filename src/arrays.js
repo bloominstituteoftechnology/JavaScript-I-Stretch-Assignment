@@ -103,6 +103,7 @@ const flatten = (elements) => {
     return result;
   }
 
+  // Call dig function on elements and return result array
   return dig(elements);
 };
 
