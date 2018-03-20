@@ -32,13 +32,14 @@ const map = (elements, cb) => {
 
 const reduce = (elements, cb, startingValue) => {
   if (startingValue === undefined) {
-    startingValue = elements[0];
+    startingValue = elements.shift();
   }
-  let sum = 0;
-  for (let i = 0; i < elements.length; i++) {
-    sum += cb(startingValue, elements[i]);
+
+  while (elements.length > 0) {
+    startingValue = cb(startingValue, elements.shift());
   }
-  return sum;
+  return startingValue;
+
   // Do NOT use .reduce, to complete this function.
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
