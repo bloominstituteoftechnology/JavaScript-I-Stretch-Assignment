@@ -70,7 +70,8 @@ const filter = (elements, cb) => {
   for (let i = 0; i <= elements.length - 1; i++) {
     if (cb(elements[i]) === true) {
       truthArray.unshift(elements[i]);
-    } else if (elements[i] === elements.length - 1) {
+    }
+    if (elements[i] === elements.length - 1) {
       return truthArray;
     }
   }
