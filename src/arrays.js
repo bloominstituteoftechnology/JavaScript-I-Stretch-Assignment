@@ -5,7 +5,6 @@
 // You can use the functions that you have already written to help solve the other problems
 
 const each = (elements, cb) => {
-  // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
@@ -66,7 +65,6 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  nope
 };
 
 /* eslint-enable no-unused-vars, max-len */
