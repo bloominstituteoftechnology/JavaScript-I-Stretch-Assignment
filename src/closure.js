@@ -6,7 +6,7 @@ const counter = () => {
   // newCounter(); // 1
   // newCounter(); // 2
   let count = 1;
-  return function () { return count++; };
+  return function realCounterFunc() { return count++; };
 };
 
 const counterFactory = () => {
@@ -17,10 +17,10 @@ const counterFactory = () => {
   const counterObj = {
     count: 0,
   };
-  counterObj.increment = function () {
+  counterObj.increment = function incrementFunc() {
     return ++counterObj.count;
   };
-  counterObj.decrement = function () {
+  counterObj.decrement = function decrementFunc() {
     return --counterObj.count;
   };
 
@@ -30,12 +30,15 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
-  // let count = 0;
-  const wrappedFunc = () => {
-    // count += 1;
-    // if (count < n) return cb(...args);
+  let count = 0;
+  const wrapperFunc = (...args) => {
+    count++;
+    if (count < n) {
+      return cb(...args);
+    }
+    return null;
   };
-  return null;
+  return wrapperFunc;
 };
 
 /* STRETCH PROBLEM */
@@ -49,7 +52,7 @@ const cacheFunction = (cb) => {
   // `cb` should only ever be invoked once for a given set of arguments.
   let storedValue = null;
   let storedResult = null;
-  return function (newValue) {
+  return function realCacheFunc(newValue) {
     if (storedValue !== newValue) {
       storedResult = cb(newValue);
       storedValue = newValue;
