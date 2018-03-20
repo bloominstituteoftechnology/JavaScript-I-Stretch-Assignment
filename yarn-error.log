@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn test arrays
+  /usr/local/bin/node /usr/local/bin/yarn test closure
 
 PATH: 
   /Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/android-sdk-macosx/platform-tools:/android-sdk-macosx/tools:/usr/local/share/dotnet:/usr/local/git/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin
@@ -3588,7 +3588,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose arrays
+  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose closure
   Directory: /Users/BakkenCo/LambdaSchool/User-Interface/JavaScript-I
   Output:
   
