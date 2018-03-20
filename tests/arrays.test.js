@@ -1,4 +1,3 @@
-
 const arrayMethods = require('../src/arrays');
 /* eslint-disable no-undef */
 describe('arrays', () => {
@@ -28,12 +27,12 @@ describe('arrays', () => {
   describe('map', () => {
     it('should return an array', () => {
       const arr = [];
-      const result = arrayMethods.map(arr, n => (n * n));
+      const result = arrayMethods.map(arr, n => n * n);
       expect(Array.isArray(result)).toBe(true);
     });
     it('should pass each item into the transform function', () => {
       const arr = [1, 2, 3];
-      const mappedArr = arrayMethods.map(arr, n => (n * 2));
+      const mappedArr = arrayMethods.map(arr, n => n * 2);
       expect(mappedArr).toEqual([2, 4, 6]);
     });
     it('should call the callback passed to it for each element in array given', () => {
@@ -45,19 +44,19 @@ describe('arrays', () => {
   });
 
   describe('reduce', () => {
-    it('should reduce the array\'s contents to a single value', () => {
+    it("should reduce the array's contents to a single value", () => {
       const arr = [1, 2, 3, 4, 5];
-      const result = arrayMethods.reduce(arr, (memo, num) => (memo + num));
+      const result = arrayMethods.reduce(arr, (memo, num) => memo + num);
       expect(result).toBe(15);
     });
     it('should accept a memo argument', () => {
       const arr = [1, 2, 3, 4, 5];
-      const result = arrayMethods.reduce(arr, (memo, num) => (memo + num), 10);
+      const result = arrayMethods.reduce(arr, (memo, num) => memo + num, 10);
       expect(result).toBe(25);
     });
     it('should handle any type of data in the array', () => {
       const arr = ['h', 'e', 'l', 'l', 'o', '!'];
-      const result = arrayMethods.reduce(arr, (memo, num) => (memo + num));
+      const result = arrayMethods.reduce(arr, (memo, num) => memo + num);
       expect(result).toBe('hello!');
     });
     it('should call the given callback per every item but one in the array and return an expected value', () => {
@@ -72,7 +71,7 @@ describe('arrays', () => {
   describe('find', () => {
     it('should return the first element that passes the truth test', () => {
       const arr = [1, 2, 3, 4, 5];
-      const result = arrayMethods.find(arr, num => (num === 5));
+      const result = arrayMethods.find(arr, num => num === 5);
       expect(result).toBe(5);
     });
   });
@@ -80,18 +79,18 @@ describe('arrays', () => {
   describe('filter', () => {
     it('should return an array', () => {
       const arr = [1, 2, 3, 4, 5];
-      const results = arrayMethods.filter(arr, num => (num === 5));
+      const results = arrayMethods.filter(arr, num => num === 5);
       expect(Array.isArray(results)).toBe(true);
     });
     it('should return an empty array if no elements pass truth test', () => {
       const arr = [1, 2, 3, 4, 5];
-      const results = arrayMethods.filter(arr, num => (num === 10));
+      const results = arrayMethods.filter(arr, num => num === 10);
       expect(Array.isArray(results)).toBe(true);
       expect(results.length).toBe(0);
     });
     it('should return an array with all elements that pass truth test', () => {
       const arr = [1, 2, 3, 4, 5];
-      const results = arrayMethods.filter(arr, num => (num % 2 === 0));
+      const results = arrayMethods.filter(arr, num => num % 2 === 0);
       expect(results[0]).toBe(2);
       expect(results[1]).toBe(4);
       expect(results.length).toBe(2);
