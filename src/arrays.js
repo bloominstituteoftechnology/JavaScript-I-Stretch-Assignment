@@ -14,8 +14,12 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  // elements is my array
+  // i is my counter for the part of the array
   for (let i = 0; i < elements.length; i++) {
-    cb(elements[i]);
+    cb(elements[i], i);
+    // return elements[i.length];
+    // elements.indexOf(i);
   }
 };
 
