@@ -23,6 +23,7 @@ const counterFactory = () => {
   counterObj.decrement = function () {
     return --counterObj.count;
   };
+
   return counterObj;
 };
 
@@ -31,8 +32,8 @@ const limitFunctionCallCount = (cb, n) => {
   // The returned function should only allow `cb` to be invoked `n` times.
   // let count = 0;
   const wrappedFunc = () => {
-    count += 1;
-    if (count < n) return cb(...args);
+    // count += 1;
+    // if (count < n) return cb(...args);
   };
   return null;
 };
