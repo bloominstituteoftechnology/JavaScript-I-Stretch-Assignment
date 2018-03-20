@@ -42,21 +42,21 @@ const removeDuplicates = (array, cb) => {
   // Pass the duplicate free array to the callback function.
   // // Do not mutate the original array.
 
-  // placeholder variable to hold duplicate value and index
-  const object = {};
-  // iterate over the array 
-  array.forEach(item => counts[x] = counts[x] + 1);
-  
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === array[i + 1]) {
-      
-      array.splice(array[i], 1);
-    };
-  
-    // find the indeces of any duplicates
-    // remove one of the duplicates
-    // return the shortened array
-  }
+  // // placeholder variable to hold duplicate value and index
+  // const object = {};
+  // // iterate over the array
+  // array.forEach(item => counts[x] = counts[x] + 1);
+
+  // for (let i = 0; i < array.length; i++) {
+  //   if (array[i] === array[i + 1]) {
+
+  //     array.splice(array[i], 1);
+  //   };
+
+  //   // find the indeces of any duplicates
+  //   // remove one of the duplicates
+  //   // return the shortened array
+  // }
 };
 
 /* eslint-enable */
