@@ -19,7 +19,7 @@ const map = (elements, cb) => {
   // Return the new array.
   newArray = [];
   for (i =0; i < elements.length; i++){
-   newArray.push(cb(elements[i]));
+   newArray.shift(cb(elements[i]));
   }
   return newArray;
 };
@@ -42,6 +42,7 @@ const find = (elements, cb) => {
   for (i =0; i < elements.length; i++){
     if (cb(elements[i])){
     return elements[i];}
+    else return 'undefined';
   }
 };
 
