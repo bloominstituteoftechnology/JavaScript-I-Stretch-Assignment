@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 const closureMethods = require('../src/closure');
 /* eslint-disable no-undef */
 describe('closure', () => {
