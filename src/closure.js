@@ -5,12 +5,22 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
+<<<<<<< HEAD
   let count = 0;
   return () => {
     count++;
     return count;
   };
 };
+=======
+    let counter = 0;
+    return () => {
+      counter++;
+      return counter;
+    };
+   };
+  
+>>>>>>> cf9eaede330dd47f5f98b43a76bb861130525d9c
 
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
@@ -26,10 +36,17 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+<<<<<<< HEAD
   let callCount = 0;
   return (CallCount) => {
     if (callCount === n) return null;
     callCount++;
+=======
+  CallCount =0;
+  return (CallCount) =>{
+    if (CallCount === n) return null;
+    CallCount++;
+>>>>>>> cf9eaede330dd47f5f98b43a76bb861130525d9c
     return cb(CallCount);
   };
 };
