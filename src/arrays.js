@@ -41,7 +41,7 @@ const map = (elements, cb) => {
   // iterating over elements
   for (let i = 0; i < elements.length; i++) {
   // pushing into ourArray the element at index i
-    values.push(elements[i]);
+    values.push(cb(elements[i]));
   }
   // returning our new pushed array
   return values;
@@ -55,23 +55,23 @@ const map = (elements, cb) => {
 // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 
 const reduce = (elements, cb, startingValue) => {
-  // setting a const of starWars to the starting value
-  const memo = startingValue;
-  // initializing total as 0
-  let total = 0;
-  // Iterating over the elements array
-  for (let i = 0; i < elements.length; i++) {
-    // total equals total plus the current element at the index of i
-    total += elements[i];
+  // Combine all elements into a single value going from left to right.
+  // Elements will be passed one by one into `cb`.
+  // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  if (startingValue) {
+    let memo = startingValue;
+    for (let i = 0; i < elements.length; i++) {
+      memo = cb(memo, elements[i]);
+    }
+    return memo;
   }
-  // if the starting value(starWars) is undefined.
-  if (startingValue === undefined) {
-    // push in the element at the index of 0 and the total
-    cb(elements[0], total);
+  let memo = elements[0];
+  for (let i = 1; i < elements.length; i++) {
+    memo = cb(memo, elements[i]);
   }
-  // if the starting value(starWars) is defined then push that and the total
-  cb(memo, total);
+  return memo;
 };
+
 // using find as an arrow function
 const find = (elements, cb) => {
   // Do NOT use .includes, to complete this function.
@@ -104,9 +104,9 @@ const filter = (elements, cb) => {
 // push the element at the index of i, into the filteredArray
       filteredArray.push(elements[i]);
     }
-    // return the new filteredArray
-    return filteredArray;
   }
+  // return the new filteredArray
+  return filteredArray;
 };
 /* STRETCH PROBLEM */
 
