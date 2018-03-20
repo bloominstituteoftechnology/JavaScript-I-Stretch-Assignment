@@ -5,17 +5,33 @@ const counter = () => {
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
+  let newCounter = 0;
+  return () => {
+    newCounter++;
+    return newCounter;
+  };
 };
 
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  let counting = 0;
+  return {
+    increment: () => ++counting,
+    decrement: () => --counting,
+  };
 };
 
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
+  let restriction = 0;
+  return (...insert) => {
+    if (n === restriction) { return null; }
+    restriction++;
+    return cb(...insert);
+  };
 };
 
 /* STRETCH PROBLEM */
