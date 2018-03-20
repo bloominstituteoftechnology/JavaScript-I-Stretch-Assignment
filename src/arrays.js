@@ -9,7 +9,7 @@
 */
 
 // setting up an array as a const
-const eleArray = [3, 6, 8, 5, 4];
+// const eleArray = [3, 6, 8, 5, 4];
 // Do NOT use forEach to complete this function.
 // Iterates over a list of elements, yielding each in turn to the `cb` function.
 // This only needs to work with arrays.
@@ -19,7 +19,7 @@ const eleArray = [3, 6, 8, 5, 4];
 //  The arrow function, set to each
 const each = (elements, cb) => {
   //  for itereating over eleArray
-  for (let i = 0; i < eleArray.length; i++) {
+  for (let i = 0; i < elements.length; i++) {
     // pushing the array element and the array index into cb
 
     cb(elements[i], i);
@@ -27,7 +27,7 @@ const each = (elements, cb) => {
 };
 
 //  Invoking each with the eleArray
-each(eleArray);
+// each(eleArray);
 
 // arrow function set as map
 const map = (elements, cb) => {
@@ -37,14 +37,14 @@ const map = (elements, cb) => {
 
 
   // setting up ourArray as a const
-  const ourArray = [];
+  const values = [];
   // iterating over elements
   for (let i = 0; i < elements.length; i++) {
   // pushing into ourArray the element at index i
-    ourArray.push(elements[i]);
+    values.push(elements[i]);
   }
   // returning our new pushed array
-  return ourArray;
+  return values;
 };
 
 // stting up reduce arrow function
@@ -56,7 +56,7 @@ const map = (elements, cb) => {
 
 const reduce = (elements, cb, startingValue) => {
   // setting a const of starWars to the starting value
-  const starWars = startingValue;
+  const memo = startingValue;
   // initializing total as 0
   let total = 0;
   // Iterating over the elements array
@@ -70,7 +70,7 @@ const reduce = (elements, cb, startingValue) => {
     cb(elements[0], total);
   }
   // if the starting value(starWars) is defined then push that and the total
-  cb(starWars, total);
+  cb(memo, total);
 };
 // using find as an arrow function
 const find = (elements, cb) => {

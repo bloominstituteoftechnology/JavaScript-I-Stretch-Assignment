@@ -10,19 +10,20 @@ const getLength = (arr, cb) => {
 
 const last = (arr, cb) => {
   // last passes the last item of the array into the callback.
-  //   cb(arr.length[arr.length - 1]);
+  const lastItem =
+  cb(arr[arr.length - 1]);
 };
 
 const sumNums = (x, y, cb) => {
   //   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  //   const a = x + y;
-  //   cb(a);
+  const a = x + y;
+  cb(a);
 };
 
 const multiplyNums = (x, y, cb) => {
-  //   // multiplyNums multiplies two numbers and passes the result to the callback.
-  //   const a = x * y;
-  //   cb(a);
+  // multiplyNums multiplies two numbers and passes the result to the callback.
+  const a = x * y;
+  cb(a);
 };
 
 const contains = (item, list, cb) => {
