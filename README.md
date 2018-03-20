@@ -25,3 +25,4 @@ yarn test arrays
 yarn test closure
 -> executes all of the tests in the `src/tests/closure.tests.js file`
 ```
+Jacob Lyerla
