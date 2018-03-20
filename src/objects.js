@@ -51,6 +51,11 @@ const defaults = (obj, defaultProps) => {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
+  keys(defaultProps).forEach((prop) => {
+    if (Object.prototype.hasOwnProperty.call(obj, prop)) return;
+    obj[prop] = defaultProps[prop];
+  });
+  return obj;
 };
 
 /* eslint-enable no-unused-vars */
