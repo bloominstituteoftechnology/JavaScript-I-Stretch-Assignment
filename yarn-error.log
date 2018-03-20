@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js test
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js test closure
 
 PATH: 
   //anaconda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin/
@@ -3649,7 +3649,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose
+  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose closure
   Directory: /Users/Juiced1/LambdaSchoolCS/JavaScript-I
   Output:
   
