@@ -97,6 +97,22 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  flat = [];
+  function flatten(a) {
+      // base case: el in arr is not an array
+      if (!Array.isArray(a)) {
+          flat.push(a);
+      }  
+      // recursive case: el is an array
+      else {
+          // iterate over a: go one level into el
+          for (let el of a) {
+              flatten(el);
+          }
+      }
+      return flat;
+  }
+  return flatten(elements);
 };
 
 /* eslint-enable no-unused-vars, max-len */
