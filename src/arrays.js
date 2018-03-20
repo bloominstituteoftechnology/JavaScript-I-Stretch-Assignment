@@ -58,15 +58,25 @@ const reduce = (elements, cb, startingValue) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+ //
+  // if the starting value is defined then it is considered true so it will run this
   if (startingValue) {
+  //  assign memo the value of the starting value param
     let memo = startingValue;
+  // iterate over the elements array
     for (let i = 0; i < elements.length; i++) {
+    // set memo variable equal to the
+  // cb with the first argument of memo and the second argument of elements index of i
       memo = cb(memo, elements[i]);
     }
     return memo;
   }
+  // else if the starting value is undefined then run 
+  // and assign the memo variable to elements at the index of 0
   let memo = elements[0];
   for (let i = 1; i < elements.length; i++) {
+  // set memo variable equal to the
+  // cb with the first argument of memo and the second argument of elements index of i
     memo = cb(memo, elements[i]);
   }
   return memo;
