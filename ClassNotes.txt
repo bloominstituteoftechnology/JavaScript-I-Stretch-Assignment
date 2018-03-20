@@ -1,0 +1,478 @@
+
+// function normalFunction() {
+//   console.log('I just work!');
+// };
+
+// // invoke the function
+// normalFunction();
+
+// function passingParameters(param1, param2) {
+//   let total = param1 + param2;
+//   console.log("This the new total: " + total);
+// };
+http://jsbin.com/livetaxise/edit?js,console
+// passingParameters(4,5);
+
+
+
+// function normalFunction(params) {
+//   return params * 10;
+// };
+
+// let normalFunction = (params) => params * 10;
+
+
+// const myTotal = normalFunction(10);
+
+// console.log("total of params " + myTotal)
+
+let myArray = ['something']
+
+const firstItem = (arr, cb) => {
+  // firstItem passes the first item of the given array to the callback function.
+};
+
+function greeting(name) {
+  console.log('Hello ' + name);
+}
+
+function createName(callback) {
+  let name = "Cptn America";
+  callback(name);
+}
+
+createName(greeting);
+
+http://jsbin.com/gowohuliku/edit?js,console
+/*
+  Callbacks functions are used everywhere in JavaScript.
+  Remember that a callback is simply a function that is passed into another function.
+  That function is then invoked inside the outer function and does some action.
+  Take the following example
+
+  function sayHello(name) {
+    console.log(`Hello, ${name}`);
+  }
+
+  function callSayHelloWithName(callback) {
+    const innerName = 'Lars';
+    callback(innerName);
+  }
+
+  callSayHelloWithName(sayHello);
+    
+*/
+
+/*
+  Problem 1: Greet
+  Create a function called `greet` that takes in a 'name' parameter
+  simply use that function to alert the name provided;
+  Next, create a function called `greetCaller` that takes a callback parameter
+  our greetCaller function should declare a name variable and pass it to the callback.
+  Invoke greetCaller with greet passed into it.
+*/
+
+// code greet here.
+
+/*
+  Problem 2: forEach
+  use .forEach to loop over the simpsons list and alert each name passed back to your anonymous callback to the console. 
+*/
+
+const simpsons = ['Marge', 'Lisa', 'Homer', 'Bart', 'Maggie'];
+
+// code for `forEach` goes here
+
+/*
+  Problem 3: every
+  create a function called `every` that takes in an array and a callback as it's parameters
+  loop over every single item (using a native for loop) and pass each item to the callback
+  When you're done, make sure that you finish the code inside of `every` and ensure it works the way it's supposed to
+*/
+
+// every(simpsons, (/* don't forget your items */) => {
+//   // fill this in.
+//   // log ieach item that comes back to the console.
+// });
+const each = (elements, cb) => {
+  for (let i = 0; i < elements.length; i++) {
+      cb(elements[i], i);
+  } 
+};
+elements =['dog', 'cat', 'bird'];
+colsole.log()
+
+http://jsbin.com/cevabit/edit?js,output
+/*
+  The Array truly is a beatiful thing.
+  For this mini assignment we're going to have you go through some of the commonly used array methods.
+  There are methods built onto the Array prototype 
+  so here is a refernce of where you can learn more about them.
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+  Array Methods you should use to complete these assignemnts:
+  .pop(), .push(), .splice(), .slice(), .shift(), .unshift(), .map() .filter(),
+*/
+
+
+
+/* 
+  Problem 1: Justice League
+  Remove the side kick 'Robin' from the front of this List.
+  Add a super hero `Green Lantern` to the end of this List.
+  Add a super hero `Superman` to the front of this List.
+  Your final array should look like this:
+  [ 'Superman', 'Batman', 'Wonder Woman', 'Flash', 'Aquaman', 'Green Lantern' ]
+*/
+
+const justiceLeague = ['Robin', 'Batman', 'Wonder Woman', 'Flash', 'Aquaman'];
+
+
+
+/* 
+  Problem 2: Middle Earth
+  In our list of Characters from Middle Earth remove sauraman. He's a traitor.
+*/
+
+const middleEarth = ['Frodo', 'Samwise', 'Gandalf', 'Sauraman', 'Treebeard'];
+
+
+
+/* 
+  Problem 3: Numbers
+  map over this array, and return a new array of the numbers in it, multiplied by 10
+*/
+
+const numbers = [2, 3, 4, 5, 6];
+
+const numsByTen = numbers.map(num => num * 10); 
+
+
+
+/* 
+  Problem 4: Filter Friends
+  Here you're going to create two new arrays. 
+  One called femaleFriends (a list of all friends filtered where gender === 'F')
+  One called maleFriends (a list of all friends filtered where gender === 'M')
+*/
+
+const friends = [
+  { name: 'Monica', gender: 'F' },
+  { name: 'Chandler', gender: 'M' },
+  { name: 'Ross', gender: 'M' },
+  { name: 'Phoebe', gender: 'F' },
+  { name: 'Joey', gender: 'M' },
+  { name: 'Rachel', gender: 'M' }
+];
+
+const femaleFriends = friends; // finish this
+const male = friends; // finish this
+
+http://jsbin.com/qovekek/edit?js,console
+/*
+  Objects are used all over in JavaScript.
+  These following problems will help you get a better feel for object literals
+  We want you familiar with the following Object methods:
+  .keys(), .values(), .entries(), .
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype
+*/
+
+/* 
+  Problem 1: Giver Info
+  return an array of an Objects properties/keys
+*/
+
+const student = { name: 'Jonas', age: '12', gender: 'M', role: 'Receiver' };
+const studentKeys = Object; // finish this.
+
+/* 
+  Problem 2: Giver Info
+  using the same object as above.
+  return an array of an Objects values
+*/
+
+const studentValues = Object; // finish this.
+
+/* 
+  Problem 3: Giver Info
+  Add a list of charecters to Jonas' object
+  The list should be called 'characters' and it should be an array.
+  example:
+  { name: 'Jonas', age: '12', gender: 'M', role: 'Receiver', characters: ['Lily', 'Mother', 'Father', 'Caleb', 'Asher']}
+  next: select that list and iterate over it using `.forEach` simply log the name of each char in the list;
+*/
+
+const listOfChars = student.characters; // finish this.
+
+http://jsbin.com/foqikodovo/edit?js,console
+// ===================== VARIABLES DISCUSSION 
+
+// var myName = 'Josh';
+// var myName = 'Whatever';
+
+// let myName = "Josh";
+// myName = "Whatever";
+
+// const myName = "Josh";
+//myName = "whatever";
+
+// console.log(myName);
+
+
+// ===================== OBJECTS DISCUSSION 
+
+// const myPersonalObject = {
+//   firstName: 'Josh',
+//   lastName: 'Knull',
+//   favoriteBand: 'Chainsmokers',
+//   favoriteNumber: 24
+// };
+
+// myPersonalObject.firstName;
+// myPersonalObject["firstName"];
+
+// console.log(myPersonalObject.firstName);
+
+// const myKeys = Object.keys(myPersonalObject);
+// const myValues = Object.values(myPersonalObject);
+// const myEntries = Object.entries(myPersonalObject);
+
+// console.log(myEntries);
+
+// ===================== ARRAYS DISCUSSION 
+
+// const hogwarts = ['Harry', 'Hermione', 'Ron'];
+
+// hogwarts.push('Dumbldore');
+// hogwarts.push('Snape');
+
+// console.log(hogwarts);
+// console.log(hogwarts[hogwarts.length - 1]);
+
+
+
+// ===================== CAllBACK DISCUSSION 
+
+
+const functionFeeder = function() {
+  console.log("IS this calling anything?");
+  
+};
+
+functionFeeder();
+ 
+ ------------------------------------------------------------------
+ 3/20/18!!!!
+ 
+ 
+ http://jsbin.com/qumozateno/edit?js,console
+ // const cityData = [
+//   {"city":"seattle", "state":"WA", "population":652405, "land_area":83.9},
+//   {"city":"new york", "state":"NY", "population":8405837, "land_area":302.6},
+//   {"city":"boston", "state":"MA", "population":645966, "land_area":48.3},
+//   {"city":"kansas city", "state":"MO", "population":467007, "land_area":315}
+// ];
+
+// forEach ==================================================
+
+// cityData.forEach(function(element){
+//   console.log(element);
+// });
+
+// Map ==================================================
+
+// ES5
+// const newCityData = [];
+
+// for(let i = 0; i < cityData.length; i++ ) {
+//   newCityData.push(cityData[i].state);
+// };
+// console.log(newCityData);
+
+// ES6
+// const newCityData = cityData.map((data, index, array) =>{
+//   return data.state;
+//   // whatever you can imagine
+// });
+// console.log(newCityData);
+
+// Filter ==================================================
+
+//ES5
+// const newCityFilter = [];
+
+// for(let i = 0; i < cityData.length; i++ ) {
+//   if (cityData[i].population < 650000) {
+//     newCityFilter.push(cityData[i]);
+//   }
+// }
+
+//ES6
+
+// const newCityFilter = cityData.filter((data, index, array) =>{
+//   return data.population < 650000;
+// });
+
+// console.log(newCityFilter);
+
+
+// Reduce ====================
+
+const cityData = [
+  {"city":"seattle", "state":"WA", "population":652405, "land_area":83.9},
+  {"city":"new york", "state":"NY", "population":8405837, "land_area":302.6},
+  {"city":"boston", "state":"MA", "population":645966, "land_area":48.3},
+  {"city":"kansas city", "state":"MO", "population":467007, "land_area":315}
+];
+
+
+// ES5
+// let totalLandArea = 0;
+
+// for(let i = 0; i < cityData.length; i++ ) {
+//   totalLandArea += cityData[i].land_area;
+// }
+
+// ES6
+
+const totalLandArea = cityData.reduce((theReducer, data, index, array) =>{
+  return theReducer += data.land_area;
+}, 0);
+
+console.log(totalLandArea);
+
+// Closures ==================== (accessing functions and variables(nested))
+ function parentFunction() {
+//     let myValue = "Josh";
+//     console.log("Parent: " + myValue);
+        
+//     function childFunction() {
+//       console.log("Child: " + myValue);
+      
+//       function grandChildFunction() {
+//         console.log("Grandchild: " + myValue);
+//         // this stays here and doesn't go up!
+//         let gChild = "yo";
+//       }
+      
+//       return grandChildFunction();
+//     }
+    
+//     return childFunction();
+//   }
+
+// parentFunction();
+
+// const counter = () => {
+//   let count = 0;
+//   return () => {
+//     count++;
+//     return count;
+//   }
+// }
+
+// const myCounter = counter();
+// console.log(myCounter());
+// console.log(myCounter());
+// console.log(myCounter());
+// console.log(myCounter());
+// console.log(myCounter());
+// console.log(myCounter());
+
+
+
+// Scope ==================================================
+
+bark = 'bow wow';
+function dog() {
+  bark = 'woof';
+  console.log(bark);
+  // function scope
+}
+var bark;
+console.log(bark);
+dog();
+console.log(bark);
+
+/* 
+  In this file you have a nice data set that is designed to help you get used to using 
+  common JS array methods. We're going to re-use this data across multiple problems.
+  Before looking into the problems go ahead and familiarize yourself with the data provided.
+  This exercise will prepare you for important web development tactics in the future. 
+  Before beginning a problem I always look at the data I'm dealing with first. 
+
+  Lets consider this scenario. You have a boss that is trying to articulate some data that has been given to him.
+  The following data set is just too much for your bosses eye's to comprehend. So we need to change the model.
+  Your needy boss is looking for few very specific data sets that only you can provide.
+  You tell him you're the right person for the job and get to work!
+*/
+const animals = [
+  {
+    type: 'mouse',
+    size: 'small',
+    weight: 1
+  },
+  {
+    type: 'dog',
+    size: 'small',
+    weight: 10
+  },
+  {
+    type: 'lion',
+    size: 'medium',
+    weight: 150
+  },
+  {
+    type: 'elephant',
+    size: 'big',
+    weight: 5000
+  },
+  {
+    type: 'tiger',
+    size: 'medium',
+    weight: 400
+  },
+  {
+    type: 'bat',
+    size: 'small',
+    weight: 8
+  },
+  {
+    type: 'pig',
+    size: 'small',
+    weight: 40
+  }
+];
+
+/*
+  Problem 1: Map the data.
+  Give me an array that only has the animal 'type's in it.
+  Give me an array full of 'obects' of all the animal's weights and sizes. 
+  We're looking for two new arrays here.
+*/
+
+// Code for problem 1 goes here
+const newAnimals= animals.map
+}
+/*
+  Problem 2: Filter the data.
+  Lets say you wanted to provide yourself with a few 'sample' sets of data that you can use for some research.
+  Well lets get rid of the items in this array that you don't need so you can focus on what's important.
+  Give me an array of the data where the animals are 'size' small
+  Give me an array of the data where the animals are of weight 'less than' 100.
+  Give me an array of the data where the animals are of weight 'greater than' 100.
+*/
+
+// Code for problem 2 goes here
+
+/*
+  Problem 3: Reduce the data.
+  Reduce is awesome. 
+  It's commonly used in functional JavaScript to take a data set and reduce that set down to a singlular representation of that data set.
+  can you say `averages` anyone?
+  Give me an array of all the 'weights of the animals' added up.
+  Give me an array of all the 'mean average weights` of the animals. (this may have 2 steps)
+
+*/
+
+// Code for problem 3 goes here
+
