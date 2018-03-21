@@ -44,7 +44,7 @@ const limitFunctionCallCount = (cb, n) => {
     }
   }
   return invCb;
-};
+  // Returning null is acceptable if cb can't be returned 
 /* STRETCH PROBLEM */
 
 const cacheFunction = (cb) => {
