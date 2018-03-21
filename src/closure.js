@@ -1,25 +1,28 @@
 // Complete the following functions.
-
 const counter = () => {
   // Return a function that when invoked increments and returns a counter variable.
   // Example: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
+  let newCounter = 0;
+  return () => newCounter += 1;
 };
-
 const counterFactory = () => {
+  let i = 0;
+  const obj = {
+    increment() { return i += 1; },
+    decrement() { return i -= 1; },
+  };
+  return obj;
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
 };
-
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
 };
-
 /* STRETCH PROBLEM */
-
 const cacheFunction = (cb) => {
   // Should return a funciton that invokes `cb`.
   // A cache (object) should be kept in closure scope.
@@ -28,9 +31,7 @@ const cacheFunction = (cb) => {
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
 };
-
 /* eslint-enable no-unused-vars */
-
 module.exports = {
   counter,
   counterFactory,

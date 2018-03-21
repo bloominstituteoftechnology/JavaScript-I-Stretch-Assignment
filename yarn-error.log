@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js test callbacks
+  C:\Program Files\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js test closure
 
 PATH: 
   C:\Users\HP\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\HP\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\Git\cmd;C:\Program Files;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\HP\AppData\Local\atom\bin;C:\Users\HP\AppData\Roaming\npm;C:\Users\HP\AppData\Local\Yarn\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -3587,7 +3587,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: C:\Windows\system32\cmd.exe
-  Arguments: /d /s /c eslint tests/*.js && eslint src/*.js && jest --verbose callbacks
+  Arguments: /d /s /c eslint tests/*.js && eslint src/*.js && jest --verbose closure
   Directory: C:\Users\HP\Desktop\LambdaSchool\JavaScript-I
   Output:
   
