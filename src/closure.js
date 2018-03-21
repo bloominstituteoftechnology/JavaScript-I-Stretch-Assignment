@@ -38,6 +38,7 @@ const limitFunctionCallCount = (cb, n) => {
     }
     return null;
   };
+  // Returning null is acceptable if cb can't be returned 
 };
 
 /* STRETCH PROBLEM */
