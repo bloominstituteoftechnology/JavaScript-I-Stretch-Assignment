@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 
 const arrayMethods = require('../src/arrays');
 /* eslint-disable no-undef */

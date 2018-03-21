@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 const objectMethods = require('../src/objects');
 /* eslint-disable no-undef */
 describe('objects', () => {
