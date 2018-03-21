@@ -1,6 +1,6 @@
 const firstItem = (arr, cb) => {
   // firstItem passes the first item of the given array to the callback function.
-  cb(firstItem);
+  cb(arr[0]);
 };
 
 const getLength = (arr, cb) => {
@@ -30,7 +30,7 @@ const multiplyNums = (x, y, cb) => {
 const contains = (item, list, cb) => {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  if (list.indexof(item) > -1) {
+  if (list.includes(item)) {
     cb(true);
   } else {
     cb(false);
