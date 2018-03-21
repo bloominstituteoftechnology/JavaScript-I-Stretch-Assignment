@@ -19,16 +19,22 @@ const multiplyNums = (x, y, cb) => {
 };
 
 const contains = (item, list, cb) => {
-  item.forEach(element => alert(item));// contains checks if an item is present inside of the given array/list.
+  cb (list.indexOf(item) === -1)
+  // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 };
 
 /* STRETCH PROBLEM */
 
 const removeDuplicates = (array, cb) => {
-  // removeDuplicates removes all duplicate values from the given array.
+    const res = [];
+    for (let i = 0; i < array.length; i++) {
+    if(res.indexOf(arrray[i]) !== -1) res.push(array[i]);
+  }
+    cb(res);
+   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+ // Do not mutate the original array.
 };
 
 /* eslint-enable */
