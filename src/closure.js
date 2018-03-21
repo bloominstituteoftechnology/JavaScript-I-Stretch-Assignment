@@ -47,7 +47,7 @@ const cacheFunction = (cb) => {
   const myObj = {};
   const func = cb;
   return (arg) => {
-    if (myObj[arg] !== undefined) {
+    if (arg in myObj) {
       return myObj[arg];
     }
     if (myObj[arg] === undefined) {
