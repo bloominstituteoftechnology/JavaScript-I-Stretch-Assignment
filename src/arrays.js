@@ -38,11 +38,18 @@ const reduce = (elements, cb, startingValue) => {
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 //   const someArray = [];
 
-//   for (let i = 0; i <= elements.length; i++) {
-
-// }
-
-//   cb(startingValue, someArray);
+  let returnValue = '';
+  if (startingValue === undefined) {
+    returnValue = elements[0];
+    for (let i = 1; i < elements.length; i++) {
+      returnValue = cb(returnValue, elements[i]);
+    }
+  } else if (startingValue !== undefined) {
+    returnValue = startingValue;
+    for (let i = 0; i < elements.length; i++) {
+      returnValue = cb(returnValue, elements[i]);
+    }
+  } return returnValue;
 };
 
 const find = (elements, cb) => {
