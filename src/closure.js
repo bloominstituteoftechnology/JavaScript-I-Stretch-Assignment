@@ -35,16 +35,7 @@ const counterFactory = () => {
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
-  function invCb() {
-    if (n === 0) {
-      return null;
-    }
-    for (let i = 0; i < n; i++) {
-      return cb();
-    }
-  }
-  return invCb;
-  // Returning null is acceptable if cb can't be returned 
+};
 /* STRETCH PROBLEM */
 
 const cacheFunction = (cb) => {
