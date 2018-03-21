@@ -37,15 +37,15 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  if (startingValue) {
-    for (let i = 0; i <= elements.length - 1; i++) {
-      cb(startingValue, elements[i]);
-    }
+  let i = 0;
+  if (startingValue === undefined) {
+    startingValue = elements[0];
+    i = 1;
   }
-  startingValue = elements[0];
-  for (let i = 0; i <= elements.length - 1; i++) {
-    cb(startingValue, elements[i]);
+  for (; i < elements.length; i++) {
+    startingValue = cb(startingValue, elements[i]);
   }
+  return startingValue;
 };
 
 const find = (elements, cb) => {
@@ -69,12 +69,10 @@ const filter = (elements, cb) => {
   const truthArray = [];
   for (let i = 0; i <= elements.length - 1; i++) {
     if (cb(elements[i]) === true) {
-      truthArray.unshift(elements[i]);
-    }
-    if (elements[i] === elements.length - 1) {
-      return truthArray;
+      truthArray.push(elements[i]);
     }
   }
+  return truthArray;
 };
 
 /* STRETCH PROBLEM */
