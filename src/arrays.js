@@ -34,6 +34,12 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
+  const elementCopy = elements.slice();
+  let memo = startingValue || elementsCopy.shift();
+  each(elementsCopy, (item)=> {
+    memo = cb(memo, item);
+  });
+  return memo;
 };
 
 const find = (elements, cb) => {
