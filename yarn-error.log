@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn test objects
+  /usr/local/bin/node /usr/local/bin/yarn test closure
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Users/hilalaissani/apache-maven-3.5.2/bin
@@ -3592,7 +3592,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose objects
+  Arguments: -c eslint tests/*.js && eslint src/*.js && jest --verbose closure
   Directory: /Users/hilalaissani/Lamda-1/User-Interface/JavaScript-I
   Output:
   
