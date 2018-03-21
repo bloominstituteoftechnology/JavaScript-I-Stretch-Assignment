@@ -21,8 +21,7 @@ const mapObject = (obj, cb) => {
   const myMapObj = {};
   const key = Object.keys(obj);
   for (let i = 0; i < key.length; i++) {
-    const newObj = cb(obj[key[i]]);
-    myMapObj[key[i]] = newObj;
+    myMapObj[key[i]] = cb(obj[key[i]]);
   }
   return myMapObj;
 };
