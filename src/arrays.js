@@ -36,7 +36,11 @@ const reduce = (elements, cb, startingValue) => {
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  
+  const elementsCopy = elements.slice();
+  let memo = startingValue || elementsCopy.shift();
+  each(elementsCopy, (item) => {
+    memo = cb(memo, item);
+  });
 };
 
 const find = (elements, cb) => {
@@ -77,6 +81,18 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  const res = [];
+  const func = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        func(arr[i]);
+      } else {
+        res.push(arr[i]);
+      }
+    }
+  };
+  func(elements);
+  return res;
 };
 
 /* eslint-enable no-unused-vars, max-len */
