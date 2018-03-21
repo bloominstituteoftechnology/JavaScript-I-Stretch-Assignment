@@ -39,7 +39,9 @@ const limitFunctionCallCount = (cb, n) => {
       numIn++;
       return cb(...arg);
     }
-    return null;
+    if (numIn === n) {
+      return null;
+    }
   };
 };
 
