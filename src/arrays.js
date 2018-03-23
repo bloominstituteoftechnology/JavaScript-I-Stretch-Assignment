@@ -14,6 +14,7 @@ const each = (elements, cb) => {
   // This only needs to work with arrays.
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
+  //
 };
 
 const map = (elements, cb) => {
