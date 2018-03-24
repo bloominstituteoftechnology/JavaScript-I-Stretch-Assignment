@@ -28,11 +28,10 @@ const contains = (item, list, cb) => {
   // Pass true to the callback if it is, otherwise pass false.
   for (let i = 0; i < list.length; i++) {
     if (item === list[i]) {
-      cb(true);
-    } else {
-      cb(false);
+      return cb(true);
     }
   }
+  return cb(false);
 };
 
 /* STRETCH PROBLEM */
@@ -43,16 +42,14 @@ const removeDuplicates = (array, cb) => {
   // Do not mutate the original array.
   const newArray = [];
   for (let i = 0; i < array.length; i++) {
-    for (let k = i + 1; k < array.length; k++) {
-      if (array[i] === array[k]) {
-        break;
-      } else if (k === array.length - 1 && array[k] !== array[i]) {
-        newArray.push(array[i]);
-      }
+    if (newArray.indexOf(array[i]) === -1) {
+      newArray.push(array[i]);
     }
   }
-  cb(newArray);
+  return cb(newArray);
 };
+
+// console.log(removeDuplicates([1,1,1,1,1,2,2,3,4,5,6,7,8,8,9,10], (arr) => { return arr; }));
 
 /* eslint-enable */
 module.exports = {
