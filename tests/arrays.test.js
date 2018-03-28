@@ -1,5 +1,5 @@
 
-const arrayMethods = require('../src/arrays');
+const arrayMethods = require('../src/arrays'); Hello World!
 /* eslint-disable no-undef */
 describe('arrays', () => {
   describe('each', () => {
