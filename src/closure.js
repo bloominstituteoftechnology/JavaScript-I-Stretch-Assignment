@@ -11,7 +11,28 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+
+
 };
+/*
+Mike
+```const counterFactory = () => {
+  // Return an object that has two methods called `increment` and `decrement`.
+  // `increment` should increment a counter variable in closure scope and return it.
+  // `decrement` should decrement the counter variable and return it.
+  let counterer = 0;
+  return {
+    increment() {
+      counterer++;
+      return counterer;
+    },
+    decrement() {
+      counterer--;
+      return counterer;
+    },
+  };
+};```
+*/
 
 const limitFunctionCallCount = (cb, n) => {
   // Should return a function that invokes `cb`.
