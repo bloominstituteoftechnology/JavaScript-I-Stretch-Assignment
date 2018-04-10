@@ -1,27 +1,14 @@
 # JavaScript I
 
-This project is designed to get you used to working with all of the concepts we cover during the first 2 days of JavaScript Fundamentals week.
+* This repository is to be used as a Stretch Assignment for those looking for more reps and deeper understanding of concepts.
 
 ## Project initialization
 
 * `Fork and Clone` this repository and cd into it.
-* Run the command `yarn install` to install needed node packages.
-* **JUST** a _reminder_ this command runs a script on your machine based on the `package.json` file you have installed in your project. By running this command, you're telling your project to head over to `npm.org` and download all of the packages you need for this project.
-  ## Instructions
-* Please complete the project files in this order: `callbacks.js` `arrays.js` `objects.js` and finally `closure.js`.
-* In each project file you'll see a series of problems to work through,.
-* When you feel like you've completed the problem, be sure to run, `yarn test <file name>` to get see if your code works properly... and to check if you have any linting errors.
-* Work until you have all of the tests passing.
+* complete all of the exercises in each file.
+* As you complete an exercise be sure to use `console.log` to print out the output of your function.
+* Once the proper output is demonstrated, commit your code to your fork.
 
-## Running the tests
+## Instructions
 
-Example:
-
-```
-yarn test arrays
-
--> executes all of the tests in the `src/tests/arrays.tests.js file`
-
-yarn test closure
--> executes all of the tests in the `src/tests/closure.tests.js file`
-```
+* As soon as you've completed all the coding problems, submit a `pull-request` with a copy of your fork and link it over to your Project Manager. Good luck!
