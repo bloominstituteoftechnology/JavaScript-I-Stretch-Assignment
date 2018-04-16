@@ -1,13 +1,3 @@
-// TODO : Remove Counter for use in the JS II afternoon assignment
-
-// Complete the following functions.
-function counter() {
-  // Return a function that when invoked increments and returns a counter variable.
-  // Example: function newCountercounter();
-  // newCounter(); // 1
-  // newCounter(); // 2
-}
-
 function counterFactory() {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
