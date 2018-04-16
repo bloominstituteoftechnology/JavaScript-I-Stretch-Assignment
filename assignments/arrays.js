@@ -1,4 +1,4 @@
-// TODO: add mock array for testing
+const items = [1, 2, 3, 4, 5, 5]; // use this array to test your code. 
 /*
   Complete the following functions.
   These functions only need to work with arrays.
@@ -44,6 +44,8 @@ function filter(elements, cb) {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
 }
+
+const nestedArray = [1, [2], [[3]], [[[4]]]]; // use this to test 'flatten'
 
 function flatten(elements) {
   // Flattens a nested array (the nesting can be to any depth).
