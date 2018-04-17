@@ -42,6 +42,8 @@ console.log(mapObject(testObject, cb));
 function pairs(obj) {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+
+  /* Seems that Object.entries() is not supported in my editor, but is supported in Chrome Developer Tools */
   return Object.entries(obj);
 }
 console.log(pairs(testObject));
@@ -54,7 +56,17 @@ function invert(obj) {
   // Returns a copy of the object where the keys have become the values and the values the keys.
   // Assume that all of the object's values will be unique and string serializable.
   // http://underscorejs.org/#invert
+  const key = Object.keys(obj);
+  /* Seems that Object.values() is not supported in my editor, but is supported in Chrome Developer Tools */
+  const values = Object.values(obj);
+  const inverted = []
+  for ( let i = 0; i < key.length; i++) {
+    inverted[i] = [values[i],key[i]];
+  };
+  return inverted;
 }
+console.log(invert(testObject));
+
 
 function defaults(obj, defaultProps) {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
