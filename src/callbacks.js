@@ -12,13 +12,15 @@ const last = (arr, cb) => {
   return cb(arr[arr.length - 1]);
 };
 
-const sumNums = (x, y, cb) => {
-  return cb(x+y);
+const sumNums = (x, y, cb) => { 
+  let sum = x + y;
+  return cb(sum);
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 };
 
 const multiplyNums = (x, y, cb) => {
-  return cb(x*y);
+  let product = x * y;
+  return cb(product);
   // multiplyNums multiplies two numbers and passes the result to the callback.
 };
 
@@ -30,17 +32,20 @@ const contains = (item, list, cb) => {
       } else cb(false);
     };
 };
-/*
-const contains = (item, list, cb) => {
- cb(list.includes(item));
-*/
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
 
 
 /* STRETCH PROBLEM */
 
 const removeDuplicates = (array, cb) => {
+  let newArr = [];
+
+  for(let i = 0; i < array.length; i++){
+    for(let j = 1; j < array.length; j++){
+
+      //if(array[i])
+    }
+    cb(newArr);
+  };
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
