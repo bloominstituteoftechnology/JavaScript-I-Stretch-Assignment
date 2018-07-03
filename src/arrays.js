@@ -4,20 +4,20 @@
 // You CAN use concat, push, pop, etc. but do not use the exact method that you are replicating
 // You can use the functions that you have already written to help solve the other problems
 
-const each = (elements, cb) => {
-  for (let i = 0; i < elements.length; i++) {
-    cb(elements[i], elements.indexOf(elements[i]));
-  }
-  // Iterates over a list of elements, yielding each in turn to the `cb` function.
+const each = (elements, cb) => {  
+  // Iterates over a list of elements, yielding each in turn to the `cb` function. 
   // This only needs to work with arrays.
-  // You should also pass the index into `cb` as the second argument
+  for (let i = 0; i < elements.length; i++) {
+    // You should also pass the index into `cb` as the second argument
+    cb(elements[i], i);
+  }
   // based off http://underscorejs.org/#each
 };
 
 const map = (elements, cb) => {
   const arr = [];
   for (let i = 0; i < elements.length; i++) {
-    cb(arr.push(elements[i] * 2));
+    cb(arr.push(elements[i]));
   }
   return arr;
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
