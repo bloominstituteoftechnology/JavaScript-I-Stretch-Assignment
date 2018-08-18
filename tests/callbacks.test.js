@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 const callBackMethods = require('../src/callbacks');
 /* eslint-disable no-undef */
 
