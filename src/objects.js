@@ -18,16 +18,32 @@ const values = (obj) => {
 const mapObject = (obj, cb) => {
   // Like map for arrays, but for objects. Transform the value of each property in turn.
   // http://underscorejs.org/#mapObject
-  const myMap = {};
-  for (let i = 0; i < obj.length; i++) {
-    myMap.push(obj[i]);
-  }
-  cb(myMap);
+//   const myMap = {};
+//   const key = Object.keys(obj);
+//   for (let i = 0; i < obj.length; i++) {
+
+//     myMap.push(obj[i]);
+//   }
+//   cb(myMap);
+// };
+
+// Object.keys(obj).map(function(key, index) {
+//   obj[key] *= 2;
+// });
+
+// +  const newObj = {};
+// +  const key = Object.keys(obj);
+// +  for (let i = 0; i < key.length; i++) {
+// +    const newValue = cb(obj[key[i]]);
+// +    newObj[key[i]] = newValue;
+// +  }
+// +  return newObj;
 };
 
 const pairs = (obj) => {
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
+  return Object.entries(obj);
 };
 
 /* STRETCH PROBLEMS */
