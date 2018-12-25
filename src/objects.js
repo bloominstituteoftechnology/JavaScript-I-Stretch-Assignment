@@ -21,7 +21,7 @@ const mapObject = (obj, cb) => {
 };
 
 const pairs = (obj) => {
-  return Object.entrier(obj);
+  return Object.entries(obj);
   // Convert an object into a list of [key, value] pairs.
   // http://underscorejs.org/#pairs
 };
